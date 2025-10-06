@@ -1,19 +1,18 @@
-/* Variables CSS */
+  /* Variables CSS */
 :root {
     --color-primary: #090a0d;
-    --color-secondary: #0a0e17;
-    --color-accent-purple: #6d28d9;
-    --color-accent-blue: #3b82f6;
-    --color-accent-green: #10b981;
-    --color-accent-red: #ef4444;
+    --color-secondary: none;
+    --color-accent-purple: #020106;
+    --color-accent-blue: #b62a2aee;
+    --color-accent-green: #105834;
+    --color-accent-red: #5b0d20;
     --color-accent-orange: #ff7d2e;
-    --color-text: #e2e8f0;
-    --color-text-secondary: #94a3b8;
-    --color-border: #1e293b;
+    --color-text: #a80a1c;
+    --color-text-secondary: #0deacc5e;
+    --color-border: none;
     --font-primary: 'Exo 2', sans-serif;
     --font-heading: 'Orbitron', sans-serif;
 }
-
 /* Reset y estilos base */
 * {
     margin: 0;

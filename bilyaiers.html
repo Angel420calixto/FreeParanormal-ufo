@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billy Meier - Contacto Extraterrestre – Misterios Cósmicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Variables CSS */
+:root {
+    --color-primary: #090a0d;
+    --color-secondary: none;
+    --color-accent-purple: #020106;
+    --color-accent-blue: #b62a2aee;
+    --color-accent-green: #105834;
+    --color-accent-red: #5b0d20;
+    --color-accent-orange: #ff7d2e;
+    --color-text: #a80a1c;
+    --color-text-secondary: #0deacc5e;
+    --color-border: none;
+    --font-primary: 'Exo 2', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+}
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+    /* Estilos específicos para la presentación narrativa */
+    .presentation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .story-section {
+        margin-bottom: 5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .story-section:nth-child(2) { animation-delay: 0.2s; }
+    .story-section:nth-child(3) { animation-delay: 0.4s; }
+    .story-section:nth-child(4) { animation-delay: 0.6s; }
+    .story-section:nth-child(5) { animation-delay: 0.8s; }
+    .story-section:nth-child(6) { animation-delay: 1.0s; }
+    .story-section:nth-child(7) { animation-delay: 1.2s; }
+    .story-section:nth-child(8) { animation-delay: 1.4s; }
+    .story-section:nth-child(9) { animation-delay: 1.6s; }
+
+    .story-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 3rem 0;
+        border-bottom: 2px solid var(--color-border);
+    }
+
+    .story-title {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(13, 234, 204, 0.3);
+    }
+
+    .story-subtitle {
+        font-size: 1.5rem;
+        color: var(--color-text-secondary);
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .story-content {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+        margin-bottom: 2.5rem;
+    }
+
+    .story-content p {
+        margin-bottom: 1.8rem;
+        text-align: justify;
+    }
+
+    .highlight-box {
+        background: rgba(13, 234, 204, 0.1);
+        border-left: 4px solid var(--color-accent-blue);
+        padding: 2.5rem;
+        margin: 2.5rem 0;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .quote {
+        font-size: 1.3rem;
+        font-style: italic;
+        text-align: center;
+        color: var(--color-text);
+        margin: 3rem 0;
+        padding: 3rem;
+        position: relative;
+        background: rgba(13, 234, 204, 0.05);
+        border-radius: 15px;
+        border: 1px solid var(--color-border);
+    }
+
+    .quote::before,
+    .quote::after {
+        content: '"';
+        font-size: 4rem;
+        color: var(--color-accent-blue);
+        position: absolute;
+        opacity: 0.5;
+    }
+
+    .quote::before {
+        top: 1rem;
+        left: 2rem;
+    }
+
+    .quote::after {
+        bottom: 1rem;
+        right: 2rem;
+    }
+
+    .quote-author {
+        display: block;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--color-accent-blue);
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    .evidence-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+    }
+
+    .evidence-item {
+        background: rgba(20, 22, 30, 0.9);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .evidence-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(13, 234, 204, 0.2);
+    }
+
+    .evidence-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .evidence-item:hover .evidence-image {
+        transform: scale(1.05);
+    }
+
+    .evidence-caption {
+        padding: 1.5rem;
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .timeline {
+        position: relative;
+        margin: 4rem 0;
+        padding-left: 3rem;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        padding-left: 3rem;
+        background: rgba(20, 22, 30, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        border: 1px solid var(--color-border);
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -3.3rem;
+        top: 2.5rem;
+        width: 16px;
+        height: 16px;
+        background: var(--color-accent-blue);
+        border-radius: 50%;
+        border: 4px solid var(--color-primary);
+        box-shadow: 0 0 20px var(--color-accent-blue);
+    }
+
+    .timeline-time {
+        font-weight: bold;
+        color: var(--color-accent-blue);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-family: var(--font-heading);
+    }
+
+    .document-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--color-accent-blue);
+        text-decoration: none;
+        margin: 1.5rem 0;
+        padding: 1rem 2rem;
+        background: rgba(13, 234, 204, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border: 1px solid var(--color-border);
+    }
+
+    .document-link:hover {
+        background: rgba(13, 234, 204, 0.2);
+        transform: translateX(10px);
+    }
+
+    .conclusion {
+        background: linear-gradient(135deg, rgba(13, 234, 204, 0.05), rgba(182, 42, 42, 0.05));
+        border-radius: 20px;
+        padding: 4rem;
+        margin: 5rem 0;
+        text-align: center;
+        border: 1px solid var(--color-border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .conclusion::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .conclusion-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Navegación entre casos */
+    .case-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .nav-button {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 3rem;
+        background: rgba(13, 234, 204, 0.1);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    .nav-button:hover {
+        background: rgba(13, 234, 204, 0.2);
+        transform: translateX(-8px);
+    }
+
+    .nav-button.next:hover {
+        transform: translateX(8px);
+    }
+
+    /* Header */
+    .header-caso {
+      background: linear-gradient(rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0.95)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe-N3PBcKHwOxrMOJ0vZazkVgvsWwVbE3VGQ&s');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 3rem 0;
+      position: relative;
+    }
+    
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 1rem;
+      color: var(--color-accent-blue);
+      font-size: 2rem;
+    }
+    
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 3rem;
+    }
+    
+    .menu a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    
+    .menu a:hover {
+      color: var(--color-accent-blue);
+      background: rgba(13, 234, 204, 0.1);
+    }
+    
+    .hero {
+      text-align: center;
+      padding: 6rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 50px rgba(13, 234, 204, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem;
+      background: var(--color-secondary);
+      color: var(--color-text-secondary);
+      border-top: 1px solid var(--color-border);
+    }
+    
+    /* Elementos adicionales */
+    .testigos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .testigo-card {
+      background: rgba(25, 27, 35, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease;
+    }
+
+    .testigo-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .testigo-card h4 {
+      color: var(--color-accent-blue);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      margin: 3rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .btn-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(13, 234, 204, 0.4);
+    }
+
+    .evidence-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .evidence-detail-card {
+        background: rgba(25, 27, 35, 0.9);
+        padding: 2rem;
+        border-radius: 12px;
+        border-left: 4px solid var(--color-accent-blue);
+        transition: transform 0.3s ease;
+    }
+
+    .evidence-detail-card:hover {
+        transform: translateX(10px);
+    }
+
+    .evidence-detail-card h4 {
+        color: var(--color-accent-blue);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .teoria-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+    }
+
+    .teoria-card {
+        background: rgba(25, 27, 35, 0.9);
+        padding: 2.5rem;
+        border-radius: 15px;
+        border: 1px solid var(--color-border);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .teoria-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .teoria-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(13, 234, 204, 0.15);
+    }
+
+    .teoria-card h4 {
+        color: var(--color-accent-blue);
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .photo-evidence-large {
+        width: 100%;
+        margin: 3rem 0;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-evidence-large img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .evidence-caption-large {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(20, 22, 30, 0.9);
+        color: var(--color-text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .presentation-container {
+            padding: 1rem;
+        }
+
+        .story-title {
+            font-size: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+
+        .evidence-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .case-navigation {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-button {
+            justify-content: center;
+        }
+
+        .nav-bar {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        .menu {
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        .testigos-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .evidence-details {
+            grid-template-columns: 1fr;
+        }
+
+        .teoria-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .timeline {
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item {
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            left: -2.3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .story-title {
+            font-size: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .conclusion {
+            padding: 2rem;
+        }
+
+        .conclusion-title {
+            font-size: 2rem;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-caso">
+    <nav class="nav-bar">
+      <a href="index.html" class="logo">
+        <i class="fas fa-satellite"></i>
+        Misterios Cósmicos
+      </a>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="casos.html">Casos</a></li>
+        <li><a href="investigaciones.html">Investigaciones</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Billy Meier</h1>
+      <p>El caso de contacto extraterrestre más documentado de la historia - Fotografías, videos y evidencia física que desafían la explicación convencional</p>
+    </div>
+  </header>
+
+  <main class="presentation-container">
+    
+    <!-- Introducción -->
+    <section class="story-section">
+      <div class="story-header">
+        <h1 class="story-title">El Granjero Suizo y los Pléyadianos</h1>
+        <p class="story-subtitle">Más de 1,000 fotografías, videos y muestras físicas que documentan décadas de contacto extraterrestre</p>
+      </div>
+
+      <div class="story-content">
+        <p>Eduard Albert "Billy" Meier, un granjero suizo que perdió un brazo en un accidente, afirma haber mantenido contacto regular con seres extraterrestres de las Pléyades desde 1942. Su caso es considerado el más documentado en la historia de la ufología, con una colección masiva de evidencia física que ha desafiado el análisis científico durante décadas.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="data:image/jpeg;base64,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" alt="Billy Meier joven" class="evidence-image">
+            <div class="evidence-caption">Billy Meier en sus años jóvenes, mostrando el brazo amputado que no le impidió capturar evidencia extraordinaria</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.ecestaticos.com/2mEIWE0UPQgbNkm9TKaAnJqYMlc=/595x0:2158x1173/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fe23%2F7e1%2F4d8%2Fe237e14d83458faf8c59386249fbfbeb.jpg" alt="Campo suizo" class="evidence-image">
+            <div class="evidence-caption">Los campos suizos donde Meier documentó numerosos avistamientos y encuentros cercanos</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://substackcdn.com/image/fetch/$s_!1dDM!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4f59cde1-5fd5-497f-979e-a3920bc3fd6e_1160x650.jpeg" alt="Naves descritas" class="evidence-image">
+            <div class="evidence-caption">Representación de las naves descritas por Meier - discos metálicos con cúpulas</div>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/XiAQXKcaQ3A" title="🛸👽 EL FOTÓGRAFO EXTRATERRESTRE🛸👽 CASO COMPLETO | LOS EXPEDIENTES SECRETOS CON JAIME MAUSSAN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <p>Lo que hace único el caso Meier no son solo sus afirmaciones extraordinarias, sino la cantidad y calidad de evidencia presentada: fotografías de naves espaciales, muestras de metales no terrestres, grabaciones de sonido de propulsión antigravitatoria y testimonios de testigos independientes.</p>
+      </div>
+    </section>
+
+    <!-- Primeros Contactos -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Los Primeros Encuentros</h2>
+
+      <div class="story-content">
+        <p>Meier afirma que su primer contacto ocurrió a los 5 años con un humanoide llamado Sfath. Sin embargo, fueron los encuentros con Semjase, una mujer pleyadiana, a partir de 1975 los que generaron la mayor cantidad de evidencia documental.</p>
+
+        <div class="highlight-box">
+          <p><strong>Primer contacto documentado con Semjase (28 de enero de 1975):</strong> "Ella era de estatura promedio, con cabello rubio largo y ojos azules intensos. Me explicó que venía de Erra, un planeta en el sistema Taygeta de las Pléyades, y que su misión era transmitir información importante para la humanidad."</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">1942 (5 años)</div>
+            <p>Primer contacto con Sfath - Entidad que Meier describe como su primer instructor espiritual</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">1953</div>
+            <p>Viajes educativos por 42 países según instrucción de sus contactos</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">1965</div>
+            <p>Pérdida del brazo izquierdo en accidente de autobús en Turquía</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">28 Enero 1975</div>
+            <p>Primer contacto documentado con Semjase - Inicio de la fase más productiva de evidencia</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">1975-1986</div>
+            <p>Período de mayor actividad - Más de 1,000 fotografías y numerosos videos</p>
+          </div>
+        </div>
+
+        <div class="photo-evidence-large">
+          <img src="https://newreligiousmovements.org/wp-content/uploads/2024/02/Billy-Meier-Free-Community-of-Interests-for-the-Border-and-Spiritual-Sciences-and-Ufological-Studies.webp" alt="Lugar de contactos">
+          <div class="evidence-caption-large">Área en Hinterschmidrüti, Suiza, donde ocurrieron la mayoría de los contactos documentados</div>
+        </div>
+
+        <div class="video-container">
+         <iframe width="853" height="480" src="https://www.youtube.com/embed/AyYb4Z-UXQ8" title="🛸👽CONTACTO CON SERES DE OTRO PLANETA🛸👽 CASO COMPLETO | LOS EXPEDIENTES SECRETOS CON JAIME MAUSSAN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidencia Fotográfica -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">La Evidencia Visual</h2>
+
+      <div class="story-content">
+        <p>Las fotografías de Meier son consideradas por muchos investigadores como la evidencia visual más impresionante jamás presentada en un caso de contacto extraterrestre. Capturadas con cámaras simples, muestran naves en diferentes condiciones de luz y ángulos.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://artlogic-res.cloudinary.com/w_2400,h_2400,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/dollc/images/view/b0c6a313aff822a11d07b71b200ebce6j/daniel-oliver-billy-meier-beamcraft-over-switzerland-1975.jpg" alt="Nave sobre árboles" class="evidence-image">
+            <div class="evidence-caption">Fotografía clásica mostrando una nave discoidal sobre los árboles - Note los detalles estructurales</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://i.pinimg.com/originals/f1/e1/ac/f1e1aca29cd05cf797bc53478d113a16.jpg" alt="Nave cercana" class="evidence-image">
+            <div class="evidence-caption">Toma cercana que muestra los detalles de la superficie metálica y la cúpula superior</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://laexuberanciadehades.wordpress.com/wp-content/uploads/2012/12/billy-meier112.jpg" alt="Nave en movimiento" class="evidence-image">
+            <div class="evidence-caption">Secuencia que captura el movimiento de la nave - Análisis muestra consistencia física</div>
+          </div>
+        </div>
+
+        <div class="quote">
+          "He analizado las fotografías de Meier durante décadas. La consistencia de la iluminación, las sombras y los reflejos es notable. Si son un fraude, es el más sofisticado jamás creado."
+          <span class="quote-author">- Wendelle Stevens, Teniente Coronel de la Fuerza Aérea de EE.UU. (Retirado)</span>
+        </div>
+
+        <div class="evidence-details">
+          <div class="evidence-detail-card">
+            <h4>Análisis de Kodak</h4>
+            <p>Laboratorios Kodak examinaron los negativos originales y confirmaron que no mostraban signos de alteración o montaje fotográfico.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Estudio de ILFORD</h4>
+            <p>Expertos de ILFORD en Suiza analizaron el grano de la película y confirmaron la autenticidad de las imágenes.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Análisis Informático</h4>
+            <p>Múltiples análisis digitales modernos no han podido detectar evidencia de manipulación en las fotografías clave.</p>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="337" height="599" src="https://www.youtube.com/embed/1jQOfJiGg6U" title="Última Grabacion de Billy meier a los pleyadianos. #misterios #film #curiosos  #misteriosinresolver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidencia Física -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Muestras Físicas y Científicas</h2>
+
+      <div class="story-content">
+        <p>Meier presentó numerosas muestras físicas que, según afirma, fueron proporcionadas por los pleyadianos o recuperadas de lugares de aterrizaje. Estas muestras han sido analizadas por laboratorios independientes con resultados intrigantes.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Muestra metálica" class="evidence-image">
+            <div class="evidence-caption">Muestra de metal recuperada - Análisis muestra composición única no encontrada en la Tierra</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Análisis científico" class="evidence-image">
+            <div class="evidence-caption">Científicos examinando las muestras - Múltiples laboratorios confirmaron propiedades anómalas</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Estructura cristalina" class="evidence-image">
+            <div class="evidence-caption">Estructuras cristalinas únicas encontradas en muestras de suelo de lugares de aterrizaje</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Resultados de laboratorio (Marcel Vogel, IBM):</strong> "Las muestras muestran una estructura cristalina y composición elemental que no coincide con ningún material terrestre conocido. Los patrones de cristalización sugieren formación en condiciones de gravedad y temperatura diferentes a las de la Tierra."</p>
+        </div>
+
+        <div class="testigos-grid">
+          <div class="testigo-card">
+            <h4>Análisis de Sonido</h4>
+            <p>Grabaciones del sonido de las naves muestran frecuencias y patrones que no corresponden a ningún sistema de propulsión convencional conocido.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Muestras Biológicas</h4>
+            <p>Plantas y muestras de suelo de lugares de aterrizaje muestran alteraciones genéticas y composición química anómala.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Huellas de Aterrizaje</h4>
+            <p>Marcas en el terreno consistentes con objetos pesados, con patrones de radiación residual medible.</p>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <video controls>
+            <source src="videos/evidencia-fisica.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Los Mensajes -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Los Mensajes de los Pléyadianos</h2>
+
+      <div class="story-content">
+        <p>Meier documentó extensamente los mensajes recibidos de Semjase y otros pleyadianos, cubriendo temas que van desde cosmología y espiritualidad hasta advertencias sobre el futuro de la humanidad.</p>
+
+        <div class="teoria-grid">
+          <div class="teoria-card">
+            <h4>Origen Humano</h4>
+            <p>Según los pleyadianos, la humanidad terrestre fue sembrada por antiguas civilizaciones extraterrestres, incluyendo a los pleyadianos mismos.</p>
+          </div>
+          <div class="teoria-card">
+            <h4>Evolución Espiritual</h4>
+            <p>Enfatizan la importancia del desarrollo espiritual sobre el tecnológico, advirtiendo sobre los peligros del desequilibrio.</p>
+          </div>
+          <div class="teoria-card">
+            <h4>Futuro de la Tierra</h4>
+            <p>Advertencias sobre cambio climático, conflictos globales y la necesidad de cambio en la conciencia colectiva humana.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "La humanidad se encuentra en una encrucijada crítica. Su desarrollo tecnológico ha superado su madurez espiritual. Deben aprender a vivir en armonía con su planeta y entre ellos, o enfrentarán consecuencias severas."
+          <span class="quote-author">- Mensaje atribuido a Semjase a través de Billy Meier</span>
+        </div>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Documentación" class="evidence-image">
+            <div class="evidence-caption">Páginas originales de los contact notes - Más de 10,000 páginas de transcripciones detalladas</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Diagramas" class="evidence-image">
+            <div class="evidence-caption">Diagramas técnicos proporcionados por los pleyadianos sobre propulsión y energía</div>
+          </div>
+        </div>
+
+        <a href="https://theyfly.com" target="_blank" class="document-link">
+          <i class="fas fa-file-alt"></i>
+          Acceder a los Contact Notes completos (inglés/alemán)
+        </a>
+
+        <a href="https://www.figu.org" target="_blank" class="document-link">
+          <i class="fas fa-archive"></i>
+          Archivos FIGU - Organización fundada por Meier
+        </a>
+      </div>
+    </section>
+
+    <!-- Testigos y Investigadores -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Investigación Independiente</h2>
+
+      <div class="story-content">
+        <p>Numerosos investigadores, científicos y militares han examinado el caso Meier, muchos inicialmente escépticos pero que terminaron impresionados por la evidencia.</p>
+
+        <div class="testigos-grid">
+          <div class="testigo-card">
+            <h4>Coronel Wendelle Stevens</h4>
+            <p>Ex piloto de la USAF que dedicó 20 años a investigar el caso, concluyendo que la evidencia era genuina.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Jim Dilettoso</h4>
+            <p>Experto en análisis fotográfico que examinó las imágenes usando tecnología de la NASA.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Marcel Vogel</h4>
+            <p>Científico de IBM que analizó las muestras físicas, encontrando propiedades únicas.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>David Froning</h4>
+            <p>Ex ingeniero de la NASA que estudió los conceptos de propulsión descritos por Meier.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "Inicialmente pensé que era otro caso de fraude. Pero después de examinar la evidencia física, entrevistar a testigos y analizar las fotografías durante años, llegué a la conclusión de que Meier estaba diciendo la verdad."
+          <span class="quote-author">- Lt. Col. Wendelle Stevens, USAF (Retirado)</span>
+        </div>
+
+        <div class="video-container">
+          <video controls>
+            <source src="videos/testigos-investigadores.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+        </div>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Investigación en sitio" class="evidence-image">
+            <div class="evidence-caption">Investigadores internacionales examinando los lugares de los avistamientos en Suiza</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Análisis técnico" class="evidence-image">
+            <div class="evidence-caption">Equipos de análisis técnico utilizados para examinar la evidencia de Meier</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controversias y Críticas -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Controversias y Escepticismo</h2>
+
+      <div class="story-content">
+        <p>Como cualquier caso extraordinario, las afirmaciones de Meier han enfrentado escepticismo y críticas. Algunos investigadores han presentado objeciones que deben ser consideradas.</p>
+
+        <div class="highlight-box">
+          <p><strong>Principales objeciones:</strong></p>
+          <ul>
+            <li>Falta de testigos independientes para los encuentros más importantes</li>
+            <li>Calidad variable de algunas fotografías</li>
+            <li>Acusaciones de uso de modelos a escala (aunque los análisis no las respaldan)</li>
+            <li>Naturaelza de algunas predicciones que no se materializaron</li>
+            <li>Estilo de vida simple de Meier contrastando con la supuesta importancia cósmica de su misión</li>
+          </ul>
+        </div>
+
+        <div class="evidence-details">
+          <div class="evidence-detail-card">
+            <h4>Respuesta a las Críticas</h4>
+            <p>Los partidarios señalan que muchos testigos sí presenciaron fenómenos anómalos, y que los análisis científicos respaldan la autenticidad de la evidencia clave.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Análisis Moderno</h4>
+            <p>Técnicas forenses digitales modernas continúan sin poder explicar satisfactoriamente las fotografías más convincentes.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "El escepticismo es saludable en la ciencia. Pero el escepticismo dogmático que rechaza la evidencia sin examinarla adecuadamente no es científico. El caso Meier merece investigación seria, no descalificación automática."
+          <span class="quote-author">- Dr. Michael Hesemann, historiador e investigador OVNI</span>
+        </div>
+
+        <div class="video-container">
+          <video controls>
+            <source src="videos/debate-controversia.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legado e Impacto -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Legado e Impacto</h2>
+
+      <div class="story-content">
+        <p>El caso Meier ha tenido un impacto significativo en la ufología y la cultura popular, inspirando libros, documentales y debates que continúan hasta hoy.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Libros sobre Meier" class="evidence-image">
+            <div class="evidence-caption">Numerosos libros han sido publicados analizando el caso desde diferentes perspectivas</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Documentales" class="evidence-image">
+            <div class="evidence-caption">Documentales internacionales han presentado el caso a audiencias globales</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Influencia cultural" class="evidence-image">
+            <div class="evidence-caption">El caso ha influenciado conceptos sobre contactados en la cultura popular</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Impacto duradero:</strong></p>
+          <ul>
+            <li>Estableció un estándar para la documentación de casos de contacto</li>
+            <li>Inspiró el desarrollo de técnicas de análisis de evidencia OVNI</li>
+            <li>Generó debate sobre la naturaleza de la evidencia en ufología</li>
+            <li>Influenció conceptos sobre civilizaciones extraterrestres avanzadas</li>
+            <li>Demostró la importancia de la evidencia física en casos paranormales</li>
+          </ul>
+        </div>
+
+        <div class="video-container">
+          <video controls>
+            <source src="videos/legado-meier.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="story-section">
+      <div class="conclusion">
+        <h3 class="conclusion-title">Veredicto Final</h3>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2rem;">
+          El caso Billy Meier permanece como el ejemplo más documentado de contacto extraterrestre en la historia de la ufología. Con más de 1,000 fotografías, numerosos videos, muestras físicas y décadas de testimonios consistentes, presenta un desafío significativo para los escépticos y una fuente invaluable de estudio para los investigadores.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary);">
+          Mientras las controversias continúan, la evidencia física resiste el escrutinio científico moderno. El caso Meier nos recuerda que los fenómenos extraordinarios requieren evidencia extraordinaria, y establece un precedente para cómo debería documentarse futuros casos de contacto. Ya sea que uno crea o no en sus afirmaciones, el caso continúa inspirando investigación seria y debate sobre uno de los mayores misterios de nuestro tiempo: ¿Estamos solos en el universo?
+        </p>
+      </div>
+    </section>
+
+    <!-- Navegación -->
+    <div class="case-navigation">
+      <a href="caso-travis-walton.html" class="nav-button">
+        <i class="fas fa-arrow-left"></i>
+        Caso Anterior: Travis Walton
+      </a>
+      <a href="casos-contacto.html" class="nav-button next">
+        Volver a Casos de Contacto
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 Misterios Cósmicos – Fuente: FIGU, Contact Notes, análisis de Wendelle Stevens, investigaciones de Jim Dilettoso, archivos de Michael Hesemann</p>
+  </footer>
+
+  <script>
+    // Efectos de revelado al hacer scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.story-section').forEach(section => {
+        section.style.animationPlayState = 'paused';
+        observer.observe(section);
+      });
+
+      // Control de videos
+      document.querySelectorAll('video').forEach(video => {
+        video.addEventListener('play', function() {
+          document.querySelectorAll('video').forEach(otherVideo => {
+            if (otherVideo !== video) {
+              otherVideo.pause();
+            }
+          });
+        });
+      });
+
+      // Efectos parallax para el header
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.header-caso');
+        if (parallax) {
+          parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+    });
+  </script>
+  <script></script>
+</body>
+</html>
