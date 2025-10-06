@@ -1,478 +1,503 @@
-// JavaScript para Misterios Cósmicos
+// index.js - Código JavaScript completamente corregido
 
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== NAVEGACIÓN MÓVIL =====
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+    // =============================================
+    // VARIABLES GLOBALES
+    // =============================================
+    
+    const appState = {
+        isMenuOpen: false,
+        activeModal: null,
+        expandedSections: {
+            photos: false,
+            videos: false,
+            cases: false
+        },
+        playingVideo: null
+    };
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+    const DOM = {
+        menuToggle: document.getElementById('menuToggle'),
+        navMenu: document.getElementById('navMenu'),
+        imageModal: document.getElementById('imageModal'),
+        videoModal: document.getElementById('videoModal'),
+        modalImage: document.getElementById('modalImage'),
+        modalVideo: document.getElementById('modalVideo'),
+        videoLoading: document.querySelector('.video-loading'),
+        body: document.body
+    };
 
-        // Cerrar menú al hacer clic en un enlace
+    // =============================================
+    // INICIALIZACIÓN
+    // =============================================
+    
+    function init() {
+        setupEventListeners();
+        initVideoPlayers();
+        console.log('✅ Misterios Cósmicos inicializado');
+    }
+
+    // =============================================
+    // CONFIGURACIÓN DE EVENTOS
+    // =============================================
+    
+    function setupEventListeners() {
+        // Menú móvil
+        if (DOM.menuToggle) {
+            DOM.menuToggle.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Cerrar menú al hacer clic en enlaces
         const navLinks = document.querySelectorAll('.nav-menu a');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.navbar') && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Modales
+        setupModalEvents();
+        
+        // Botones "Ver más"
+        setupExpandButtons();
+        
+        // Botones "Leer más" en videos
+        setupReadMoreButtons();
+        
+        // Videos
+        setupVideoEvents();
+        
+        // Newsletter
+        setupNewsletterForm();
+        
+        // Scroll effects
+        window.addEventListener('scroll', handleScroll);
+    }
+
+    // =============================================
+    // MENÚ MÓVIL - CORREGIDO
+    // =============================================
+    
+    function toggleMobileMenu() {
+        appState.isMenuOpen = !appState.isMenuOpen;
+        
+        if (DOM.navMenu) {
+            DOM.navMenu.classList.toggle('active');
+        }
+        
+        if (DOM.menuToggle) {
+            const icon = DOM.menuToggle.querySelector('i');
+            if (icon) {
+                if (appState.isMenuOpen) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                    DOM.body.style.overflow = 'hidden';
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                    DOM.body.style.overflow = '';
+                }
+            }
+        }
+    }
+    
+    function closeMobileMenu() {
+        if (appState.isMenuOpen) {
+            appState.isMenuOpen = false;
+            
+            if (DOM.navMenu) {
+                DOM.navMenu.classList.remove('active');
+            }
+            
+            if (DOM.menuToggle) {
+                const icon = DOM.menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+            
+            DOM.body.style.overflow = '';
+        }
+    }
+
+    // =============================================
+    // SISTEMA DE MODALES - CORREGIDO
+    // =============================================
+    
+    function setupModalEvents() {
+        // Modal de imágenes
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        galleryImages.forEach(img => {
+            img.addEventListener('click', openImageModal);
+        });
+        
+        // Modal de videos
+        const playButtons = document.querySelectorAll('.play-button');
+        playButtons.forEach(btn => {
+            btn.addEventListener('click', openVideoModal);
+        });
+        
+        // Cerrar modales
+        const closeButtons = document.querySelectorAll('.close-modal');
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', closeModal);
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+        
+        // Cerrar con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && appState.activeModal) {
+                closeModal();
             }
         });
     }
-
-    // ===== BOTONES "VER MÁS" PARA EXPANDIR CONTENIDO =====
-    const expandButtons = document.querySelectorAll('.btn-expand');
     
-    expandButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const sectionType = this.getAttribute('data-section');
-            const isExpanded = this.classList.contains('expanded');
-            
-            // Cambiar texto del botón
-            if (isExpanded) {
-                this.classList.remove('expanded');
-                this.innerHTML = 'Ver más ' + (sectionType === 'videos' ? 'videos' : 
-                                    sectionType === 'photos' ? 'evidencias' : 'casos');
-            } else {
-                this.classList.add('expanded');
-                this.innerHTML = 'Ver menos ' + (sectionType === 'videos' ? 'videos' : 
-                                    sectionType === 'photos' ? 'evidencias' : 'casos');
-            }
-
-            // Mostrar/ocultar contenido adicional según la sección
-            switch(sectionType) {
-                case 'videos':
-                    toggleVideoGrid();
-                    break;
-                case 'photos':
-                    togglePhotoGallery();
-                    break;
-                case 'cases':
-                    toggleCasesGrid();
-                    break;
-            }
-        });
-    });
-
-    // ===== FUNCIÓN PARA VIDEOS ADICIONALES - CORREGIDA =====
-    function toggleVideoGrid() {
-        const videoGridAdditional = document.querySelector('.video-grid-additional');
-        const videoGrid = document.querySelector('.video-grid');
-        const btnExpand = document.querySelector('.btn-expand[data-section="videos"]');
+    function openImageModal(e) {
+        const img = e.target;
+        if (DOM.modalImage) {
+            DOM.modalImage.src = img.src;
+            DOM.modalImage.alt = img.alt;
+        }
+        if (DOM.imageModal) {
+            DOM.imageModal.classList.add('active');
+        }
+        DOM.body.style.overflow = 'hidden';
+        appState.activeModal = 'image';
+    }
+    
+    function openVideoModal(e) {
+        const playButton = e.currentTarget;
+        const videoCard = playButton.closest('.video-card');
+        const videoElement = videoCard.querySelector('.video-player');
+        const videoSource = videoElement.querySelector('source').src;
         
-        if (!videoGridAdditional) return;
+        // Mostrar loading
+        if (DOM.videoLoading) {
+            DOM.videoLoading.classList.add('show');
+        }
+        
+        // Configurar video modal
+        if (DOM.modalVideo) {
+            DOM.modalVideo.innerHTML = '';
+            const source = document.createElement('source');
+            source.src = videoSource;
+            source.type = 'video/mp4';
+            DOM.modalVideo.appendChild(source);
+        }
+        
+        if (DOM.videoModal) {
+            DOM.videoModal.classList.add('active');
+        }
+        
+        DOM.body.style.overflow = 'hidden';
+        appState.activeModal = 'video';
+        
+        // Cargar y reproducir video
+        if (DOM.modalVideo) {
+            DOM.modalVideo.load();
+            DOM.modalVideo.addEventListener('loadeddata', function() {
+                if (DOM.videoLoading) {
+                    DOM.videoLoading.classList.remove('show');
+                }
+                DOM.modalVideo.play().catch(e => {
+                    console.log('Autoplay bloqueado');
+                    if (DOM.videoLoading) {
+                        DOM.videoLoading.classList.remove('show');
+                    }
+                });
+            });
+            
+            DOM.modalVideo.addEventListener('error', function() {
+                if (DOM.videoLoading) {
+                    DOM.videoLoading.classList.remove('show');
+                }
+                console.error('Error al cargar el video');
+            });
+        }
+        
+        // Pausar video en miniatura si está reproduciéndose
+        if (appState.playingVideo) {
+            appState.playingVideo.pause();
+            appState.playingVideo.currentTime = 0;
+        }
+    }
+    
+    function closeModal() {
+        // Cerrar modal activo
+        if (appState.activeModal === 'video' && DOM.modalVideo) {
+            DOM.modalVideo.pause();
+            DOM.modalVideo.currentTime = 0;
+        }
+        
+        if (DOM.imageModal) {
+            DOM.imageModal.classList.remove('active');
+        }
+        if (DOM.videoModal) {
+            DOM.videoModal.classList.remove('active');
+        }
+        
+        DOM.body.style.overflow = '';
+        appState.activeModal = null;
+        
+        if (DOM.videoLoading) {
+            DOM.videoLoading.classList.remove('show');
+        }
+    }
 
-        // FORZAR reset de estilos antes de mostrar
-        if (!videoGridAdditional.classList.contains('active')) {
-            // Reset completo de estilos
-            videoGridAdditional.style.cssText = '';
+    // =============================================
+    // BOTONES "VER MÁS" - CORREGIDO
+    // =============================================
+    
+    function setupExpandButtons() {
+        const expandButtons = document.querySelectorAll('.btn-expand');
+        
+        expandButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const sectionType = this.dataset.section;
+                toggleExpandSection(sectionType, this);
+            });
+        });
+    }
+    
+    function toggleExpandSection(sectionType, button) {
+        let additionalContent;
+        
+        if (sectionType === 'videos') {
+            additionalContent = document.querySelector('.video-grid-additional');
+        } else if (sectionType === 'photos') {
+            additionalContent = document.querySelector('.photo-gallery-additional');
+        } else if (sectionType === 'cases') {
+            additionalContent = document.querySelector('.cases-grid-additional');
+        }
+        
+        if (!additionalContent) {
+            console.log('No se encontró contenido adicional para:', sectionType);
+            return;
+        }
+        
+        if (appState.expandedSections[sectionType]) {
+            // Contraer sección
+            additionalContent.classList.remove('active');
             
-            // Aplicar clase active
-            videoGridAdditional.classList.add('active');
+            // Texto según sección
+            if (sectionType === 'photos') {
+                button.innerHTML = 'Ver más evidencias';
+            } else if (sectionType === 'videos') {
+                button.innerHTML = 'Ver más videos';
+            } else if (sectionType === 'cases') {
+                button.innerHTML = 'Ver más casos';
+            }
             
-            // Scroll suave al grid adicional
+            button.classList.remove('expanded');
+        } else {
+            // Expandir sección
+            additionalContent.classList.add('active');
+            button.innerHTML = 'Ver menos';
+            button.classList.add('expanded');
+            
+            // Scroll suave
             setTimeout(() => {
-                videoGridAdditional.scrollIntoView({ 
+                additionalContent.scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'nearest' 
                 });
-            }, 100);
-        } else {
-            videoGridAdditional.classList.remove('active');
+            }, 300);
         }
+        
+        appState.expandedSections[sectionType] = !appState.expandedSections[sectionType];
     }
 
-    function togglePhotoGallery() {
-        const photoGalleryAdditional = document.querySelector('.photo-gallery-additional');
-        if (photoGalleryAdditional) {
-            photoGalleryAdditional.classList.toggle('active');
-        }
-    }
-
-    function toggleCasesGrid() {
-        const casesGridAdditional = document.querySelector('.cases-grid-additional');
-        if (casesGridAdditional) {
-            casesGridAdditional.classList.toggle('active');
-        }
-    }
-
-    // ===== FUNCIONALIDAD DE VIDEOS =====
-    const videoCards = document.querySelectorAll('.video-card');
-    const videoModal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const closeModal = document.querySelectorAll('.close-modal');
-    const videoLoading = document.querySelector('.video-loading');
-
-    // Botones "Ver más" en descripciones de video
-    const videoReadMoreButtons = document.querySelectorAll('.video-read-more');
+    // =============================================
+    // BOTONES "LEER MÁS" - CORREGIDO
+    // =============================================
     
-    videoReadMoreButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const videoDescription = this.previousElementSibling;
-            
-            if (videoDescription.classList.contains('truncated')) {
-                videoDescription.classList.remove('truncated');
-                this.innerHTML = '<span>Ver menos</span><i class="fas fa-chevron-up"></i>';
-                this.classList.add('expanded');
-            } else {
-                videoDescription.classList.add('truncated');
-                this.innerHTML = '<span>Ver más</span><i class="fas fa-chevron-down"></i>';
-                this.classList.remove('expanded');
-            }
-        });
-    });
-
-    // Reproducir video en modal
-    videoCards.forEach(card => {
-        const playButton = card.querySelector('.play-button');
-        const videoElement = card.querySelector('.video-player');
-        const videoSource = card.querySelector('source').src;
-
-        if (playButton && videoModal && modalVideo) {
-            playButton.addEventListener('click', function(e) {
-                e.stopPropagation();
+    function setupReadMoreButtons() {
+        const readMoreButtons = document.querySelectorAll('.video-read-more');
+        
+        readMoreButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const videoDetails = this.closest('.video-details');
+                const description = videoDetails.querySelector('.video-description');
                 
-                // Mostrar loading
-                if (videoLoading) videoLoading.classList.add('show');
-                
-                // Configurar video modal
-                modalVideo.innerHTML = '';
-                const source = document.createElement('source');
-                source.src = videoSource;
-                source.type = 'video/mp4';
-                modalVideo.appendChild(source);
-                
-                // Mostrar modal
-                videoModal.classList.add('active');
-                
-                // Cargar y reproducir video
-                modalVideo.load();
-                modalVideo.oncanplay = function() {
-                    if (videoLoading) videoLoading.classList.remove('show');
-                    modalVideo.play().catch(e => console.log('Autoplay prevented:', e));
-                };
-                
-                modalVideo.onerror = function() {
-                    if (videoLoading) videoLoading.classList.remove('show');
-                    console.error('Error loading video');
-                };
-            });
-        }
-
-        // Hover effects para video cards
-        card.addEventListener('mouseenter', function() {
-            const video = this.querySelector('.video-player');
-            if (video) {
-                video.play().catch(e => {
-                    // Silenciar error de autoplay
-                });
-            }
-        });
-
-        card.addEventListener('mouseleave', function() {
-            const video = this.querySelector('.video-player');
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-        });
-    });
-
-    // Cerrar modales
-    closeModal.forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
-            const modal = this.closest('.modal');
-            if (modal) {
-                modal.classList.remove('active');
-                
-                // Pausar video si está reproduciéndose
-                if (modalVideo) {
-                    modalVideo.pause();
-                    modalVideo.currentTime = 0;
-                }
-            }
-        });
-    });
-
-    // Cerrar modal al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('modal')) {
-            e.target.classList.remove('active');
-            if (modalVideo) {
-                modalVideo.pause();
-                modalVideo.currentTime = 0;
-            }
-        }
-    });
-
-    // Cerrar modal con ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const activeModal = document.querySelector('.modal.active');
-            if (activeModal) {
-                activeModal.classList.remove('active');
-                if (modalVideo) {
-                    modalVideo.pause();
-                    modalVideo.currentTime = 0;
-                }
-            }
-        }
-    });
-
-    // ===== GALERÍA DE IMÁGENES =====
-    const galleryImages = document.querySelectorAll('.gallery-image');
-    const imageModal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-
-    galleryImages.forEach(image => {
-        image.addEventListener('click', function() {
-            if (imageModal && modalImage) {
-                modalImage.src = this.src;
-                modalImage.alt = this.alt;
-                imageModal.classList.add('active');
-            }
-        });
-    });
-
-    // ===== HISTORIAS DE USUARIOS EXPANDIBLES =====
-    const storyItems = document.querySelectorAll('.story-item');
-    const storyCloseButtons = document.querySelectorAll('.story-close');
-
-    storyItems.forEach((item, index) => {
-        // Solo hacer expandible si no es móvil
-        if (window.innerWidth > 768) {
-            item.addEventListener('click', function() {
-                // Cerrar cualquier historia expandida
-                storyItems.forEach(story => {
-                    if (story !== this) story.classList.remove('expanded');
-                });
-                
-                // Alternar estado actual
+                description.classList.toggle('truncated');
                 this.classList.toggle('expanded');
                 
-                // Scroll a la historia si está expandida
-                if (this.classList.contains('expanded')) {
-                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        }
-
-        // Cerrar historia al hacer clic en el botón X
-        if (storyCloseButtons[index]) {
-            storyCloseButtons[index].addEventListener('click', function(e) {
-                e.stopPropagation();
-                item.classList.remove('expanded');
-            });
-        }
-    });
-
-    // Cerrar historia expandida al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.story-item.expanded') && !e.target.classList.contains('story-item')) {
-            storyItems.forEach(item => {
-                item.classList.remove('expanded');
-            });
-        }
-    });
-
-    // ===== SCROLL SUAVE PARA ENLACES INTERNOS =====
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                
-                if (target) {
-                    const headerHeight = document.querySelector('.main-header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // ===== HEADER SCROLL EFFECT =====
-    const mainHeader = document.querySelector('.main-header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            mainHeader.style.background = 'rgba(10, 14, 23, 0.98)';
-            mainHeader.style.backdropFilter = 'blur(15px)';
-            mainHeader.style.padding = '0.3rem 0';
-        } else {
-            mainHeader.style.background = 'rgba(10, 14, 23, 0.95)';
-            mainHeader.style.backdropFilter = 'blur(10px)';
-            mainHeader.style.padding = '0.5rem 0';
-        }
-
-        // Ocultar/mostrar header al hacer scroll
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            // Scroll hacia abajo
-            mainHeader.style.transform = 'translateY(-100%)';
-        } else {
-            // Scroll hacia arriba
-            mainHeader.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-
-    // ===== ANIMACIONES AL SCROLL =====
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observar elementos para animaciones
-    const animatedElements = document.querySelectorAll('.video-card, .photo-item, .case-card, .news-card, .story-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // ===== LOADING PARA VIDEOS =====
-    const videoPlayers = document.querySelectorAll('.video-player');
-    
-    videoPlayers.forEach(video => {
-        video.addEventListener('loadstart', function() {
-            this.classList.add('loading');
-        });
-        
-        video.addEventListener('canplay', function() {
-            this.classList.remove('loading');
-        });
-        
-        video.addEventListener('error', function() {
-            this.classList.remove('loading');
-            console.error('Error loading video:', this.src);
-        });
-    });
-
-    // ===== PREVENIR COMPORTAMIENTOS POR DEFECTO =====
-    document.addEventListener('contextmenu', function(e) {
-        if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
-    });
-
-    // ===== MEJORAS DE ACCESIBILIDAD =====
-    document.addEventListener('keydown', function(e) {
-        // Navegación por teclado en modales
-        if (e.key === 'Tab' && document.querySelector('.modal.active')) {
-            const focusableElements = document.querySelector('.modal.active').querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            
-            if (focusableElements.length > 0) {
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                
-                if (e.shiftKey) {
-                    if (document.activeElement === firstElement) {
-                        lastElement.focus();
-                        e.preventDefault();
-                    }
+                const span = this.querySelector('span');
+                if (description.classList.contains('truncated')) {
+                    span.textContent = 'Ver más';
                 } else {
-                    if (document.activeElement === lastElement) {
-                        firstElement.focus();
-                        e.preventDefault();
-                    }
+                    span.textContent = 'Ver menos';
                 }
+            });
+        });
+    }
+
+    // =============================================
+    // SISTEMA DE VIDEOS - CORREGIDO
+    // =============================================
+    
+    function setupVideoEvents() {
+        // Control de hover en videos
+        setupVideoHoverEffects();
+    }
+    
+    function initVideoPlayers() {
+        const videoPlayers = document.querySelectorAll('.video-player');
+        
+        videoPlayers.forEach(video => {
+            video.muted = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            
+            // Manejar errores
+            video.addEventListener('error', function() {
+                console.warn('Error al cargar video:', this.src);
+            });
+        });
+    }
+    
+    function setupVideoHoverEffects() {
+        const videoCards = document.querySelectorAll('.video-card');
+        
+        videoCards.forEach(card => {
+            const video = card.querySelector('.video-player');
+            let hoverTimer;
+            
+            card.addEventListener('mouseenter', function() {
+                clearTimeout(hoverTimer);
+                hoverTimer = setTimeout(() => {
+                    if (appState.activeModal !== 'video') {
+                        video.play().catch(e => {
+                            // Autoplay bloqueado, es normal
+                        });
+                        appState.playingVideo = video;
+                    }
+                }, 300);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                clearTimeout(hoverTimer);
+                if (video !== appState.playingVideo && !video.paused) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        });
+    }
+
+    // =============================================
+    // NEWSLETTER - CORREGIDO
+    // =============================================
+    
+    function setupNewsletterForm() {
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                const email = emailInput.value.trim();
+                
+                if (validateEmail(email)) {
+                    submitNewsletter(email, this);
+                } else {
+                    showNewsletterMessage('Por favor, ingresa un email válido', 'error');
+                }
+            });
+        }
+    }
+    
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    function submitNewsletter(email, form) {
+        const submitBtn = form.querySelector('button');
+        const originalText = submitBtn.innerHTML;
+        
+        // Simular envío
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            showNewsletterMessage('¡Gracias por suscribirte! Te hemos enviado un email de confirmación.', 'success');
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 1500);
+    }
+    
+    function showNewsletterMessage(message, type) {
+        // Crear elemento de mensaje
+        const messageEl = document.createElement('div');
+        messageEl.className = `newsletter-message ${type}`;
+        messageEl.textContent = message;
+        messageEl.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: ${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            border-radius: 8px;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        `;
+        
+        document.body.appendChild(messageEl);
+        
+        // Remover después de 5 segundos
+        setTimeout(() => {
+            if (messageEl.parentNode) {
+                messageEl.parentNode.removeChild(messageEl);
+            }
+        }, 5000);
+    }
+
+    // =============================================
+    // EFECTOS DE SCROLL - CORREGIDO
+    // =============================================
+    
+    function handleScroll() {
+        // Header con efecto de transparencia
+        const header = document.querySelector('.main-header');
+        if (header) {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 14, 23, 0.98)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'rgba(10, 14, 23, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
             }
         }
+    }
+
+    // =============================================
+    // INICIAR APLICACIÓN
+    // =============================================
+    
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // =============================================
+    // MANEJO DE ERRORES
+    // =============================================
+    
+    window.addEventListener('error', function(e) {
+        console.error('Error capturado:', e.error);
     });
-
-    // ===== INICIALIZACIÓN DE COMPONENTES =====
-    console.log('Misterios Cósmicos - JavaScript inicializado correctamente');
-
-    // Forzar redibujado de grids en carga
-    setTimeout(() => {
-        const grids = document.querySelectorAll('.video-grid, .video-grid-additional');
-        grids.forEach(grid => {
-            grid.style.display = 'none';
-            setTimeout(() => {
-                grid.style.display = '';
-            }, 50);
-        });
-    }, 1000);
+    
+    window.addEventListener('unhandledrejection', function(e) {
+        console.error('Promesa rechazada:', e.reason);
+    });
 });
-
-// ===== POLYFILLS Y COMPATIBILIDAD =====
-// Smooth scroll polyfill para navegadores antiguos
-if (!('scrollBehavior' in document.documentElement.style)) {
-    const smoothScrollPolyfill = function() {
-        const _scrollTo = function(element, to, duration) {
-            const start = element.scrollTop;
-            const change = to - start;
-            let currentTime = 0;
-            const increment = 20;
-
-            const animateScroll = function() {
-                currentTime += increment;
-                const val = Math.easeInOutQuad(currentTime, start, change, duration);
-                element.scrollTop = val;
-                if (currentTime < duration) {
-                    setTimeout(animateScroll, increment);
-                }
-            };
-            animateScroll();
-        };
-
-        Math.easeInOutQuad = function(t, b, c, d) {
-            t /= d/2;
-            if (t < 1) return c/2*t*t + b;
-            t--;
-            return -c/2 * (t*(t-2) - 1) + b;
-        };
-
-        Element.prototype.scrollTo = function(options) {
-            if (typeof options === 'object') {
-                _scrollTo(this, options.top, options.behavior === 'smooth' ? 600 : 0);
-            } else {
-                this.scrollTop = options;
-            }
-        };
-
-        window.scrollTo = function(options) {
-            if (typeof options === 'object') {
-                _scrollTo(document.documentElement, options.top, options.behavior === 'smooth' ? 600 : 0);
-            } else {
-                document.documentElement.scrollTop = options;
-            }
-        };
-    };
-    smoothScrollPolyfill();
-}
