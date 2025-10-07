@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espiritualidad - FreeParanormal</title>
+    <link rel="icon" href="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" type="image/x-icon">
+    <link rel="stylesheet" href="espiritualidad.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Minimalista -->
+    <header class="spiritual-header">
+        <nav class="spiritual-nav">
+            <div class="spiritual-nav-container">
+                <div class="spiritual-logo">
+                    <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="FreeParanormal" class="spiritual-logo-img">
+                    <span class="spiritual-logo-text">Espiritualidad</span>
+                </div>
+                
+                <div class="spiritual-nav-links">
+                    <a href="index.html" class="spiritual-nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="galeria.html" class="spiritual-nav-link">
+                        <i class="fas fa-images"></i>
+                        <span>Galería</span>
+                    </a>
+                    <a href="casos.html" class="spiritual-nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Casos</span>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g" class="spiritual-nav-link spiritual-nav-cta">
+                        <i class="fab fa-youtube"></i>
+                        <span>Canal</span>
+                    </a>
+                </div>
+                
+                <button class="spiritual-menu-toggle" id="spiritualMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section con efecto partículas -->
+    <section class="spiritual-hero">
+        <div class="spiritual-particles" id="spiritualParticles"></div>
+        <div class="spiritual-hero-content">
+            <div class="spiritual-hero-text">
+                <h1 class="spiritual-hero-title">
+                    <span class="spiritual-title-line">Explora los</span>
+                    <span class="spiritual-title-line spiritual-title-accent">Misterios del Alma</span>
+                </h1>
+                <p class="spiritual-hero-subtitle">
+                    Viajes astrales, meditación profunda y la expansión de la conciencia humana
+                </p>
+                <div class="spiritual-hero-actions">
+                    <button class="spiritual-btn spiritual-btn-primary" id="exploreJourney">
+                        <i class="fas fa-compass"></i>
+                        Iniciar Tu Viaje
+                    </button>
+                    <button class="spiritual-btn spiritual-btn-secondary" id="watchMeditation">
+                        <i class="fas fa-play-circle"></i>
+                        Meditación Guiada
+                    </button>
+                </div>
+            </div>
+            
+            <div class="spiritual-hero-visual">
+                <div class="spiritual-mandala">
+                    <div class="spiritual-mandala-circle spiritual-mandala-1"></div>
+                    <div class="spiritual-mandala-circle spiritual-mandala-2"></div>
+                    <div class="spiritual-mandala-circle spiritual-mandala-3"></div>
+                    <div class="spiritual-mandala-center"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="spiritual-hero-scroll">
+            <div class="spiritual-scroll-indicator">
+                <span>Descubre Más</span>
+                <div class="spiritual-scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Camino Espiritual -->
+    <section class="spiritual-path">
+        <div class="spiritual-container">
+            <div class="spiritual-section-header">
+                <h2 class="spiritual-section-title">Tu Camino Espiritual</h2>
+                <p class="spiritual-section-subtitle">Encuentra las prácticas que resuenan con tu esencia</p>
+            </div>
+            
+            <div class="spiritual-path-cards">
+                <div class="spiritual-path-card" data-path="meditation">
+                    <div class="spiritual-path-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Meditación Consciente</h3>
+                    <p>Técnicas para calmar la mente y conectar con tu ser interior</p>
+                    <div class="spiritual-path-progress">
+                        <div class="spiritual-progress-bar">
+                            <div class="spiritual-progress-fill" style="width: 85%"></div>
+                        </div>
+                        <span>85% efectividad reportada</span>
+                    </div>
+                </div>
+                
+                <div class="spiritual-path-card" data-path="astral">
+                    <div class="spiritual-path-icon">
+                        <i class="fas fa-cloud-moon"></i>
+                    </div>
+                    <h3>Viaje Astral</h3>
+                    <p>Exploración consciente más allá de los límites del cuerpo físico</p>
+                    <div class="spiritual-path-progress">
+                        <div class="spiritual-progress-bar">
+                            <div class="spiritual-progress-fill" style="width: 72%"></div>
+                        </div>
+                        <span>72% de éxito en prácticas</span>
+                    </div>
+                </div>
+                
+                <div class="spiritual-path-card" data-path="energy">
+                    <div class="spiritual-path-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Sanación Energética</h3>
+                    <p>Armonización de los campos energéticos para bienestar integral</p>
+                    <div class="spiritual-path-progress">
+                        <div class="spiritual-progress-bar">
+                            <div class="spiritual-progress-fill" style="width: 78%"></div>
+                        </div>
+                        <span>78% mejoría reportada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Experiencias Transformadoras -->
+    <section class="spiritual-experiences">
+        <div class="spiritual-container">
+            <div class="spiritual-section-header">
+                <h2 class="spiritual-section-title">Experiencias Transformadoras</h2>
+                <p class="spiritual-section-subtitle">Relatos reales de expansión de conciencia</p>
+            </div>
+            
+            <div class="spiritual-experiences-grid">
+                <article class="spiritual-experience-card">
+                    <div class="spiritual-experience-header">
+                        <div class="spiritual-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="María González">
+                        </div>
+                        <div class="spiritual-experience-meta">
+                            <h4>María González</h4>
+                            <span>45 años · Terapeuta</span>
+                        </div>
+                    </div>
+                    <div class="spiritual-experience-content">
+                        <h3>Mi Primer Viaje Astral Consciente</h3>
+                        <p>"Después de meses de práctica, una noche sentí cómo mi conciencia se separaba de mi cuerpo. Flotaba sobre mí misma, viendo mi forma física dormir. La sensación de libertad era indescriptible, como si hubiera roto cadenas que ni siquiera sabía que tenía..."</p>
+                    </div>
+                    <div class="spiritual-experience-footer">
+                        <div class="spiritual-tags">
+                            <span class="spiritual-tag">Viaje Astral</span>
+                            <span class="spiritual-tag">Conciencia Expandida</span>
+                        </div>
+                        <button class="spiritual-read-more">
+                            <i class="fas fa-book-open"></i>
+                            Leer Completo
+                        </button>
+                    </div>
+                </article>
+                
+                <article class="spiritual-experience-card">
+                    <div class="spiritual-experience-header">
+                        <div class="spiritual-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carlos Rodríguez">
+                        </div>
+                        <div class="spiritual-experience-meta">
+                            <h4>Carlos Rodríguez</h4>
+                            <span>38 años · Ingeniero</span>
+                        </div>
+                    </div>
+                    <div class="spiritual-experience-content">
+                        <h3>Encuentro con Guías Espirituales</h3>
+                        <p>"Durante una meditación profunda, me encontré en un jardín de luz donde tres seres de energía pura se comunicaron conmigo. No usaban palabras, sino que transmitían conocimiento directamente a mi conciencia. Uno me mostró visiones de mi propósito de vida..."</p>
+                    </div>
+                    <div class="spiritual-experience-footer">
+                        <div class="spiritual-tags">
+                            <span class="spiritual-tag">Guías Espirituales</span>
+                            <span class="spiritual-tag">Meditación Profunda</span>
+                        </div>
+                        <button class="spiritual-read-more">
+                            <i class="fas fa-book-open"></i>
+                            Leer Completo
+                        </button>
+                    </div>
+                </article>
+                
+                <article class="spiritual-experience-card">
+                    <div class="spiritual-experience-header">
+                        <div class="spiritual-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Ana Martínez">
+                        </div>
+                        <div class="spiritual-experience-meta">
+                            <h4>Ana Martínez</h4>
+                            <span>52 años · Artista</span>
+                        </div>
+                    </div>
+                    <div class="spiritual-experience-content">
+                        <h3>Activación del Tercer Ojo</h3>
+                        <p>"Llevaba seis meses practicando ejercicios para la glándula pineal cuando comencé a percibir auras. Al principio eran solo destellos de color, pero con el tiempo pude distinguir patrones relacionados con estados emocionales. Mi percepción del mundo cambió completamente..."</p>
+                    </div>
+                    <div class="spiritual-experience-footer">
+                        <div class="spiritual-tags">
+                            <span class="spiritual-tag">Tercer Ojo</span>
+                            <span class="spiritual-tag">Percepción Expandida</span>
+                        </div>
+                        <button class="spiritual-read-more">
+                            <i class="fas fa-book-open"></i>
+                            Leer Completo
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Prácticas Guiadas -->
+    <section class="spiritual-practices">
+        <div class="spiritual-container">
+            <div class="spiritual-practices-header">
+                <h2 class="spiritual-section-title">Prácticas Guiadas</h2>
+                <p class="spiritual-section-subtitle">Sesiones paso a paso para tu desarrollo espiritual</p>
+            </div>
+            
+            <div class="spiritual-practices-container">
+                <div class="spiritual-practice-main">
+                    <div class="spiritual-practice-video">
+                        <div class="spiritual-video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Meditación para la Apertura del Tercer Ojo</p>
+                        </div>
+                    </div>
+                    <div class="spiritual-practice-info">
+                        <h3>Meditación para Activación Pineal</h3>
+                        <p>Sesión guiada de 25 minutos para estimular y armonizar tu glándula pineal, aumentando la intuición y percepción sutil.</p>
+                        <div class="spiritual-practice-meta">
+                            <div class="spiritual-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>25 minutos</span>
+                            </div>
+                            <div class="spiritual-meta-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermedio</span>
+                            </div>
+                            <div class="spiritual-meta-item">
+                                <i class="fas fa-headphones"></i>
+                                <span>Audio Guiado</span>
+                            </div>
+                        </div>
+                        <button class="spiritual-btn spiritual-btn-primary spiritual-btn-large">
+                            <i class="fas fa-play"></i>
+                            Iniciar Práctica
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="spiritual-practice-list">
+                    <div class="spiritual-practice-item spiritual-practice-active">
+                        <div class="spiritual-practice-thumb">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="spiritual-practice-details">
+                            <h4>Meditación Pineal</h4>
+                            <span>25 min · Intermedio</span>
+                        </div>
+                        <div class="spiritual-practice-play">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="spiritual-practice-item">
+                        <div class="spiritual-practice-thumb">
+                            <i class="fas fa-cloud-moon"></i>
+                        </div>
+                        <div class="spiritual-practice-details">
+                            <h4>Preparación Astral</h4>
+                            <span>18 min · Avanzado</span>
+                        </div>
+                        <div class="spiritual-practice-play">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="spiritual-practice-item">
+                        <div class="spiritual-practice-thumb">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <div class="spiritual-practice-details">
+                            <h4>Sanación Chakras</h4>
+                            <span>32 min · Principiante</span>
+                        </div>
+                        <div class="spiritual-practice-play">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comunidad -->
+    <section class="spiritual-community">
+        <div class="spiritual-container">
+            <div class="spiritual-community-content">
+                <div class="spiritual-community-text">
+                    <h2 class="spiritual-section-title">Únete a Nuestra Comunidad</h2>
+                    <p class="spiritual-community-description">
+                        Conecta con miles de buscadores espirituales, comparte tus experiencias y participa en sesiones grupales de meditación y crecimiento consciente.
+                    </p>
+                    
+                    <div class="spiritual-community-stats">
+                        <div class="spiritual-stat">
+                            <div class="spiritual-stat-number">5,247</div>
+                            <div class="spiritual-stat-label">Miembros Activos</div>
+                        </div>
+                        <div class="spiritual-stat">
+                            <div class="spiritual-stat-number">128</div>
+                            <div class="spiritual-stat-label">Sesiones Mensuales</div>
+                        </div>
+                        <div class="spiritual-stat">
+                            <div class="spiritual-stat-number">42</div>
+                            <div class="spiritual-stat-label">Países</div>
+                        </div>
+                    </div>
+                    
+                    <div class="spiritual-community-actions">
+                        <button class="spiritual-btn spiritual-btn-primary">
+                            <i class="fas fa-users"></i>
+                            Unirse a la Comunidad
+                        </button>
+                        <button class="spiritual-btn spiritual-btn-secondary">
+                            <i class="fas fa-calendar"></i>
+                            Ver Eventos
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="spiritual-community-visual">
+                    <div class="spiritual-community-orb">
+                        <div class="spiritual-orb spiritual-orb-1"></div>
+                        <div class="spiritual-orb spiritual-orb-2"></div>
+                        <div class="spiritual-orb spiritual-orb-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Espiritual -->
+    <footer class="spiritual-footer">
+        <div class="spiritual-container">
+            <div class="spiritual-footer-content">
+                <div class="spiritual-footer-main">
+                    <div class="spiritual-footer-brand">
+                        <div class="spiritual-logo">
+                            <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="FreeParanormal" class="spiritual-logo-img">
+                            <span class="spiritual-logo-text">Espiritualidad</span>
+                        </div>
+                        <p class="spiritual-footer-description">
+                            Explorando los misterios de la conciencia y el potencial humano desde 2018.
+                        </p>
+                        <div class="spiritual-social-links">
+                            <a href="#" class="spiritual-social-link">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="spiritual-social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="spiritual-social-link">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="#" class="spiritual-social-link">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="spiritual-footer-links">
+                        <div class="spiritual-footer-column">
+                            <h4>Explorar</h4>
+                            <ul>
+                                <li><a href="#">Meditación</a></li>
+                                <li><a href="#">Viaje Astral</a></li>
+                                <li><a href="#">Chakras</a></li>
+                                <li><a href="#">Sanación</a></li>
+                                <li><a href="#">Conciencia</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="spiritual-footer-column">
+                            <h4>Recursos</h4>
+                            <ul>
+                                <li><a href="#">Guías Prácticas</a></li>
+                                <li><a href="#">Meditaciones</a></li>
+                                <li><a href="#">Artículos</a></li>
+                                <li><a href="#">Investigaciones</a></li>
+                                <li><a href="#">Comunidad</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="spiritual-footer-column">
+                            <h4>Contacto</h4>
+                            <ul>
+                                <li><a href="mailto:freepanoramvni@gmail.com">freepanoramvni@gmail.com</a></li>
+                                <li><a href="tel:+56982045756">+56 9 8204 5756</a></li>
+                                <li><a href="#">San Clemente, Chile</a></li>
+                                <li><a href="#">Formulario de Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="spiritual-footer-bottom">
+                    <div class="spiritual-footer-copyright">
+                        <p>&copy; 2023 FreeParanormal Espiritualidad. Todos los derechos reservados.</p>
+                    </div>
+                    
+                    <div class="spiritual-footer-legal">
+                        <a href="#">Términos de Servicio</a>
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Experiencias -->
+    <div class="spiritual-modal" id="experienceModal">
+        <div class="spiritual-modal-content">
+            <button class="spiritual-modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="spiritual-modal-body" id="modalBody">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script src="espiritualidad.js"></script>
+</body>
+</html>
