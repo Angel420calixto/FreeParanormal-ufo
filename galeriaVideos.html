@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeParanormal - Evidencia OVNI y Fenómenos Paranormales</title>
+    <link rel="icon" href="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS - Colores auténticos de YouTube */
+        :root {
+            --yt-primary: #0f0f0f;
+            --yt-secondary: #272727;
+            --yt-accent: #ff0000;
+            --yt-accent-hover: #cc0000;
+            --yt-text-primary: #ffffff;
+            --yt-text-secondary: #aaaaaa;
+            --yt-border: #303030;
+            --yt-like: #3ea6ff;
+            --yt-hover: #272727;
+            --yt-active: #303030;
+            --font-roboto: 'Roboto', sans-serif;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-roboto);
+            background-color: var(--yt-primary);
+            color: var(--yt-text-primary);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header estilo YouTube AUTÉNTICO */
+        .main-header {
+            background: var(--yt-primary);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--yt-border);
+            padding: 0 16px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-start {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 200px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 728px;
+            margin: 0 40px;
+        }
+
+        .nav-end {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 200px;
+            justify-content: flex-end;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--yt-text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle:hover {
+            background: var(--yt-hover);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--yt-text-primary);
+        }
+
+        .logo-image {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--yt-text-primary);
+        }
+
+        /* Search Bar estilo YouTube */
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 640px;
+        }
+
+        .search-form {
+            display: flex;
+            width: 100%;
+        }
+
+        .search-input {
+            flex: 1;
+            background: var(--yt-primary);
+            border: 1px solid var(--yt-border);
+            border-right: none;
+            border-radius: 20px 0 0 20px;
+            padding: 0 16px;
+            height: 40px;
+            color: var(--yt-text-primary);
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1c62b9;
+        }
+
+        .search-button {
+            background: var(--yt-secondary);
+            border: 1px solid var(--yt-border);
+            border-left: none;
+            border-radius: 0 20px 20px 0;
+            padding: 0 20px;
+            height: 40px;
+            cursor: pointer;
+            color: var(--yt-text-secondary);
+        }
+
+        .search-button:hover {
+            background: var(--yt-hover);
+        }
+
+        .voice-search {
+            background: var(--yt-secondary);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 12px;
+            cursor: pointer;
+            color: var(--yt-text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voice-search:hover {
+            background: var(--yt-hover);
+        }
+
+        /* Iconos del header */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            color: var(--yt-text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .icon-button:hover {
+            background: var(--yt-hover);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--yt-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Sidebar estilo YouTube AUTÉNTICO */
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 240px;
+            height: calc(100vh - 56px);
+            background: var(--yt-primary);
+            overflow-y: auto;
+            z-index: 999;
+            transition: transform 0.2s ease;
+        }
+
+        .sidebar-content {
+            padding: 12px 0;
+        }
+
+        .sidebar-section {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--yt-border);
+        }
+
+        .sidebar-section:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-title {
+            padding: 8px 24px;
+            font-size: 0.9rem;
+            color: var(--yt-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 10px 24px;
+            color: var(--yt-text-primary);
+            text-decoration: none;
+            transition: background-color 0.1s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar-link:hover {
+            background: var(--yt-hover);
+        }
+
+        .sidebar-link.active {
+            background: var(--yt-active);
+            font-weight: 500;
+        }
+
+        .sidebar-link i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content estilo YouTube */
+        .main-content {
+            margin-left: 240px;
+            margin-top: 56px;
+            padding: 24px;
+            transition: margin-left 0.2s ease;
+            min-height: calc(100vh - 56px);
+            background: var(--yt-primary);
+        }
+
+        /* Hero Section simplificada */
+        .hero {
+            position: relative;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0303ff 0%, #0f0c0cff 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Video Grid estilo YouTube AUTÉNTICO */
+        .video-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--yt-text-primary);
+            font-weight: 500;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        /* Video Card estilo YouTube AUTÉNTICO */
+        .video-card {
+            background: transparent;
+            border-radius: 0;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: scale(1.03);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            margin-bottom: 12px;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .video-info {
+            display: flex;
+            gap: 12px;
+            padding: 0;
+        }
+
+        .channel-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--yt-secondary);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yt-text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .video-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .video-title {
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+            font-size: 1rem;
+        }
+
+        .video-meta {
+            color: var(--yt-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .video-channel {
+            margin-bottom: 4px;
+        }
+
+        .video-stats {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .dot-separator {
+            margin: 0 4px;
+        }
+
+        /* Video Actions estilo YouTube */
+        .video-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 0;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--yt-secondary);
+            border: none;
+            border-radius: 18px;
+            color: var(--yt-text-primary);
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: var(--yt-hover);
+        }
+
+        .action-btn.liked {
+            color: var(--yt-like);
+        }
+
+        .btn-download {
+            background: var(--yt-like);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-download:hover {
+            background: #2b8cd6;
+        }
+
+        /* Comments Section estilo YouTube */
+        .comments-section {
+            margin-top: 24px;
+            padding: 0;
+            background: transparent;
+        }
+
+        .comments-title {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            color: var(--yt-text-primary);
+            font-weight: 500;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--yt-secondary);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yt-text-secondary);
+        }
+
+        .comment-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--yt-border);
+            color: var(--yt-text-primary);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            resize: none;
+            min-height: 40px;
+            font-family: var(--font-roboto);
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-bottom-color: var(--yt-text-primary);
+        }
+
+        .comment-submit {
+            background: var(--yt-like);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+            font-weight: 500;
+        }
+
+        .comment-submit:hover {
+            background: #2b8cd6;
+        }
+
+        .comment {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--yt-border);
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .comment-author {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .comment-time {
+            color: var(--yt-text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .comment-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .comment-action {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: var(--yt-text-secondary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: color 0.1s ease;
+            padding: 4px;
+        }
+
+        .comment-action:hover {
+            color: var(--yt-text-primary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Footer simplificado */
+        .main-footer {
+            background: var(--yt-primary);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            margin-left: 240px;
+            border-top: 1px solid var(--yt-border);
+            transition: margin-left 0.2s ease;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--yt-text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--yt-text-primary);
+            font-weight: 500;
+        }
+
+        .footer-description {
+            color: var(--yt-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--yt-secondary);
+            border-radius: 50%;
+            color: var(--yt-text-primary);
+            text-decoration: none;
+            transition: background-color 0.1s ease;
+        }
+
+        .social-link:hover {
+            background: var(--yt-hover);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--yt-text-secondary);
+            text-decoration: none;
+            transition: color 0.1s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--yt-text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--yt-border);
+            padding-top: 20px;
+            text-align: center;
+            color: var(--yt-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Modal para videos */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            background: var(--yt-primary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--yt-text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive Design AUTÉNTICO de YouTube */
+        @media (max-width: 1312px) {
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .nav-center {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 240px;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+
+            .main-footer {
+                margin-left: 0;
+            }
+
+            .nav-center {
+                margin: 0 10px;
+            }
+
+            .search-container {
+                max-width: none;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .header-icons .icon-button:not(.user-avatar) {
+                display: none;
+            }
+
+            .video-actions {
+                flex-wrap: wrap;
+            }
+
+            .action-btn {
+                flex: 1;
+                min-width: 120px;
+                justify-content: center;
+            }
+
+            .comment-form {
+                flex-direction: column;
+            }
+
+            .comment-input {
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            .main-content {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 30px 0;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .video-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .channel-avatar {
+                display: none;
+            }
+        }
+
+        /* Estados collapsed del sidebar */
+        .sidebar.collapsed {
+            width: 72px;
+        }
+
+        .sidebar.collapsed .sidebar-link span {
+            display: none;
+        }
+
+        .sidebar.collapsed .sidebar-title {
+            display: none;
+        }
+
+        .sidebar.collapsed .sidebar-link {
+            justify-content: center;
+            padding: 16px 0;
+        }
+
+        .sidebar.collapsed .sidebar-link i {
+            margin: 0;
+        }
+
+        .main-content.expanded {
+            margin-left: 72px;
+        }
+
+        .main-footer.expanded {
+            margin-left: 72px;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--yt-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--yt-border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--yt-text-secondary);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header estilo YouTube AUTÉNTICO -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-start">
+                <button class="menu-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html" class="logo">
+                    <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="FreeParanormal" class="logo-image">
+                    <span class="logo-text">FreeParanormal</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <form class="search-form">
+                        <input type="text" class="search-input" placeholder="Buscar videos...">
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <button class="voice-search">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-end">
+                <div class="header-icons">
+                    <button class="icon-button">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    <button class="icon-button">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <div class="user-avatar">FP</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar estilo YouTube AUTÉNTICO -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-link active" data-section="inicio">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#" class="sidebar-link" data-section="videos">
+                    <i class="fas fa-fire"></i>
+                    <span>Videos Populares</span>
+                </a>
+                <a href="#" class="sidebar-link" data-section="fotos">
+                    <i class="fas fa-images"></i>
+                    <span>Galería de Fotos</span>
+                </a>
+                <a href="#" class="sidebar-link" data-section="documentos">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Documentos</span>
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Categorías</div>
+                <a href="#" class="sidebar-link" data-category="ovni">
+                    <i class="fas fa-ufo"></i>
+                    <span>Fenómenos OVNI</span>
+                </a>
+                <a href="#" class="sidebar-link" data-category="espiritualidad">
+                    <i class="fas fa-spa"></i>
+                    <span>Espiritualidad</span>
+                </a>
+                <a href="#" class="sidebar-link" data-category="paranormal">
+                    <i class="fas fa-ghost"></i>
+                    <span>Actividad Paranormal</span>
+                </a>
+                <a href="#" class="sidebar-link" data-category="investigaciones">
+                    <i class="fas fa-search"></i>
+                    <span>Investigaciones</span>
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Recursos</div>
+                <a href="#" class="sidebar-link" data-section="comunidad">
+                    <i class="fas fa-users"></i>
+                    <span>Comunidad</span>
+                </a>
+                <a href="#" class="sidebar-link" data-section="contacto">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+                <a href="#" class="sidebar-link" data-section="acerca">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Acerca de</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero content-section active" id="inicio-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Evidencia Paranormal Real</h1>
+                <p class="hero-subtitle">Descubre los casos más impactantes de fenómenos OVNI y actividad paranormal documentados científicamente</p>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section id="videos-section" class="content-section video-section">
+            <h2 class="section-title">
+                Videos Destacados
+            </h2>
+            
+            <div class="video-grid" id="videoGrid">
+                <!-- Videos cargados dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Fotos Section -->
+        <section id="fotos-section" class="content-section">
+            <h2 class="section-title">
+                Galería de Fotos
+            </h2>
+            <div class="photo-gallery" id="photoGallery">
+                <!-- Fotos cargadas dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Documentos Section -->
+        <section id="documentos-section" class="content-section">
+            <h2 class="section-title">
+                Documentos de Investigación
+            </h2>
+            <div class="documents-list" id="documentsList">
+                <!-- Documentos cargados dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Comments Section (Ejemplo para un video) -->
+        <section class="comments-section" id="commentsSection" style="display: none;">
+            <h3 class="comments-title">Comentarios y Opiniones</h3>
+            
+            <form class="comment-form" id="commentForm">
+                <div class="comment-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <textarea class="comment-input" placeholder="Añade un comentario..." required></textarea>
+                <button type="submit" class="comment-submit">Comentar</button>
+            </form>
+            
+            <div class="comments-list" id="commentsList">
+                <!-- Comentarios cargados dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-ufo"></i>
+                        <span>FreeParanormal</span>
+                    </div>
+                    <p class="footer-description">
+                        Plataforma dedicada a la investigación y documentación de fenómenos paranormales y OVNI. 
+                        Evidencia real analizada científicamente.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-section="videos">Videos Destacados</a></li>
+                        <li><a href="#" data-section="fotos">Galería de Fotos</a></li>
+                        <li><a href="#" data-section="documentos">Documentos</a></li>
+                        <li><a href="#" data-section="comunidad">Comunidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Aviso Legal</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:freeparanormal@gmail.com">freeparanormal@gmail.com</a></li>
+                        <li><a href="tel:+56982045756">+56 9 8204 5756</a></li>
+                        <li><a href="#">San Clemente, Chile</a></li>
+                        <li><a href="#">Reportar Caso</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FreeParanormal. Todos los derechos reservados.</p>
+                <p>Explorando los límites de lo desconocido</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para videos -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <video class="modal-video" controls id="modalVideo">
+                Tu navegador no soporta el elemento video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Datos de videos (igual que antes)
+        const videos = [
+            {
+                id: 1,
+                title: "Análisis del caso 'Luces en el cielo de San Clemente' - Evidencia militar",
+                channel: "FreeParanormal Investigación",
+                views: "154K",
+                time: "hace 2 semanas",
+                duration: "25:42",
+                thumbnail: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 12543,
+                comments: 342,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4",
+                description: "Análisis detallado de fenómeno anómalo captado por sensores militares en 2022."
+            },
+            {
+                id: 2,
+                title: "Fenómeno en Base Aérea Irak - 17 minutos de video clasificado",
+                channel: "FreeParanormal Investigación",
+                views: "89K",
+                time: "hace 1 mes",
+                duration: "42:15",
+                thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 8765,
+                comments: 231,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4",
+                description: "Captura de 17 minutos de video de un objeto no identificado cerca de la Base Aérea Al Taqaddum, Irak."
+            },
+            {
+                id: 3,
+                title: "Orbes Luminosos - Análisis de comportamiento anómalo",
+                channel: "FreeParanormal Investigación",
+                views: "203K",
+                time: "hace 3 semanas",
+                duration: "38:27",
+                thumbnail: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 15678,
+                comments: 512,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4",
+                description: "Objetos luminosos captados por sensores militares con características de vuelo anómalas."
+            },
+            {
+                id: 4,
+                title: "GOFAST - Video oficial de la Marina desclasificado",
+                channel: "FreeParanormal Investigación",
+                views: "312K",
+                time: "hace 2 meses",
+                duration: "35:18",
+                thumbnail: "https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 23456,
+                comments: 678,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2503/DOD_110886776/DOD_110886776.mp4",
+                description: "Video de la Marina mostrando objeto moviéndose a alta velocidad."
+            },
+            {
+                id: 5,
+                title: "GIMBAL - Caso de rotación anómala inexplicable",
+                channel: "FreeParanormal Investigación",
+                views: "278K",
+                time: "hace 1 mes",
+                duration: "31:45",
+                thumbnail: "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 19876,
+                comments: 423,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2502/DOD_110886778/DOD_110886778.mp4",
+                description: "Objeto mostrando rotación y movimiento que desafía explicación convencional."
+            },
+            {
+                id: 6,
+                title: "FLIR - Captura con sistema de infrarrojos avanzado",
+                channel: "FreeParanormal Investigación",
+                views: "187K",
+                time: "hace 3 meses",
+                duration: "29:12",
+                thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                likes: 14567,
+                comments: 298,
+                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2501/DOD_110886777/DOD_110886777.mp4",
+                description: "Captura mediante sistema FLIR de objeto no identificado."
+            }
+        ];
+
+        // Inicialización cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.main-content');
+            const mainFooter = document.querySelector('.main-footer');
+            const contentSections = document.querySelectorAll('.content-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const videoGrid = document.getElementById('videoGrid');
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const closeModal = document.querySelector('.close-modal');
+            const commentForm = document.getElementById('commentForm');
+            const commentsList = document.getElementById('commentsList');
+            const commentsSection = document.getElementById('commentsSection');
+
+            // Estado del sidebar
+            let sidebarCollapsed = false;
+
+            // Cargar videos en la grid
+            function loadVideos() {
+                videoGrid.innerHTML = '';
+                videos.forEach(video => {
+                    const videoCard = createVideoCard(video);
+                    videoGrid.appendChild(videoCard);
+                });
+            }
+
+            // Crear tarjeta de video estilo YouTube
+            function createVideoCard(video) {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <div class="video-thumbnail">
+                        <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
+                        <div class="video-duration">${video.duration}</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fas fa-ufo"></i>
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">${video.title}</h3>
+                            <div class="video-meta">
+                                <div class="video-channel">${video.channel}</div>
+                                <div class="video-stats">
+                                    <span>${video.views} vistas</span>
+                                    <span class="dot-separator">•</span>
+                                    <span>${video.time}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn" data-video-id="${video.id}">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>${formatNumber(video.likes)}</span>
+                        </button>
+                        <button class="action-btn comment-btn" data-video-id="${video.id}">
+                            <i class="fas fa-comment"></i>
+                            <span>${video.comments}</span>
+                        </button>
+                        <a href="${video.videoUrl}" download class="action-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            <span>Descargar</span>
+                        </a>
+                    </div>
+                `;
+
+                // Event listeners
+                const likeButton = card.querySelector('.like-btn');
+                const commentButton = card.querySelector('.comment-btn');
+
+                likeButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleLike(likeButton, video.id);
+                });
+
+                commentButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showComments(video.id);
+                });
+
+                // Hacer toda la tarjeta clickeable para abrir el modal
+                card.addEventListener('click', () => {
+                    openVideoModal(video.videoUrl);
+                });
+
+                return card;
+            }
+
+            // Formatear números
+            function formatNumber(num) {
+                if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1) + 'M';
+                } else if (num >= 1000) {
+                    return (num / 1000).toFixed(1) + 'K';
+                }
+                return num.toString();
+            }
+
+            // Abrir modal de video
+            function openVideoModal(videoUrl) {
+                modalVideo.src = videoUrl;
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Cerrar modal de video
+            function closeVideoModal() {
+                videoModal.classList.remove('active');
+                modalVideo.pause();
+                modalVideo.src = '';
+                document.body.style.overflow = 'auto';
+            }
+
+            // Toggle like
+            function toggleLike(button, videoId) {
+                button.classList.toggle('liked');
+                const likeCount = button.querySelector('span');
+                let currentLikes = parseInt(likeCount.textContent.replace(/[KM]/g, '')) * 
+                    (likeCount.textContent.includes('K') ? 1000 : 1);
+                
+                if (button.classList.contains('liked')) {
+                    currentLikes += 1;
+                } else {
+                    currentLikes -= 1;
+                }
+                
+                likeCount.textContent = formatNumber(currentLikes);
+            }
+
+            // Mostrar comentarios
+            function showComments(videoId) {
+                loadComments(videoId);
+                commentsSection.style.display = 'block';
+                commentsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Cargar comentarios
+            function loadComments(videoId) {
+                commentsList.innerHTML = '';
+                const sampleComments = [
+                    {
+                        id: 1,
+                        author: "InvestigadorUFO",
+                        time: "hace 2 días",
+                        text: "Excelente análisis. La evidencia presentada es contundente y bien documentada.",
+                        likes: 24,
+                        liked: false
+                    },
+                    {
+                        id: 2,
+                        author: "CientíficoCurioso",
+                        time: "hace 3 días",
+                        text: "Me gustaría ver más datos técnicos sobre los sensores utilizados en la captura.",
+                        likes: 15,
+                        liked: true
+                    }
+                ];
+
+                sampleComments.forEach(comment => {
+                    const commentElement = document.createElement('div');
+                    commentElement.className = 'comment';
+                    commentElement.innerHTML = `
+                        <div class="comment-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">${comment.author}</span>
+                                <span class="comment-time">${comment.time}</span>
+                            </div>
+                            <p class="comment-text">${comment.text}</p>
+                            <div class="comment-actions">
+                                <button class="comment-action ${comment.liked ? 'liked' : ''}">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>${comment.likes}</span>
+                                </button>
+                                <button class="comment-action">
+                                    <i class="fas fa-thumbs-down"></i>
+                                </button>
+                                <button class="comment-action">
+                                    Responder
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    commentsList.appendChild(commentElement);
+                });
+            }
+
+            // Cambiar sección de contenido
+            function showSection(sectionId) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                const targetSection = document.getElementById(`${sectionId}-section`);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    
+                    if (sectionId === 'videos') {
+                        loadVideos();
+                    }
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', () => {
+                if (window.innerWidth > 768) {
+                    // En desktop: toggle collapsed/expanded
+                    sidebarCollapsed = !sidebarCollapsed;
+                    if (sidebarCollapsed) {
+                        sidebar.classList.add('collapsed');
+                        mainContent.classList.add('expanded');
+                        mainFooter.classList.add('expanded');
+                    } else {
+                        sidebar.classList.remove('collapsed');
+                        mainContent.classList.remove('expanded');
+                        mainFooter.classList.remove('expanded');
+                    }
+                } else {
+                    // En mobile: toggle show/hide
+                    sidebar.classList.toggle('active');
+                }
+            });
+
+            // Navegación del sidebar
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const section = link.getAttribute('data-section');
+                    if (section) {
+                        // Actualizar enlaces activos
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                        
+                        // Mostrar sección
+                        showSection(section);
+                        
+                        // Cerrar sidebar en móvil
+                        if (window.innerWidth <= 768) {
+                            sidebar.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Cerrar modal
+            closeModal.addEventListener('click', closeVideoModal);
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+
+            // Enviar comentario
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const commentInput = commentForm.querySelector('.comment-input');
+                const commentText = commentInput.value.trim();
+                
+                if (commentText) {
+                    const newComment = {
+                        id: Date.now(),
+                        author: "Tú",
+                        time: "ahora mismo",
+                        text: commentText,
+                        likes: 0,
+                        liked: false
+                    };
+                    
+                    const commentElement = document.createElement('div');
+                    commentElement.className = 'comment';
+                    commentElement.innerHTML = `
+                        <div class="comment-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">${newComment.author}</span>
+                                <span class="comment-time">${newComment.time}</span>
+                            </div>
+                            <p class="comment-text">${newComment.text}</p>
+                            <div class="comment-actions">
+                                <button class="comment-action">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>${newComment.likes}</span>
+                                </button>
+                                <button class="comment-action">
+                                    <i class="fas fa-thumbs-down"></i>
+                                </button>
+                                <button class="comment-action">
+                                    Responder
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    commentsList.insertBefore(commentElement, commentsList.firstChild);
+                    commentInput.value = '';
+                }
+            });
+
+            // Cargar videos inicialmente
+            loadVideos();
+
+            // Cerrar sidebar al hacer clic fuera en móvil
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                    }
+                }
+            });
+
+            // Manejar redimensionamiento
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

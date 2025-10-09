@@ -1,949 +1,969 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caso Kumburgaz – Misterios Cósmicos</title>
-  <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Estilos específicos para la presentación narrativa */
-    .presentation-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .story-section {
-        margin-bottom: 4rem;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .story-section:nth-child(2) { animation-delay: 0.2s; }
-    .story-section:nth-child(3) { animation-delay: 0.4s; }
-    .story-section:nth-child(4) { animation-delay: 0.6s; }
-    .story-section:nth-child(5) { animation-delay: 0.8s; }
-
-    .story-header {
-        text-align: center;
-        margin-bottom: 3rem;
-        padding: 2rem 0;
-        border-bottom: 2px solid rgba(168, 10, 28, 0.3);
-    }
-
-    .story-title {
-        font-family: var(--font-heading);
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .story-subtitle {
-        font-size: 1.3rem;
-        color: var(--color-text-secondary);
-        font-style: italic;
-    }
-
-    .story-content {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: var(--color-text-secondary);
-        margin-bottom: 2rem;
-    }
-
-    .story-content p {
-        margin-bottom: 1.5rem;
-        text-align: justify;
-    }
-
-    .highlight-box {
-        background: rgba(168, 10, 28, 0.1);
-        border-left: 4px solid var(--color-accent-blue);
-        padding: 2rem;
-        margin: 2rem 0;
-        border-radius: 0 8px 8px 0;
-    }
-
-    .quote {
-        font-size: 1.2rem;
-        font-style: italic;
-        text-align: center;
-        color: var(--color-text);
-        margin: 2rem 0;
-        padding: 2rem;
-        position: relative;
-    }
-
-    .quote::before,
-    .quote::after {
-        content: '"';
-        font-size: 3rem;
-        color: var(--color-accent-blue);
-        position: absolute;
-        opacity: 0.3;
-    }
-
-    .quote::before {
-        top: 0;
-        left: 0;
-    }
-
-    .quote::after {
-        bottom: -1rem;
-        right: 0;
-    }
-
-    .quote-author {
-        display: block;
-        margin-top: 1rem;
-        font-size: 1rem;
-        color: var(--color-text-secondary);
-        font-style: normal;
-    }
-
-    .evidence-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin: 3rem 0;
-    }
-
-    .evidence-item {
-        background: rgba(15, 15, 20, 0.8);
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid rgba(168, 10, 28, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .evidence-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .evidence-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .evidence-caption {
-        padding: 1rem;
-        font-size: 0.9rem;
-        color: var(--color-text-secondary);
-        text-align: center;
-    }
-
-    .timeline {
-        position: relative;
-        margin: 3rem 0;
-        padding-left: 2rem;
-    }
-
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: var(--color-accent-blue);
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 2rem;
-        padding-left: 2rem;
-    }
-
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -2.3rem;
-        top: 0.5rem;
-        width: 12px;
-        height: 12px;
-        background: var(--color-accent-blue);
-        border-radius: 50%;
-        border: 3px solid var(--color-primary);
-    }
-
-    .timeline-time {
-        font-weight: bold;
-        color: var(--color-accent-blue);
-        margin-bottom: 0.5rem;
-    }
-
-    .document-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--color-accent-blue);
-        text-decoration: none;
-        margin: 1rem 0;
-        padding: 0.5rem 1rem;
-        background: rgba(168, 10, 28, 0.1);
-        border-radius: 5px;
-        transition: all 0.3s ease;
-    }
-
-    .document-link:hover {
-        background: rgba(168, 10, 28, 0.2);
-        transform: translateX(5px);
-    }
-
-    .conclusion {
-        background: rgba(168, 10, 28, 0.05);
-        border-radius: 15px;
-        padding: 3rem;
-        margin: 4rem 0;
-        text-align: center;
-        border: 1px solid rgba(168, 10, 28, 0.2);
-    }
-
-    .conclusion-title {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: var(--color-text);
-    }
-
-    /* Navegación entre casos */
-    .case-navigation {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(168, 10, 28, 0.3);
-    }
-
-    .nav-button {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 2rem;
-        background: rgba(168, 10, 28, 0.1);
-        border: 1px solid rgba(168, 10, 28, 0.3);
-        border-radius: 8px;
-        color: var(--color-text);
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-
-    .nav-button:hover {
-        background: rgba(168, 10, 28, 0.2);
-        transform: translateX(-5px);
-    }
-
-    .nav-button.next:hover {
-        transform: translateX(5px);
-    }
-
-    /* Header */
-    .header-caso {
-      background: linear-gradient(rgba(2, 1, 6, 0.8), rgba(2, 1, 6, 0.9)), url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 2rem 0;
-      position: relative;
-    }
-    
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-text);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo i {
-      margin-right: 0.5rem;
-      color: var(--color-accent-blue);
-    }
-    
-    .menu {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-    
-    .menu a {
-      color: var(--color-text);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    
-    .menu a:hover {
-      color: var(--color-accent-blue);
-    }
-    
-    .hero {
-      text-align: center;
-      padding: 4rem 0;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--color-text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 2rem;
-      background: #020106;
-      color: var(--color-text-secondary);
-      border-top: 1px solid rgba(168, 10, 28, 0.3);
-    }
-    
-    /* Elementos adicionales */
-    .video-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%;
-      margin-bottom: 1rem;
-    }
-    
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-    }
-
-    .btn-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: transform 0.3s ease;
-      margin: 0.5rem;
-    }
-    
-    .btn-link:hover {
-      transform: translateY(-3px);
-    }
-
-    .evidence-details {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-
-    .evidence-detail-card {
-        background: rgba(25, 25, 35, 0.8);
-        padding: 1.5rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--color-accent-blue);
-    }
-
-    .evidence-detail-card h4 {
-        color: var(--color-accent-blue);
-        margin-bottom: 1rem;
-    }
-
-    /* Sección de Comentarios */
-    .comments-section {
-        background: rgba(15, 15, 20, 0.7);
-        border-radius: 15px;
-        padding: 2.5rem;
-        margin: 3rem 0;
-        border: 1px solid rgba(168, 10, 28, 0.2);
-    }
-
-    .comments-section h2 {
-        color: var(--color-accent-blue);
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-
-    .comment-form {
-        background: rgba(25, 25, 35, 0.8);
-        padding: 2rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-        border: 1px solid rgba(168, 10, 28, 0.2);
-    }
-
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-        display: block;
-        color: var(--color-text);
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        width: 100%;
-        padding: 0.8rem 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(168, 10, 28, 0.3);
-        border-radius: 5px;
-        color: var(--color-text);
-        font-family: var(--font-primary);
-        transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        outline: none;
-        border-color: var(--color-accent-blue);
-    }
-
-    .form-group textarea {
-        resize: vertical;
-        min-height: 120px;
-    }
-
-    .submit-btn {
-        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        width: 100%;
-    }
-
-    .submit-btn:hover {
-        transform: translateY(-2px);
-    }
-
-    .comments-list {
-        margin-top: 2rem;
-    }
-
-    .comment {
-        background: rgba(25, 25, 35, 0.8);
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-        border-left: 3px solid var(--color-accent-blue);
-    }
-
-    .comment-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .comment-author {
-        color: var(--color-accent-blue);
-        font-weight: 600;
-    }
-
-    .comment-date {
-        color: var(--color-text-secondary);
-        font-size: 0.9rem;
-    }
-
-    .comment-rating {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .rating-stars {
-        color: #ffd700;
-    }
-
-    .comment-content {
-        color: var(--color-text-secondary);
-        line-height: 1.6;
-    }
-
-    .no-comments {
-        text-align: center;
-        color: var(--color-text-secondary);
-        font-style: italic;
-        padding: 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .presentation-container {
-            padding: 1rem;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoDownloader Pro - Descarga videos de Facebook y YouTube</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
-        .story-title {
-            font-size: 2.2rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .evidence-gallery {
-            grid-template-columns: 1fr;
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        .case-navigation {
-            flex-direction: column;
-            gap: 1rem;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .nav-button {
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--success);
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--success), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .card-title i {
+            color: var(--success);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: var(--success);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .url-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .platform-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .platform-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .platform-btn.active {
+            background: var(--primary);
+        }
+
+        .platform-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quality-selector {
+            margin-bottom: 20px;
+        }
+
+        .quality-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .quality-option {
+            padding: 10px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .quality-option.active {
+            background: var(--secondary);
+        }
+
+        .quality-option:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .download-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .preview-container {
+            text-align: center;
+        }
+
+        .video-preview {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--border-radius);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-preview .placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+        }
+
+        .video-info {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .history-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .history-thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .nav-bar {
-          flex-direction: column;
-          gap: 1rem;
-        }
-        
-        .menu {
-          gap: 1.5rem;
-        }
-        
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-        
-        .evidence-details {
-            grid-template-columns: 1fr;
+        .history-info {
+            flex: 1;
         }
 
-        .comments-section {
-            padding: 1.5rem;
+        .history-title {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .comment-header {
+        .history-details {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .history-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .history-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .history-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-success {
+            background: rgba(76, 201, 240, 0.2);
+            border: 1px solid var(--success);
+        }
+
+        .alert-error {
+            background: rgba(247, 37, 133, 0.2);
+            border: 1px solid var(--danger);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            position: relative;
+            width: 100px;
         }
-    }
-  </style>
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .step.active .step-circle {
+            background: var(--primary);
+        }
+
+        .step.completed .step-circle {
+            background: var(--success);
+        }
+
+        .step-text {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .download-options {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .format-option {
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .format-option.active {
+            background: var(--secondary);
+        }
+
+        .format-option:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 <body>
-  <header class="header-caso">
-    <nav class="nav-bar">
-      <a href="index.html" class="logo">
-        <i class="fas fa-ufo"></i>
-        Misterios Cósmicos
-      </a>
-      <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="casos.html">Casos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="hero">
-      <h1>Caso Kumburgaz (2007-2009)</h1>
-      <p>El avistamiento más documentado del siglo XXI</p>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-cloud-download-alt"></i>
+                <h1>VideoDownloader Pro</h1>
+            </div>
+            <p class="tagline">Descarga videos de Facebook y YouTube en alta calidad</p>
+            
+            <div class="step-indicator">
+                <div class="step active">
+                    <div class="step-circle">1</div>
+                    <div class="step-text">Pegar URL</div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <div class="step-text">Seleccionar Calidad</div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <div class="step-text">Descargar</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-link"></i> Ingresar URL del Video</h2>
+                
+                <div class="input-group">
+                    <label for="videoUrl">Pega la URL del video</label>
+                    <input type="text" id="videoUrl" class="url-input" placeholder="https://www.youtube.com/watch?v=... o https://www.facebook.com/watch/?v=...">
+                </div>
+                
+                <div class="platform-selector">
+                    <button class="platform-btn active" data-platform="youtube">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </button>
+                    <button class="platform-btn" data-platform="facebook">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                </div>
+                
+                <div class="input-group">
+                    <label>Selecciona la calidad</label>
+                    <div class="quality-options">
+                        <button class="quality-option active" data-quality="1080">1080p</button>
+                        <button class="quality-option" data-quality="720">720p</button>
+                        <button class="quality-option" data-quality="480">480p</button>
+                        <button class="quality-option" data-quality="360">360p</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Formato de descarga</label>
+                    <div class="download-options">
+                        <button class="format-option active" data-format="mp4">
+                            <i class="fas fa-film"></i> MP4 (Video)
+                        </button>
+                        <button class="format-option" data-format="mp3">
+                            <i class="fas fa-music"></i> MP3 (Audio)
+                        </button>
+                    </div>
+                </div>
+                
+                <button id="downloadBtn" class="download-btn">
+                    <i class="fas fa-download"></i> Descargar Video
+                </button>
+            </div>
+            
+            <div class="card preview-container">
+                <h2 class="card-title"><i class="fas fa-play-circle"></i> Vista Previa</h2>
+                
+                <div class="video-preview">
+                    <div class="placeholder">
+                        <i class="fas fa-film fa-3x"></i>
+                        <p>Vista previa del video aparecerá aquí</p>
+                    </div>
+                </div>
+                
+                <div class="video-info hidden">
+                    <div class="video-title" id="videoTitle">Título del video</div>
+                    <div class="video-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="videoDuration">--:--</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-eye"></i>
+                            <span id="videoViews">0 vistas</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="videoDate">Fecha desconocida</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span id="videoAuthor">Autor desconocido</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="successAlert" class="alert alert-success hidden">
+                    <i class="fas fa-check-circle"></i>
+                    <span>¡Video listo para descargar!</span>
+                </div>
+                
+                <div id="errorAlert" class="alert alert-error hidden">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="errorMessage">Error al procesar el video</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card history-section">
+            <h2 class="card-title"><i class="fas fa-history"></i> Descargas Recientes</h2>
+            <div class="history-list" id="historyList">
+                <!-- Los elementos de historial se agregarán aquí dinámicamente -->
+            </div>
+        </div>
+        
+        <footer>
+            <p>VideoDownloader Pro &copy; 2023 - Una herramienta para descargar videos de forma rápida y sencilla</p>
+            <p><i class="fas fa-exclamation-triangle"></i> Solo para uso personal. Respeta los derechos de autor.</p>
+        </footer>
     </div>
-  </header>
 
-  <main class="presentation-container">
-    
-    <!-- Introducción -->
-    <section class="story-section">
-      <div class="story-header">
-        <h1 class="story-title">El Fenómeno de Kumburgaz</h1>
-        <p class="story-subtitle">Cuando las cámaras captaron lo imposible sobre el Mar de Mármara</p>
-      </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos DOM
+            const videoUrlInput = document.getElementById('videoUrl');
+            const platformButtons = document.querySelectorAll('.platform-btn');
+            const qualityButtons = document.querySelectorAll('.quality-option');
+            const formatButtons = document.querySelectorAll('.format-option');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const videoPreview = document.querySelector('.video-preview');
+            const videoInfo = document.querySelector('.video-info');
+            const videoTitle = document.getElementById('videoTitle');
+            const videoDuration = document.getElementById('videoDuration');
+            const videoViews = document.getElementById('videoViews');
+            const videoDate = document.getElementById('videoDate');
+            const videoAuthor = document.getElementById('videoAuthor');
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            const errorMessage = document.getElementById('errorMessage');
+            const historyList = document.getElementById('historyList');
+            const steps = document.querySelectorAll('.step');
 
-      <div class="story-content">
-        <p>Entre 2007 y 2009, en la costa de Kumburgaz, Turquía, ocurrió una serie de avistamientos que cambiarían para siempre la forma en que documentamos fenómenos aéreos no identificados. Un guardia de seguridad, Yalçın Yalman, logró captar con su cámara digital uno de los videos OVNI más extraordinarios y analizados de la historia moderna.</p>
+            // Estado de la aplicación
+            let currentPlatform = 'youtube';
+            let currentQuality = '1080';
+            let currentFormat = 'mp4';
+            let currentVideoData = null;
 
-        <div class="evidence-gallery">
-          <div class="evidence-item">
-            <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Costa de Kumburgaz" class="evidence-image">
-            <div class="evidence-caption">Costa de Kumburgaz, Turquía - Lugar de los avistamientos</div>
-          </div>
-          <div class="evidence-item">
-            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Equipo de grabación" class="evidence-image">
-            <div class="evidence-caption">Equipo de grabación similar al utilizado por Yalçın Yalman</div>
-          </div>
-        </div>
+            // Event Listeners
+            platformButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    platformButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentPlatform = this.dataset.platform;
+                    updateStepIndicator(1);
+                    resetPreview();
+                });
+            });
 
-        <p>Lo que distingue al caso Kumburgaz es la calidad y duración del material grabado, que muestra un objeto estructurado con un nivel de detalle sin precedentes. Las imágenes, analizadas por expertos internacionales, revelan lo que parece ser una cabina transparente con figuras humanoides en su interior.</p>
-      </div>
-    </section>
+            qualityButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    qualityButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentQuality = this.dataset.quality;
+                    updateStepIndicator(2);
+                });
+            });
 
-    <!-- Los Avistamientos -->
-    <section class="story-section">
-      <h2 style="color: var(--color-accent-blue); margin-bottom: 2rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1rem;">Crónica de los Encuentros</h2>
+            formatButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    formatButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFormat = this.dataset.format;
+                });
+            });
 
-      <div class="story-content">
-        <p>Yalçın Yalman, trabajando como guardia de seguridad nocturno, comenzó a notar luces extrañas sobre el Mar de Mármara. Armado con una cámara digital Sony Handycam DCR-HC36E, documentó meticulosamente los avistamientos durante múltiples noches.</p>
+            videoUrlInput.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    updateStepIndicator(1, true);
+                    fetchVideoInfo();
+                } else {
+                    resetPreview();
+                }
+            });
 
-        <div class="highlight-box">
-          <p><strong>Testimonio de Yalçın Yalman:</strong> "Al principio pensé que eran luces de barcos, pero luego me di cuenta de que se movían de manera extraña. Comencé a grabarlas cada noche. Cuando amplié las imágenes, no podía creer lo que veía: era un objeto estructurado, y dentro podía distinguir figuras que se movían."</p>
-        </div>
+            downloadBtn.addEventListener('click', function() {
+                const url = videoUrlInput.value.trim();
+                
+                if (!url) {
+                    showError('Por favor, ingresa una URL válida');
+                    return;
+                }
 
-        <p>Los avistamientos ocurrieron en múltiples fechas, siendo los más significativos aquellos de 2007, 2008 y 2009. Cada grabación mostraba el mismo objeto básico, pero desde diferentes ángulos y con variaciones en la iluminación.</p>
+                if (!isValidUrl(url)) {
+                    showError('La URL ingresada no es válida');
+                    return;
+                }
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-time">Mayo 2007</div>
-            <p>Primeros avistamientos documentados. Yalman comienza su registro sistemático</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">Junio 2008</div>
-            <p>Captura del video más claro y detallado del objeto</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">Enero 2009</div>
-            <p>Últimas grabaciones significativas antes de que los avistamientos cesaran</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-time">2009-2010</div>
-            <p>Análisis internacional del material por expertos en óptica y ufología</p>
-          </div>
-        </div>
+                // Iniciar proceso de descarga
+                startDownload(url);
+            });
 
-        <p>La consistencia de las grabaciones a lo largo de casi tres años, junto con la calidad del material, convirtió el caso Kumburgaz en un fenómeno de interés global.</p>
-      </div>
-    </section>
+            // Funciones
+            function isValidUrl(url) {
+                try {
+                    new URL(url);
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
 
-    <!-- Análisis del Video -->
-    <section class="story-section">
-      <h2 style="color: var(--color-accent-blue); margin-bottom: 2rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1rem;">El Video que Sorprendió al Mundo</h2>
+            function fetchVideoInfo() {
+                const url = videoUrlInput.value.trim();
+                if (!url) return;
 
-      <div class="story-content">
-        <p>El material grabado por Yalman muestra un objeto de aproximadamente 15-20 metros de diámetro, con una cúpula transparente superior y una base metálica. Lo más extraordinario es lo que parece visible a través de la cúpula.</p>
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<div class="loading"></div> Procesando...';
 
-        <div class="evidence-details">
-          <div class="evidence-detail-card">
-            <h4>Estructura del Objeto</h4>
-            <p>Forma discoidal con cúpula transparente superior y base metálica con patrones geométricos</p>
-          </div>
-          <div class="evidence-detail-card">
-            <h4>Figuras Visibles</h4>
-            <p>Dos entidades humanoides distinguibles dentro de la cúpula, de aproximadamente 1 metro de altura</p>
-          </div>
-          <div class="evidence-detail-card">
-            <h4>Comportamiento</h4>
-            <p>Movimientos flotantes suaves, cambios de altitud y capacidad de mantenerse estático</p>
-          </div>
-        </div>
+                // Usar un servicio de API para obtener información del video
+                fetchVideoData(url)
+                    .then(data => {
+                        currentVideoData = data;
+                        displayVideoInfo(data);
+                        downloadBtn.disabled = false;
+                        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Descargar Video';
+                        showSuccess('Video procesado correctamente');
+                        updateStepIndicator(2, true);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showError('No se pudo obtener información del video. Verifica la URL.');
+                        downloadBtn.disabled = false;
+                        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Descargar Video';
+                    });
+            }
 
-        <article class="evidencia">
-          <h3>Video Original del Caso Kumburgaz</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/5z3nP-xz1z8" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <p>
-            Secuencia completa del avistamiento mostrando el objeto y las figuras en su interior.
-          </p>
-        </article>
+            function fetchVideoData(url) {
+                return new Promise((resolve, reject) => {
+                    // En una implementación real, aquí harías una llamada a una API
+                    // Por ahora simulamos una respuesta después de un tiempo
+                    setTimeout(() => {
+                        // Simular datos de video
+                        const isYouTube = url.includes('youtube.com') || url.includes('youtu.be');
+                        const isFacebook = url.includes('facebook.com');
+                        
+                        if ((isYouTube && currentPlatform === 'youtube') || 
+                            (isFacebook && currentPlatform === 'facebook')) {
+                            
+                            const videoId = isYouTube ? 
+                                (url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/))?.[1] || 'unknown' :
+                                (url.match(/v=(\d+)/) || url.match(/\/watch\/(\d+)/))?.[1] || 'unknown';
+                                
+                            resolve({
+                                title: `Video de ${isYouTube ? 'YouTube' : 'Facebook'} - ${videoId}`,
+                                duration: isYouTube ? '15:30' : '4:22',
+                                views: isYouTube ? '1,245,678' : '45,321',
+                                date: new Date().toLocaleDateString(),
+                                author: isYouTube ? 'Canal Ejemplo' : 'Usuario Facebook',
+                                thumbnail: isYouTube ? 
+                                    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : 
+                                    null
+                            });
+                        } else {
+                            reject(new Error('Plataforma no coincide con la URL'));
+                        }
+                    }, 1500);
+                });
+            }
 
-        <div class="quote">
-          "Cuando analizamos el video frame por frame, pudimos distinguir claramente una estructura mecánica y lo que parecen ser dos ocupantes. La transparencia de la cúpula permite ver el interior de manera extraordinaria."
-          <span class="quote-author">- Dr. Roger K. Leir, analista de video</span>
-        </div>
-      </div>
-    </section>
+            function displayVideoInfo(data) {
+                videoTitle.textContent = data.title;
+                videoDuration.textContent = data.duration;
+                videoViews.textContent = data.views + ' vistas';
+                videoDate.textContent = data.date;
+                videoAuthor.textContent = data.author;
 
-    <!-- Investigación Científica -->
-    <section class="story-section">
-      <h2 style="color: var(--color-accent-blue); margin-bottom: 2rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1rem;">Análisis Científico Internacional</h2>
+                // Mostrar elementos
+                videoInfo.classList.remove('hidden');
+                
+                // Mostrar miniatura si está disponible
+                if (data.thumbnail) {
+                    videoPreview.innerHTML = `
+                        <img src="${data.thumbnail}" alt="Miniatura del video" style="width:100%;height:100%;object-fit:cover;">
+                    `;
+                } else {
+                    videoPreview.innerHTML = `
+                        <div style="width:100%;height:100%;background:linear-gradient(45deg, #${currentPlatform === 'youtube' ? 'ff0000' : '1877f2'}, #${currentPlatform === 'youtube' ? '282828' : '0d8bf1'});display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;">
+                            <i class="fab fa-${currentPlatform}"></i>
+                        </div>
+                    `;
+                }
+            }
 
-      <div class="story-content">
-        <p>El caso Kumburgaz atrajo la atención de investigadores de todo el mundo. El Turkish UFO Research Center (Sirius UFO Space Sciences Research Center) lideró la investigación, pero expertos internacionales también participaron en el análisis.</p>
+            function startDownload(url) {
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<div class="loading"></div> Preparando descarga...';
 
-        <div class="highlight-box">
-          <p><strong>Conclusiones del análisis técnico:</strong></p>
-          <ul>
-            <li>El video es auténtico y no muestra signos de manipulación digital</li>
-            <li>El objeto se estima entre 15-20 metros de diámetro</li>
-            <li>Las figuras internas mantienen proporciones humanoides consistentes</li>
-            <li>No se identificó fuente de propulsión visible</li>
-            <li>El comportamiento de vuelo desafía la aerodinámica convencional</li>
-          </ul>
-        </div>
+                // Usar un servicio de descarga de video
+                const downloadUrl = generateDownloadUrl(url, currentQuality, currentFormat);
+                
+                // Crear enlace de descarga
+                const a = document.createElement('a');
+                a.href = downloadUrl;
+                a.target = '_blank';
+                a.download = `video_${currentPlatform}_${currentQuality}p.${currentFormat}`;
+                
+                // Simular clic en el enlace
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Mostrar mensaje de éxito
+                showSuccess(`Descarga de ${currentFormat.toUpperCase()} en calidad ${currentQuality}p iniciada`);
+                
+                // Agregar al historial
+                addToHistory(currentVideoData.title, currentPlatform, currentQuality, currentFormat);
+                
+                // Restablecer botón
+                setTimeout(() => {
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-download"></i> Descargar Video';
+                    updateStepIndicator(3, true);
+                }, 1000);
+            }
 
-        <p>Expertos en óptica y análisis de video examinaron el material utilizando software especializado, descartando teorías convencionales como globos, aviones no tripulados o efectos especiales.</p>
+            function generateDownloadUrl(url, quality, format) {
+                // En una implementación real, aquí conectarías con un servicio de descarga
+                // Por ahora usamos servicios públicos (nota: estos pueden cambiar)
+                const isYouTube = url.includes('youtube.com') || url.includes('youtu.be');
+                
+                if (isYouTube) {
+                    // Servicio para YouTube
+                    const videoId = (url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/))?.[1];
+                    if (videoId) {
+                        if (format === 'mp3') {
+                            return `https://ytmp3.cc/en13/?v=${videoId}`;
+                        } else {
+                            return `https://ssyoutube.com/en/download-youtube-video?url=https://www.youtube.com/watch?v=${videoId}`;
+                        }
+                    }
+                } else {
+                    // Servicio para Facebook
+                    return `https://getfbstuff.com/download?url=${encodeURIComponent(url)}`;
+                }
+                
+                // Fallback: abrir en una nueva pestaña para descarga manual
+                return url;
+            }
 
-        <a href="https://www.siriusufo.org" target="_blank" class="document-link">
-          <i class="fas fa-external-link-alt"></i>
-          Turkish UFO Research Center - Reporte Completo
-        </a>
+            function resetPreview() {
+                videoInfo.classList.add('hidden');
+                videoPreview.innerHTML = `
+                    <div class="placeholder">
+                        <i class="fas fa-film fa-3x"></i>
+                        <p>Vista previa del video aparecerá aquí</p>
+                    </div>
+                `;
+                hideAlerts();
+                updateStepIndicator(1);
+            }
 
-        <a href="https://www.mufon.com" target="_blank" class="document-link">
-          <i class="fas fa-search"></i>
-          Análisis MUFON del caso Kumburgaz
-        </a>
-      </div>
-    </section>
+            function showSuccess(message) {
+                successAlert.querySelector('span').textContent = message;
+                successAlert.classList.remove('hidden');
+                errorAlert.classList.add('hidden');
+            }
 
-    <!-- Controversia y Escepticismo -->
-    <section class="story-section">
-      <h2 style="color: var(--color-accent-blue); margin-bottom: 2rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1rem;">El Debate Científico</h2>
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorAlert.classList.remove('hidden');
+                successAlert.classList.add('hidden');
+            }
 
-      <div class="story-content">
-        <p>Como todo caso extraordinario, Kumburgaz generó controversia y escepticismo. Algunos investigadores propusieron explicaciones alternativas que han sido debatidas intensamente.</p>
+            function hideAlerts() {
+                successAlert.classList.add('hidden');
+                errorAlert.classList.add('hidden');
+            }
 
-        <div class="evidence-details">
-          <div class="evidence-detail-card">
-            <h4>Teoría del Barco</h4>
-            <p>Críticos sugieren que podría ser un barco en la distancia, pero la altitud y movimientos contradicen esta teoría</p>
-          </div>
-          <div class="evidence-detail-card">
-            <h4>Holograma o Proyección</h4>
-            <p>Algunos especulan sobre tecnología de proyección avanzada, aunque no se ha demostrado feasible a esa escala</p>
-          </div>
-          <div class="evidence-detail-card">
-            <h4>Fenómeno Atmosférico</h4>
-            <p>Teorías sobre espejismos o inversiones térmicas, pero no explican la estructura definida</p>
-          </div>
-        </div>
+            function addToHistory(title, platform, quality, format) {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                
+                // Tamaño simulado basado en calidad y formato
+                let size;
+                if (format === 'mp3') {
+                    size = '5 MB';
+                } else {
+                    size = quality === '1080' ? '45 MB' : 
+                          quality === '720' ? '25 MB' : 
+                          quality === '480' ? '15 MB' : '8 MB';
+                }
+                
+                historyItem.innerHTML = `
+                    <div class="history-thumbnail">
+                        <i class="fab fa-${platform}"></i>
+                    </div>
+                    <div class="history-info">
+                        <div class="history-title">${title}</div>
+                        <div class="history-details">${platform === 'youtube' ? 'YouTube' : 'Facebook'} • ${quality}p • ${format.toUpperCase()} • ${size}</div>
+                    </div>
+                    <div class="history-actions">
+                        <button class="history-btn re-download"><i class="fas fa-redo"></i></button>
+                        <button class="history-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                
+                // Agregar al inicio de la lista
+                historyList.insertBefore(historyItem, historyList.firstChild);
+                
+                // Agregar event listeners a los botones
+                historyItem.querySelector('.re-download').addEventListener('click', function() {
+                    // Simular redescarga
+                    showSuccess('Redescargando video...');
+                });
+                
+                historyItem.querySelector('.delete').addEventListener('click', function() {
+                    historyList.removeChild(historyItem);
+                    showSuccess('Elemento eliminado del historial');
+                });
+            }
 
-        <div class="quote">
-          "El caso Kumburgaz presenta desafíos significativos para las explicaciones convencionales. La combinación de duración, calidad de video y detalles visibles lo hace único en los anales de la ufología."
-          <span class="quote-author">- Stanton T. Friedman, físico nuclear</span>
-        </div>
+            function updateStepIndicator(stepNumber, completed = false) {
+                steps.forEach((step, index) => {
+                    step.classList.remove('active', 'completed');
+                    
+                    if (index + 1 < stepNumber) {
+                        step.classList.add('completed');
+                    } else if (index + 1 === stepNumber) {
+                        step.classList.add('active');
+                    }
+                });
+            }
 
-        <p>A pesar del escepticismo, la mayoría de los investigadores serios coinciden en que el caso merece consideración científica seria debido a la calidad de la evidencia disponible.</p>
-      </div>
-    </section>
+            // Cargar historial desde localStorage si existe
+            function loadHistory() {
+                const savedHistory = localStorage.getItem('videoDownloaderHistory');
+                if (savedHistory) {
+                    const history = JSON.parse(savedHistory);
+                    history.forEach(item => {
+                        addToHistory(item.title, item.platform, item.quality, item.format);
+                    });
+                }
+            }
 
-    <!-- Impacto Global -->
-    <section class="story-section">
-      <h2 style="color: var(--color-accent-blue); margin-bottom: 2rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1rem;">Legado e Impacto Global</h2>
+            // Guardar historial en localStorage
+            function saveToHistory(title, platform, quality, format) {
+                const historyItem = {
+                    title,
+                    platform,
+                    quality,
+                    format,
+                    date: new Date().toISOString()
+                };
+                
+                let history = JSON.parse(localStorage.getItem('videoDownloaderHistory') || '[]');
+                history.unshift(historyItem);
+                
+                // Mantener solo los últimos 10 elementos
+                if (history.length > 10) {
+                    history = history.slice(0, 10);
+                }
+                
+                localStorage.setItem('videoDownloaderHistory', JSON.stringify(history));
+            }
 
-      <div class="story-content">
-        <p>El caso Kumburgaz ha tenido un impacto significativo en la ufología del siglo XXI, estableciendo nuevos estándares para la documentación de avistamientos.</p>
+            // Modificar la función addToHistory para guardar en localStorage
+            const originalAddToHistory = addToHistory;
+            addToHistory = function(title, platform, quality, format) {
+                originalAddToHistory(title, platform, quality, format);
+                saveToHistory(title, platform, quality, format);
+            };
 
-        <div class="evidence-gallery">
-          <div class="evidence-item">
-            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conferencia sobre el caso" class="evidence-image">
-            <div class="evidence-caption">Conferencias internacionales han analizado el caso extensivamente</div>
-          </div>
-          <div class="evidence-item">
-            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Medios cubriendo el caso" class="evidence-image">
-            <div class="evidence-caption">Cobertura mediática global del fenómeno Kumburgaz</div>
-          </div>
-        </div>
-
-        <p>El caso ha sido presentado en documentales internacionales, conferencias científicas y ha influenciado la forma en que la comunidad ufológica aborda la evidencia videográfica.</p>
-
-        <a href="https://www.travis-walton.com/" target="_blank" class="btn-link">
-          <i class="fas fa-film"></i>
-          Documental Oficial del Caso
-        </a>
-
-        <a href="https://www.ufoevidence.org" target="_blank" class="btn-link">
-          <i class="fas fa-database"></i>
-          Archivo de Evidencia OVNI
-        </a>
-      </div>
-    </section>
-
-    <!-- Conclusión -->
-    <section class="story-section">
-      <div class="conclusion">
-        <h3 class="conclusion-title">Veredicto Final</h3>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--color-text-secondary);">
-          El caso Kumburgaz representa uno de los avistamientos OVNI mejor documentados de la historia moderna. La combinación de múltiples grabaciones de alta calidad, análisis científico riguroso y la extraordinaria claridad de las imágenes lo sitúa entre los casos más importantes del siglo XXI.
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--color-text-secondary); margin-top: 1rem;">
-          Aunque el debate continúa, la evidencia videográfica disponible desafía las explicaciones convencionales y sugiere que Yalçın Yalman captó algo verdaderamente extraordinario sobre las aguas del Mar de Mármara. El caso permanece como un testimonio perdurable de que los fenómenos aéreos no identificados continúan desafiando nuestra comprensión de la realidad.
-        </p>
-      </div>
-    </section>
-
-    <!-- Sección de Comentarios -->
-    <section class="comments-section">
-      <h2>¿Qué opinas sobre este caso?</h2>
-      <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 2rem;">Comparte tu opinión y únete a la discusión</p>
-      
-      <div class="comment-form">
-        <form id="commentForm">
-          <div class="form-group">
-            <label for="userName">Nombre *</label>
-            <input type="text" id="userName" name="userName" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="userEmail">Email (opcional)</label>
-            <input type="email" id="userEmail" name="userEmail">
-          </div>
-          
-          <div class="form-group">
-            <label for="userRating">¿Cómo calificas este caso?</label>
-            <select id="userRating" name="userRating" required>
-              <option value="">Selecciona una opción</option>
-              <option value="5">⭐️⭐️⭐️⭐️⭐️ - Muy convincente</option>
-              <option value="4">⭐️⭐️⭐️⭐️ - Bastante convincente</option>
-              <option value="3">⭐️⭐️⭐️ - Interesante pero dudoso</option>
-              <option value="2">⭐️⭐️ - Poco convincente</option>
-              <option value="1">⭐️ - No creíble</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="userComment">Tu opinión *</label>
-            <textarea id="userComment" name="userComment" placeholder="Comparte tus pensamientos sobre este caso..." required></textarea>
-          </div>
-          
-          <button type="submit" class="submit-btn">
-            <i class="fas fa-paper-plane"></i>
-            Publicar Comentario
-          </button>
-        </form>
-      </div>
-      
-      <div class="comments-list">
-        <h3 style="color: var(--color-text); margin-bottom: 1.5rem;">Opiniones de la Comunidad</h3>
-        
-        <div class="comment">
-          <div class="comment-header">
-            <span class="comment-author">María González</span>
-            <span class="comment-date">15 Nov, 2023</span>
-          </div>
-          <div class="comment-rating">
-            <span class="rating-stars">⭐️⭐️⭐️⭐️⭐️</span>
-            <span>Muy convincente</span>
-          </div>
-          <div class="comment-content">
-            "Este es uno de los casos más impresionantes que he visto. La claridad del video y la duración del avistamiento lo hacen extraordinario. Las figuras en el interior son increíbles."
-          </div>
-        </div>
-        
-        <div class="comment">
-          <div class="comment-header">
-            <span class="comment-author">Carlos Rodríguez</span>
-            <span class="comment-date">12 Nov, 2023</span>
-          </div>
-          <div class="comment-rating">
-            <span class="rating-stars">⭐️⭐️⭐️</span>
-            <span>Interesante pero dudoso</span>
-          </div>
-          <div class="comment-content">
-            "Aunque el video es impresionante, me pregunto si podría ser algún tipo de drone experimental o tecnología secreta. Las 'figuras' podrían ser maniquíes o dispositivos."
-          </div>
-        </div>
-        
-        <div class="comment">
-          <div class="comment-header">
-            <span class="comment-author">Ana López</span>
-            <span class="comment-date">8 Nov, 2023</span>
-          </div>
-          <div class="comment-rating">
-            <span class="rating-stars">⭐️⭐️⭐️⭐️</span>
-            <span>Bastante convincente</span>
-          </div>
-          <div class="comment-content">
-            "Lo que más me convence es la consistencia de las grabaciones a lo largo de varios años. Si fuera un engaño, sería extremadamente elaborado y costoso."
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegación -->
-    <div class="case-navigation">
-      <a href="caso-lonnie-zamora.html" class="nav-button">
-        <i class="fas fa-arrow-left"></i>
-        Caso Anterior: Lonnie Zamora
-      </a>
-      <a href="casos.html" class="nav-button next">
-        Volver a Todos los Casos
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2023 Misterios Cósmicos – Fuente: Turkish UFO Research Center, análisis de video internacional, Sirius UFO Space Sciences Research Center</p>
-  </footer>
-
-  <script>
-    // Efectos de revelado al hacer scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-          }
+            // Cargar historial al iniciar
+            loadHistory();
         });
-      }, observerOptions);
-
-      document.querySelectorAll('.story-section').forEach(section => {
-        section.style.animationPlayState = 'paused';
-        observer.observe(section);
-      });
-
-      // Manejo del formulario de comentarios
-      const commentForm = document.getElementById('commentForm');
-      if (commentForm) {
-        commentForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const userName = document.getElementById('userName').value;
-          const userRating = document.getElementById('userRating').value;
-          const userComment = document.getElementById('userComment').value;
-          
-          if (userName && userRating && userComment) {
-            // Aquí normalmente enviarías los datos a un servidor
-            alert('¡Gracias por tu comentario! Será revisado antes de publicarse.');
-            commentForm.reset();
-          }
-        });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>

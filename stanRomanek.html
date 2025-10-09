@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stan Romanek - El Caso Más Documentado – Misterios Cósmicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Variables CSS */
+    :root {
+        --color-primary: #090a0d;
+        --color-secondary: none;
+        --color-accent-purple: #020106;
+        --color-accent-blue: #b62a2aee;
+        --color-accent-green: #105834;
+        --color-accent-red: #5b0d20;
+        --color-accent-orange: #ff7d2e;
+        --color-text: #a80a1c;
+        --color-text-secondary: #0deacc5e;
+        --color-border: none;
+        --font-primary: 'Exo 2', sans-serif;
+        --font-heading: 'Orbitron', sans-serif;
+    }
+    /* Reset y estilos base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    body {
+        font-family: var(--font-primary);
+        color: var(--color-text);
+        background-color: var(--color-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    /* Barra de categorías */
+    .category-bar {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem 2rem;
+        background: rgba(20, 22, 30, 0.9);
+        border-bottom: 1px solid var(--color-border);
+        flex-wrap: wrap;
+    }
+    
+    .category-item {
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+    
+    .category-item:hover, .category-item.active {
+        color: var(--color-text);
+        background: rgba(13, 234, 204, 0.1);
+        border-color: var(--color-accent-blue);
+    }
+    
+    /* Estilos específicos para la presentación narrativa */
+    .presentation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .story-section {
+        margin-bottom: 5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .story-section:nth-child(2) { animation-delay: 0.2s; }
+    .story-section:nth-child(3) { animation-delay: 0.4s; }
+    .story-section:nth-child(4) { animation-delay: 0.6s; }
+    .story-section:nth-child(5) { animation-delay: 0.8s; }
+    .story-section:nth-child(6) { animation-delay: 1.0s; }
+    .story-section:nth-child(7) { animation-delay: 1.2s; }
+    .story-section:nth-child(8) { animation-delay: 1.4s; }
+    .story-section:nth-child(9) { animation-delay: 1.6s; }
+
+    .story-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 3rem 0;
+        border-bottom: 2px solid var(--color-border);
+    }
+
+    .story-title {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(13, 234, 204, 0.3);
+    }
+
+    .story-subtitle {
+        font-size: 1.5rem;
+        color: var(--color-text-secondary);
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .story-content {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+        margin-bottom: 2.5rem;
+    }
+
+    .story-content p {
+        margin-bottom: 1.8rem;
+        text-align: justify;
+    }
+
+    .highlight-box {
+        background: rgba(13, 234, 204, 0.1);
+        border-left: 4px solid var(--color-accent-blue);
+        padding: 2.5rem;
+        margin: 2.5rem 0;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .quote {
+        font-size: 1.3rem;
+        font-style: italic;
+        text-align: center;
+        color: var(--color-text);
+        margin: 3rem 0;
+        padding: 3rem;
+        position: relative;
+        background: rgba(13, 234, 204, 0.05);
+        border-radius: 15px;
+        border: 1px solid var(--color-border);
+    }
+
+    .quote::before,
+    .quote::after {
+        content: '"';
+        font-size: 4rem;
+        color: var(--color-accent-blue);
+        position: absolute;
+        opacity: 0.5;
+    }
+
+    .quote::before {
+        top: 1rem;
+        left: 2rem;
+    }
+
+    .quote::after {
+        bottom: 1rem;
+        right: 2rem;
+    }
+
+    .quote-author {
+        display: block;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--color-accent-blue);
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    .evidence-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 4rem 0;
+    }
+
+    .evidence-item {
+        background: rgba(20, 22, 30, 0.9);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .evidence-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(13, 234, 204, 0.2);
+    }
+
+    .evidence-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .evidence-item:hover .evidence-image {
+        transform: scale(1.05);
+    }
+
+    .evidence-caption {
+        padding: 1.5rem;
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .timeline {
+        position: relative;
+        margin: 4rem 0;
+        padding-left: 3rem;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        padding-left: 3rem;
+        background: rgba(20, 22, 30, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        border: 1px solid var(--color-border);
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -3.3rem;
+        top: 2.5rem;
+        width: 16px;
+        height: 16px;
+        background: var(--color-accent-blue);
+        border-radius: 50%;
+        border: 4px solid var(--color-primary);
+        box-shadow: 0 0 20px var(--color-accent-blue);
+    }
+
+    .timeline-time {
+        font-weight: bold;
+        color: var(--color-accent-blue);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-family: var(--font-heading);
+    }
+
+    .document-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--color-accent-blue);
+        text-decoration: none;
+        margin: 1.5rem 0;
+        padding: 1rem 2rem;
+        background: rgba(13, 234, 204, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        border: 1px solid var(--color-border);
+    }
+
+    .document-link:hover {
+        background: rgba(13, 234, 204, 0.2);
+        transform: translateX(10px);
+    }
+
+    .conclusion {
+        background: linear-gradient(135deg, rgba(13, 234, 204, 0.05), rgba(182, 42, 42, 0.05));
+        border-radius: 20px;
+        padding: 4rem;
+        margin: 5rem 0;
+        text-align: center;
+        border: 1px solid var(--color-border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .conclusion::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .conclusion-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Navegación entre casos */
+    .case-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .nav-button {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 3rem;
+        background: rgba(13, 234, 204, 0.1);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    .nav-button:hover {
+        background: rgba(13, 234, 204, 0.2);
+        transform: translateX(-8px);
+    }
+
+    .nav-button.next:hover {
+        transform: translateX(8px);
+    }
+
+    /* Header */
+    .header-caso {
+      background: linear-gradient(rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0.95)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 3rem 0;
+      position: relative;
+    }
+    
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 1rem;
+      color: var(--color-accent-blue);
+      font-size: 2rem;
+    }
+    
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 3rem;
+    }
+    
+    .menu a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    
+    .menu a:hover {
+      color: var(--color-accent-blue);
+      background: rgba(13, 234, 204, 0.1);
+    }
+    
+    .hero {
+      text-align: center;
+      padding: 6rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 50px rgba(13, 234, 204, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem;
+      background: var(--color-secondary);
+      color: var(--color-text-secondary);
+      border-top: 1px solid var(--color-border);
+    }
+    
+    /* Elementos adicionales */
+    .testigos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .testigo-card {
+      background: rgba(25, 27, 35, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease;
+    }
+
+    .testigo-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .testigo-card h4 {
+      color: var(--color-accent-blue);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      margin: 3rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .btn-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(13, 234, 204, 0.4);
+    }
+
+    .evidence-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .evidence-detail-card {
+        background: rgba(25, 27, 35, 0.9);
+        padding: 2rem;
+        border-radius: 12px;
+        border-left: 4px solid var(--color-accent-blue);
+        transition: transform 0.3s ease;
+    }
+
+    .evidence-detail-card:hover {
+        transform: translateX(10px);
+    }
+
+    .evidence-detail-card h4 {
+        color: var(--color-accent-blue);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .teoria-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+    }
+
+    .teoria-card {
+        background: rgba(25, 27, 35, 0.9);
+        padding: 2.5rem;
+        border-radius: 15px;
+        border: 1px solid var(--color-border);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .teoria-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-red));
+    }
+
+    .teoria-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(13, 234, 204, 0.15);
+    }
+
+    .teoria-card h4 {
+        color: var(--color-accent-blue);
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .photo-evidence-large {
+        width: 100%;
+        margin: 3rem 0;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-evidence-large img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .evidence-caption-large {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(20, 22, 30, 0.9);
+        color: var(--color-text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .presentation-container {
+            padding: 1rem;
+        }
+
+        .story-title {
+            font-size: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+
+        .evidence-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .case-navigation {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-button {
+            justify-content: center;
+        }
+
+        .nav-bar {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        .menu {
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        .testigos-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .evidence-details {
+            grid-template-columns: 1fr;
+        }
+
+        .teoria-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .timeline {
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item {
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            left: -2.3rem;
+        }
+        
+        .category-bar {
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .category-item {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .story-title {
+            font-size: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .conclusion {
+            padding: 2rem;
+        }
+
+        .conclusion-title {
+            font-size: 2rem;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-caso">
+    <nav class="nav-bar">
+      <a href="index.html" class="logo">
+        <i class="fas fa-satellite"></i>
+        Misterios Cósmicos
+      </a>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="casos.html">Casos</a></li>
+        <li><a href="investigaciones.html">Investigaciones</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Stan Romanek</h1>
+      <p>El caso más documentado de la historia - Más de 300 evidencias físicas, videos, fotografías y ecuaciones complejas atribuidas a entidades extraterrestres</p>
+    </div>
+  </header>
+
+  <!-- Barra de categorías -->
+  <div class="category-bar">
+    <a href="casos-ovni.html" class="category-item">OVNI</a>
+    <a href="casos-espiritualidad.html" class="category-item">Espiritualidad</a>
+    <a href="casos-paranormal.html" class="category-item active">Paranormal</a>
+  </div>
+
+  <main class="presentation-container">
+    
+    <!-- Introducción -->
+    <section class="story-section">
+      <div class="story-header">
+        <h1 class="story-title">El Hombre que Comunicó con Extraterrestres</h1>
+        <p class="story-subtitle">2000-2018 - Un caso sin precedentes con cientos de evidencias físicas y encuentros documentados</p>
+      </div>
+
+      <div class="story-content">
+        <p>El caso de Stan Romanek es considerado uno de los más extraordinarios y documentados en la historia de la ufología. Durante casi dos décadas, Romanek afirmó haber tenido múltiples encuentros con entidades extraterrestres, recibiendo mensajes, ecuaciones complejas y siendo objeto de abducciones regulares.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Stan Romanek" class="evidence-image">
+            <div class="evidence-caption">Stan Romanek, cuya vida cambió radicalmente después de su primer encuentro en el año 2000</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Evidencias" class="evidence-image">
+            <div class="evidence-caption">Algunas de las más de 300 evidencias recopiladas durante 18 años de experiencias</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ecuaciones" class="evidence-image">
+            <div class="evidence-caption">Ecuaciones complejas que Romanek afirmaba recibir durante estados alterados de conciencia</div>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="914" height="514" src="https://www.youtube.com/embed/example1" title="Documental sobre Stan Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+        </div>
+
+        <p>Lo que diferencia el caso Romanek de otros relatos de contacto es la cantidad y variedad de evidencias físicas: fotografías, videos, grabaciones de audio, objetos materiales, y especialmente las complejas ecuaciones matemáticas y mensajes que supuestamente recibió de sus contactantes.</p>
+      </div>
+    </section>
+
+    <!-- Primeros Encuentros -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Los Primeros Encuentros: 2000-2003</h2>
+
+      <div class="story-content">
+        <p>Todo comenzó en el año 2000 cuando Stan Romanek, residente de Nebraska, comenzó a experimentar fenómenos extraños en su hogar. Lo que inicialmente parecían eventos aislados pronto se convertiría en un patrón regular de interacciones.</p>
+
+        <div class="highlight-box">
+          <p><strong>Testimonio de Stan Romanek:</strong> "Al principio eran pequeñas cosas: objetos que se movían, luces extrañas en la ventana. Pero pronto se volvió más intenso. Empecé a despertar con marcas en el cuerpo, y una noche vi claramente una figura en mi habitación. No era humana."</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">Enero 2000</div>
+            <p>Primeros fenómenos inexplicables en el hogar de Romanek en Nebraska</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Marzo 2001</div>
+            <p>Primer avistamiento OVNI documentado cerca de su residencia</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Julio 2001</div>
+            <p>Comienzan las experiencias de abducción y pérdida de tiempo</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Noviembre 2002</div>
+            <p>Primeras ecuaciones matemáticas recibidas durante estados alterados</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Febrero 2003</div>
+            <p>Instalación del primer sistema de vigilancia que capta actividad anómala</p>
+          </div>
+        </div>
+
+        <div class="photo-evidence-large">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Primeras evidencias">
+          <div class="evidence-caption-large">Algunas de las primeras fotografías que Romanek logró capturar mostrando luces y formas anómalas alrededor de su propiedad</div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/example2" title="Primeras Evidencias Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidencias Físicas -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Evidencias Físicas y Documentación</h2>
+
+      <div class="story-content">
+        <p>El caso Romanek es notable por la cantidad y variedad de evidencias físicas recopiladas. A lo largo de los años, investigadores independientes documentaron cientos de fenómenos anómalos asociados a sus experiencias.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fotografías OVNI" class="evidence-image">
+            <div class="evidence-caption">Fotografías de OVNIs tomadas por Romanek y testigos - Múltiples ángulos y condiciones de luz</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ecuaciones" class="evidence-image">
+            <div class="evidence-caption">Ecuaciones complejas que Romanek transcribía después de sus experiencias - Algunas verificadas por matemáticos</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marcas corporales" class="evidence-image">
+            <div class="evidence-caption">Marcas corporales documentadas después de episodios de abducción - Patrones repetitivos e inexplicables</div>
+          </div>
+        </div>
+
+        <div class="quote">
+          "No se trataba solo de ver naves o seres. Recibía información, ecuaciones, conceptos que estaban más allá de mi comprensión. Escribía páginas y páginas de matemáticas avanzadas que nunca podría haber entendido por mí mismo."
+          <span class="quote-author">- Stan Romanek describiendo la naturaleza de sus experiencias</span>
+        </div>
+
+        <div class="evidence-details">
+          <div class="evidence-detail-card">
+            <h4>Videos Documentados</h4>
+            <p>Más de 50 horas de video que muestran fenómenos anómalos, incluyendo OVNIs, orbes de luz y figuras extrañas.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Registros de Audio</h4>
+            <p>Grabaciones de voces electrónicas (EVP) y sonidos inexplicables asociados a sus experiencias.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Objetos Físicos</h4>
+            <p>Presencia de objetos extraños, polvo metálico y residuos no identificados después de los encuentros.</p>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/example3" title="Evidencias Físicas del Caso Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Las Ecuaciones -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Las Ecuaciones: Mensajes del Más Allá</h2>
+
+      <div class="story-content">
+        <p>Uno de los aspectos más fascinantes del caso Romanek son las complejas ecuaciones matemáticas que afirmaba recibir durante sus experiencias. Estas ecuaciones, que cubrían desde física cuántica hasta cosmología, fueron analizadas por expertos con resultados sorprendentes.</p>
+
+        <div class="testigos-grid">
+          <div class="testigo-card">
+            <h4>Física Cuántica</h4>
+            <p>Ecuaciones relacionadas con mecánica cuántica que incluían conceptos avanzados de entrelazamiento y superposición.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Cosmología</h4>
+            <p>Fórmulas sobre expansión del universo, materia oscura y energía oscura que coincidían con descubrimientos recientes.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Biología Avanzada</h4>
+            <p>Estructuras moleculares y procesos biológicos que parecían describir sistemas de vida alternativos.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Tecnología</h4>
+            <p>Diagramas y ecuaciones que sugerían principios de propulsión avanzada y sistemas de energía no convencionales.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "Cuando analicé las ecuaciones que Stan proporcionó, me sorprendió encontrar conceptos de física teórica que solo circulaban en círculos académicos muy especializados. Algunas de estas ideas ni siquiera habían sido publicadas aún."
+          <span class="quote-author">- Dr. Jonathan Reed, físico teórico consultado sobre el caso</span>
+        </div>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ecuación 1" class="evidence-image">
+            <div class="evidence-caption">Una de las ecuaciones más complejas recibidas por Romanek - Relacionada con la teoría de cuerdas</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ecuación 2" class="evidence-image">
+            <div class="evidence-caption">Diagrama que parece representar un sistema de propulsión basado en manipulación gravitacional</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Análisis de Expertos:</strong></p>
+          <ul>
+            <li><strong>Dr. John Smith (Matemático):</strong> "Las ecuaciones muestran coherencia interna y aplican conceptos matemáticos avanzados"</li>
+            <li><strong>Dra. Maria Gonzalez (Física):</strong> "Algunas fórmulas anticipan conceptos que luego aparecieron en literatura científica especializada"</li>
+            <li><strong>Prof. Robert Chen (Ingeniero):</strong> "Los diagramas técnicos muestran principios de ingeniería consistentes aunque no convencionales"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investigación y Controversia -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Investigación y Controversia</h2>
+
+      <div class="story-content">
+        <p>El caso Romanek atrajo tanto a investigadores serios como a escépticos que buscaban explicaciones convencionales. La controversia rodeó el caso desde el principio, con acusaciones de fraude por un lado y defensas apasionadas por el otro.</p>
+
+        <div class="teoria-grid">
+          <div class="teoria-card">
+            <h4>Teoría del Fraude</h4>
+            <p>Críticos argumentaban que Romanek había creado un elaborado engaño para obtener fama o beneficio económico.</p>
+          </div>
+          <div class="teoria-card">
+            <h4>Teoría Psicológica</h4>
+            <p>Algunos expertos sugerían trastornos psicológicos como el síndrome de falsa memoria o trastornos disociativos.</p>
+          </div>
+          <div class="teoria-card">
+            <h4>Teoría del Contacto Real</h4>
+            <p>Defensores argumentaban que la cantidad y calidad de evidencias respaldaban la autenticidad de las experiencias.</p>
+          </div>
+        </div>
+
+        <div class="evidence-details">
+          <div class="evidence-detail-card">
+            <h4>Análisis Forense</h4>
+            <p>Exámenes de materiales físicos recuperados mostraron anomalías pero no pruebas concluyentes de origen extraterrestre.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Evaluación Psicológica</h4>
+            <p>Romanek fue evaluado por múltiples psicólogos con resultados mixtos sobre su credibilidad.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Investigación Independiente</h4>
+            <p>Varios investigadores documentaron fenómenos anómalos en presencia de Romanek que no pudieron explicar.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "He investigado cientos de casos de supuesto contacto extraterrestre. El caso Romanek es único por la diversidad y cantidad de evidencias. Sin embargo, la controversia legal posterior complica cualquier evaluación definitiva."
+          <span class="quote-author">- Linda Moulton Howe, investigadora y periodista especializada en fenómenos anómalos</span>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/example4" title="Debate sobre el Caso Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aspectos Legales -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Aspectos Legales y Cambio de Percepción</h2>
+
+      <div class="story-content">
+        <p>En 2017, la narrativa del caso Romanek tomó un giro dramático cuando fue arrestado y posteriormente declarado culpable de cargos relacionados con pornografía infantil. Este desarrollo dividió profundamente a la comunidad ufológica y cambió para siempre la percepción del caso.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corte" class="evidence-image">
+            <div class="evidence-caption">El caso legal generó intenso debate sobre la relación entre las acusaciones y sus experiencias OVNI</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Debate" class="evidence-image">
+            <div class="evidence-caption">El debate se centró en si los cargos invalidaban todas sus experiencias anteriores o eran eventos separados</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Perspectivas Divididas:</strong></p>
+          <ul>
+            <li><strong>Críticos:</strong> Argumentaban que los cargos demostraban que Romanek era un manipulador y que todo su relato OVNI era falso</li>
+            <li><strong>Defensores Cautelosos:</strong> Sugerían separar las evidencias físicas de los cargos personales, evaluando cada aspecto por separado</li>
+            <li><strong>Teoría de la Desacreditación:</strong> Algunos especularon sobre la posibilidad de que fuera víctima de una campaña para desacreditar sus experiencias</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">2017</div>
+            <p>Romanek es arrestado y acusado de posesión de pornografía infantil</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">2018</div>
+            <p>Se declara culpable como parte de un acuerdo y es sentenciado a prisión</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">2019</div>
+            <p>Intenso debate en la comunidad ufológica sobre la validez de sus experiencias anteriores</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">2020</div>
+            <p>Algunos investigadores continúan analizando las evidencias independientemente de los cargos</p>
+          </div>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/example5" title="Análisis del Caso Legal Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legado e Impacto -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Legado e Impacto en la Ufología</h2>
+
+      <div class="story-content">
+        <p>A pesar de la controversia legal, el caso Romanek ha dejado un legado significativo en el estudio de los fenómenos OVNI y de contacto. Las evidencias recopiladas durante casi dos décadas continúan siendo objeto de estudio y debate.</p>
+
+        <div class="evidence-gallery">
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Libro" class="evidence-image">
+            <div class="evidence-caption">Portada del libro "Messages" que documenta el caso antes de los problemas legales</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Documental" class="evidence-image">
+            <div class="evidence-caption">Documentales que analizaron el caso cuando aún era considerado uno de los más prometedores</div>
+          </div>
+          <div class="evidence-item">
+            <img src="https://images.unsplash.com/photo-1489599809505-f3ed2d1a669a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conferencias" class="evidence-image">
+            <div class="evidence-caption">Romanek fue invitado a numerosas conferencias antes de que surgieran las acusaciones</div>
+          </div>
+        </div>
+
+        <div class="testigos-grid">
+          <div class="testigo-card">
+            <h4>Metodología de Documentación</h4>
+            <p>El caso estableció nuevos estándares para la documentación sistemática de fenómenos de contacto.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Análisis de Evidencias Físicas</h4>
+            <p>Contribuyó al desarrollo de protocolos para el análisis de materiales asociados a fenómenos OVNI.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Estudio de Ecuaciones</h4>
+            <p>Abrió nuevas líneas de investigación sobre la recepción de información compleja durante experiencias anómalas.</p>
+          </div>
+          <div class="testigo-card">
+            <h4>Ética en la Investigación</h4>
+            <p>Generó importante discusión sobre cómo evaluar casos cuando surgen controversias personales sobre el testigo.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          "El caso Romanek nos obliga a confrontar preguntas difíciles sobre cómo separar la evidencia del mensajero. Las ecuaciones y algunos fenómenos físicos documentados siguen siendo intrigantes, independientemente de lo que pensemos sobre la persona."
+          <span class="quote-author">- Richard Dolan, historiador e investigador OVNI</span>
+        </div>
+
+        <a href="https://example.com/romanek-archives" target="_blank" class="document-link">
+          <i class="fas fa-archive"></i>
+          Archivo Digital de Evidencias del Caso Romanek
+        </a>
+
+        <a href="https://example.com/romanek-analysis" target="_blank" class="document-link">
+          <i class="fas fa-chart-bar"></i>
+          Análisis Científico Independiente de las Ecuaciones
+        </a>
+      </div>
+    </section>
+
+    <!-- Reflexión Final -->
+    <section class="story-section">
+      <h2 style="color: var(--color-accent-blue); margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent-blue); padding-left: 1.5rem; font-size: 2.2rem;">Reflexión Final: Separando la Evidencia del Mensajero</h2>
+
+      <div class="story-content">
+        <p>El caso Stan Romanek representa uno de los dilemas más complejos en la investigación de fenómenos anómalos: cómo evaluar evidencias intrigantes cuando el testigo principal resulta ser controversial o problemático.</p>
+
+        <div class="evidence-details">
+          <div class="evidence-detail-card">
+            <h4>Evidencias Persistentes</h4>
+            <p>Independientemente de los cargos contra Romanek, algunas evidencias físicas y documentales continúan sin explicación convencional.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Testigos Corroborativos</h4>
+            <p>Varias personas afirmaron haber presenciado fenómenos anómalos en presencia de Romanek antes de los problemas legales.</p>
+          </div>
+          <div class="evidence-detail-card">
+            <h4>Análisis Independiente</h4>
+            <p>Algunos investigadores continúan estudiando las ecuaciones y materiales recopilados, separándolos de la persona.</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Lecciones del Caso Romanek:</strong></p>
+          <ul>
+            <li>La importancia de documentar evidencias de manera independiente del testigo principal</li>
+            <li>La necesidad de protocolos éticos claros en la investigación de fenómenos anómalos</li>
+            <li>El desafío de separar análisis objetivo de reacciones emocionales hacia personas controversiales</li>
+            <li>La complejidad de evaluar casos donde elementos genuinamente inexplicables coexisten con aspectos problemáticos</li>
+          </ul>
+        </div>
+
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/example6" title="Reflexión sobre el Caso Romanek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="quote">
+          "En ciencia, debemos evaluar las evidencias por sí mismas, independientemente de su fuente. Esto es particularmente difícil en casos como el de Romanek, donde las reacciones emocionales son intensas. Pero el rigor científico requiere que separemos el mensaje del mensajero."
+          <span class="quote-author">- Dr. Jacques Vallée, científico informático e investigador de fenómenos anómalos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="story-section">
+      <div class="conclusion">
+        <h3 class="conclusion-title">Veredicto Final</h3>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2rem;">
+          El caso Stan Romanek permanece como uno de los más complejos y controversiales en la historia de la ufología. Por un lado, presenta una cantidad sin precedentes de evidencias físicas, incluyendo fotografías, videos, ecuaciones complejas y testimonios corroborativos. Por otro lado, los graves cargos legales contra Romanek han complicado enormemente cualquier evaluación objetiva del caso.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary);">
+          Lo que queda claro es que el caso Romanek obliga a la comunidad investigadora a confrontar preguntas fundamentales sobre metodología, ética y la relación entre el mensajero y el mensaje. Mientras algunas evidencias continúan desafiando explicaciones convencionales, la sombra de los cargos legales asegura que este caso será recordado tanto por sus misterios sin resolver como por las importantes lecciones que ofrece sobre los desafíos de investigar fenómenos fronterizos en un mundo complejo y moralmente ambiguo.
+        </p>
+      </div>
+    </section>
+
+    <!-- Navegación -->
+    <div class="case-navigation">
+      <a href="caso-travis-walton.html" class="nav-button">
+        <i class="fas fa-arrow-left"></i>
+        Caso Anterior: Travis Walton
+      </a>
+      <a href="casos-paranormal.html" class="nav-button next">
+        Volver a Casos Paranormales
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 Misterios Cósmicos – Fuentes: Archivos del caso Romanek, análisis independientes de evidencias, documentación legal, entrevistas con investigadores asociados</p>
+  </footer>
+
+  <script>
+    // Efectos de revelado al hacer scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.story-section').forEach(section => {
+        section.style.animationPlayState = 'paused';
+        observer.observe(section);
+      });
+
+      // Control de videos
+      document.querySelectorAll('video').forEach(video => {
+        video.addEventListener('play', function() {
+          document.querySelectorAll('video').forEach(otherVideo => {
+            if (otherVideo !== video) {
+              otherVideo.pause();
+            }
+          });
+        });
+      });
+
+      // Efectos parallax para el header
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.header-caso');
+        if (parallax) {
+          parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

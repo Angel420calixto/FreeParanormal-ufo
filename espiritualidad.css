@@ -1,1155 +1,878 @@
-/* spiritualidad.css - Diseño Orgánico y Espiritual */
-
-/* Variables CSS - Tema Espiritual */
-:root {
-    --color-primary: #0a0f1c;
-    --color-secondary: #1a2332;
-    --color-accent: #8b5cf6;
-    --color-accent-light: #a78bfa;
-    --color-accent-dark: #7c3aed;
-    --color-text: #e2e8f0;
-    --color-text-secondary: #94a3b8;
-    --color-text-muted: #64748b;
-    --color-border: #2d3748;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    
-    --gradient-primary: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-    --gradient-hero: linear-gradient(135deg, #0f172a, #1e1b4b);
-    --gradient-card: linear-gradient(135deg, var(--color-secondary), #2d3748);
-    
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Source Sans Pro', sans-serif;
-    --font-accent: 'Cinzel', serif;
-    
-    --border-radius: 12px;
-    --border-radius-lg: 20px;
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.2);
-    --shadow-large: 0 20px 60px rgba(0, 0, 0, 0.3);
-    
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Reset y Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-body);
-    color: var(--color-text);
-    background-color: var(--color-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Header Espiritual */
-.spiritual-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(10, 15, 28, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--color-border);
-    transition: var(--transition);
-}
-
-.spiritual-nav {
-    padding: 1rem 0;
-}
-
-.spiritual-nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.spiritual-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.spiritual-logo-img {
-    height: 40px;
-    width: auto;
-    border-radius: 50%;
-}
-
-.spiritual-logo-text {
-    font-family: var(--font-accent);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--color-text);
-}
-
-.spiritual-nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.spiritual-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: var(--color-text-secondary);
-    font-weight: 500;
-    transition: var(--transition);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-}
-
-.spiritual-nav-link:hover {
-    color: var(--color-text);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.spiritual-nav-link.spiritual-nav-cta {
-    background: var(--gradient-primary);
-    color: white;
-}
-
-.spiritual-nav-link.spiritual-nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-}
-
-.spiritual-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.spiritual-menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: var(--color-text);
-    transition: var(--transition);
-}
-
-/* Hero Section */
-.spiritual-hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    background: var(--gradient-hero);
-    overflow: hidden;
-}
-
-.spiritual-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.spiritual-hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.spiritual-hero-text {
-    animation: fadeInUp 1s ease;
-}
-
-.spiritual-hero-title {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-.spiritual-title-line {
-    display: block;
-}
-
-.spiritual-title-accent {
-    background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.spiritual-hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-}
-
-.spiritual-hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.spiritual-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: var(--border-radius);
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.spiritual-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s;
-}
-
-.spiritual-btn:hover::before {
-    left: 100%;
-}
-
-.spiritual-btn-primary {
-    background: var(--gradient-primary);
-    color: white;
-}
-
-.spiritual-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-}
-
-.spiritual-btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-}
-
-.spiritual-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.spiritual-btn-large {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.1rem;
-}
-
-.spiritual-hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 1s ease 0.3s both;
-}
-
-.spiritual-mandala {
-    position: relative;
-    width: 300px;
-    height: 300px;
-}
-
-.spiritual-mandala-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid var(--color-accent);
-    border-radius: 50%;
-    animation: rotate 20s linear infinite;
-}
-
-.spiritual-mandala-1 {
-    width: 200px;
-    height: 200px;
-    opacity: 0.3;
-    animation-duration: 25s;
-    animation-direction: reverse;
-}
-
-.spiritual-mandala-2 {
-    width: 150px;
-    height: 150px;
-    opacity: 0.5;
-    animation-duration: 20s;
-}
-
-.spiritual-mandala-3 {
-    width: 100px;
-    height: 100px;
-    opacity: 0.7;
-    animation-duration: 15s;
-    animation-direction: reverse;
-}
-
-.spiritual-mandala-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    box-shadow: 0 0 20px var(--color-accent);
-}
-
-.spiritual-hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.spiritual-scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    animation: bounce 2s infinite;
-}
-
-.spiritual-scroll-arrow {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-}
-
-/* Sección de Camino */
-.spiritual-path {
-    padding: 6rem 0;
-    background: var(--color-primary);
-}
-
-.spiritual-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.spiritual-section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.spiritual-section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--color-text), var(--color-text-secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.spiritual-section-subtitle {
-    font-size: 1.2rem;
-    color: var(--color-text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.spiritual-path-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.spiritual-path-card {
-    background: var(--gradient-card);
-    padding: 2.5rem 2rem;
-    border-radius: var(--border-radius-lg);
-    text-align: center;
-    transition: var(--transition);
-    border: 1px solid var(--color-border);
-    position: relative;
-    overflow: hidden;
-}
-
-.spiritual-path-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: var(--transition);
-}
-
-.spiritual-path-card:hover::before {
-    transform: scaleX(1);
-}
-
-.spiritual-path-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-large);
-}
-
-.spiritual-path-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--color-accent);
-}
-
-.spiritual-path-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.spiritual-path-card p {
-    color: var(--color-text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.spiritual-path-progress {
-    text-align: left;
-}
-
-.spiritual-progress-bar {
-    width: 100%;
-    height: 6px;
-    background: var(--color-border);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-}
-
-.spiritual-progress-fill {
-    height: 100%;
-    background: var(--gradient-primary);
-    border-radius: 3px;
-    transition: width 1s ease;
-}
-
-.spiritual-path-progress span {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-}
-
-/* Experiencias */
-.spiritual-experiences {
-    padding: 6rem 0;
-    background: var(--color-secondary);
-}
-
-.spiritual-experiences-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.spiritual-experience-card {
-    background: var(--gradient-card);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.spiritual-experience-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 1;
-}
-
-.spiritual-experience-card:hover::before {
-    opacity: 0.02;
-}
-
-.spiritual-experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-.spiritual-experience-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-.spiritual-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid var(--color-accent);
-}
-
-.spiritual-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.spiritual-experience-meta h4 {
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 0.25rem;
-}
-
-.spiritual-experience-meta span {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-}
-
-.spiritual-experience-content {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 1.5rem;
-}
-
-.spiritual-experience-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.spiritual-experience-content p {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.spiritual-experience-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.spiritual-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.spiritual-tag {
-    padding: 0.25rem 0.75rem;
-    background: rgba(139, 92, 246, 0.1);
-    color: var(--color-accent);
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.spiritual-read-more {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: none;
-    border: none;
-    color: var(--color-accent);
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-}
-
-.spiritual-read-more:hover {
-    background: rgba(139, 92, 246, 0.1);
-    transform: translateX(4px);
-}
-
-/* Prácticas Guiadas */
-.spiritual-practices {
-    padding: 6rem 0;
-    background: var(--color-primary);
-}
-
-.spiritual-practices-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-}
-
-.spiritual-practice-main {
-    background: var(--gradient-card);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-}
-
-.spiritual-practice-video {
-    position: relative;
-    height: 300px;
-    background: var(--color-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.spiritual-video-placeholder {
-    text-align: center;
-    color: var(--color-text-secondary);
-}
-
-.spiritual-video-placeholder i {
-    font-size: 4rem;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.spiritual-practice-info {
-    padding: 2rem;
-}
-
-.spiritual-practice-info h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.spiritual-practice-info p {
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.spiritual-practice-meta {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.spiritual-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-}
-
-.spiritual-meta-item i {
-    color: var(--color-accent);
-}
-
-.spiritual-practice-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.spiritual-practice-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--gradient-card);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.spiritual-practice-item:hover {
-    background: rgba(139, 92, 246, 0.05);
-    transform: translateX(4px);
-}
-
-.spiritual-practice-item.spiritual-practice-active {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: var(--color-accent);
-}
-
-.spiritual-practice-thumb {
-    width: 50px;
-    height: 50px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
-    font-size: 1.25rem;
-}
-
-.spiritual-practice-details {
-    flex: 1;
-}
-
-.spiritual-practice-details h4 {
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 0.25rem;
-}
-
-.spiritual-practice-details span {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-}
-
-.spiritual-practice-play {
-    color: var(--color-accent);
-    font-size: 1.5rem;
-}
-
-/* Comunidad */
-.spiritual-community {
-    padding: 6rem 0;
-    background: var(--color-secondary);
-}
-
-.spiritual-community-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.spiritual-community-description {
-    font-size: 1.1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.spiritual-community-stats {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.spiritual-stat {
-    text-align: center;
-}
-
-.spiritual-stat-number {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-}
-
-.spiritual-stat-label {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-}
-
-.spiritual-community-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.spiritual-community-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spiritual-community-orb {
-    position: relative;
-    width: 300px;
-    height: 300px;
-}
-
-.spiritual-orb {
-    position: absolute;
-    border-radius: 50%;
-    background: var(--gradient-primary);
-    opacity: 0.1;
-    animation: pulse 4s ease-in-out infinite;
-}
-
-.spiritual-orb-1 {
-    width: 200px;
-    height: 200px;
-    top: 50px;
-    left: 50px;
-    animation-delay: 0s;
-}
-
-.spiritual-orb-2 {
-    width: 150px;
-    height: 150px;
-    top: 75px;
-    left: 75px;
-    animation-delay: 1s;
-}
-
-.spiritual-orb-3 {
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 100px;
-    animation-delay: 2s;
-}
-
-/* Footer */
-.spiritual-footer {
-    background: var(--color-primary);
-    border-top: 1px solid var(--color-border);
-    padding: 4rem 0 2rem;
-}
-
-.spiritual-footer-main {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
-}
-
-.spiritual-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.spiritual-footer-description {
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-}
-
-.spiritual-social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.spiritual-social-link {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-secondary);
-    color: var(--color-text);
-    border-radius: 50%;
-    text-decoration: none;
-    transition: var(--transition);
-    border: 1px solid var(--color-border);
-}
-
-.spiritual-social-link:hover {
-    background: var(--color-accent);
-    transform: translateY(-2px);
-}
-
-.spiritual-footer-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.spiritual-footer-column h4 {
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.spiritual-footer-column ul {
-    list-style: none;
-}
-
-.spiritual-footer-column li {
-    margin-bottom: 0.5rem;
-}
-
-.spiritual-footer-column a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.spiritual-footer-column a:hover {
-    color: var(--color-accent);
-}
-
-.spiritual-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-}
-
-.spiritual-footer-copyright p {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-}
-
-.spiritual-footer-legal {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.spiritual-footer-legal a {
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.spiritual-footer-legal a:hover {
-    color: var(--color-text);
-}
-
-/* Modal */
-.spiritual-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 2rem;
-}
-
-.spiritual-modal.active {
-    display: flex;
-}
-
-.spiritual-modal-content {
-    background: var(--gradient-card);
-    border-radius: var(--border-radius-lg);
-    max-width: 600px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid var(--color-border);
-}
-
-.spiritual-modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: var(--color-text);
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: var(--transition);
-}
-
-.spiritual-modal-close:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.spiritual-modal-body {
-    padding: 3rem 2rem 2rem;
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.2;
-    }
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .spiritual-hero-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .spiritual-practices-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .spiritual-community-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .spiritual-footer-main {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .spiritual-nav-links {
-        display: none;
-    }
-    
-    .spiritual-menu-toggle {
-        display: flex;
-    }
-    
-    .spiritual-hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .spiritual-section-title {
-        font-size: 2rem;
-    }
-    
-    .spiritual-path-cards,
-    .spiritual-experiences-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .spiritual-community-stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .spiritual-footer-links {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .spiritual-footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .spiritual-container {
-        padding: 0 1rem;
-    }
-    
-    .spiritual-hero-content {
-        padding: 0 1rem;
-    }
-    
-    .spiritual-hero-title {
-        font-size: 2rem;
-    }
-    
-    .spiritual-hero-actions {
-        flex-direction: column;
-    }
-    
-    .spiritual-btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .spiritual-mandala {
-        width: 200px;
-        height: 200px;
-    }
-}
+ /* Variables CSS */
+        :root {
+            --color-primary: #0f0f0f;
+            --color-secondary: #272727;
+            --color-accent: #720e0ee1;
+            --color-accent-hover: #3b0711ff;
+            --color-text: #ffffff;
+            --color-text-secondary: #aaaaaa;
+            --color-border: #3f3f3f;
+            --color-like: #041a0eff;
+            --color-dislike: #909090;
+            --gradient-primary: linear-gradient(135deg, #cec1c1ff 0%, #2a5fff 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff2a5f 0%, #ff8c2a 100%);
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Exo 2', sans-serif;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header estilo YouTube */
+        .main-header {
+            background: var(--color-primary);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 16px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-center {
+            flex: 1;
+            max-width: 640px;
+            margin: 0 40px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background: var(--color-secondary);
+        }
+
+        .search-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0 16px;
+            background: var(--color-primary);
+            border: 1px solid var(--color-border);
+            border-right: none;
+            border-radius: 24px 0 0 24px;
+            color: var(--color-text);
+            font-size: 16px;
+            height: 40px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .search-button {
+            background: var(--color-secondary);
+            border: 1px solid var(--color-border);
+            border-left: none;
+            border-radius: 0 24px 24px 0;
+            color: var(--color-text);
+            cursor: pointer;
+            padding: 0 20px;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            background: var(--color-border);
+        }
+
+        .nav-icon {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            background: var(--color-secondary);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Sidebar estilo YouTube */
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 240px;
+            height: calc(100vh - 56px);
+            background: var(--color-primary);
+            border-right: 1px solid var(--color-border);
+            overflow-y: auto;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-section {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 10px 24px;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover {
+            background: var(--color-secondary);
+        }
+
+        .sidebar-item.active {
+            background: var(--color-secondary);
+        }
+
+        .sidebar-item i {
+            width: 24px;
+            text-align: center;
+        }
+
+        .sidebar-title {
+            padding: 8px 24px;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 240px;
+            margin-top: 56px;
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        /* Video Grid estilo YouTube */
+        .videos-section {
+            padding: 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .video-card {
+            background: transparent;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #000;
+            border-radius: var(--border-radius);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .video-info {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+        }
+
+        .channel-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            flex-shrink: 0;
+        }
+
+        .video-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .video-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+        }
+
+        .video-meta {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        .channel-name {
+            margin-bottom: 2px;
+        }
+
+        .video-stats {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Video Player Page */
+        .video-player-container {
+            display: flex;
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-player-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .video-player-sidebar {
+            width: 400px;
+            flex-shrink: 0;
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .video-player video {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .video-info-container {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .video-title-large {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .video-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .video-stats-large {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-secondary);
+            border: none;
+            border-radius: 18px;
+            color: var(--color-text);
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .action-button:hover {
+            background: var(--color-border);
+        }
+
+        .action-button.like.active {
+            color: var(--color-like);
+        }
+
+        .action-button.dislike.active {
+            color: var(--color-dislike);
+        }
+
+        .download-button {
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 44, 95, 0.3);
+        }
+
+        .channel-info {
+            display: flex;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .channel-info-large {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            flex-shrink: 0;
+        }
+
+        .channel-details {
+            flex: 1;
+        }
+
+        .channel-name-large {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .subscriber-count {
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .channel-description {
+            color: var(--color-text);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .subscribe-button {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            border-radius: 18px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .subscribe-button:hover {
+            background: var(--color-accent-hover);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 24px;
+        }
+
+        .comments-title {
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            flex-shrink: 0;
+        }
+
+        .comment-input-container {
+            flex: 1;
+        }
+
+        .comment-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding: 8px 0;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-bottom-color: var(--color-accent);
+        }
+
+        .comment-input::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .comment-button {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            border-radius: 18px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
+        .comment-button.active {
+            opacity: 1;
+        }
+
+        .comment-button:hover.active {
+            background: var(--color-accent-hover);
+        }
+
+        .comment {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .comment-author {
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .comment-time {
+            color: var(--color-text-secondary);
+            font-size: 12px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .comment-action {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .comment-action:hover {
+            color: var(--color-text);
+        }
+
+        .comment-action.like.active {
+            color: var(--color-like);
+        }
+
+        /* Recommended Videos */
+        .recommended-videos {
+            margin-top: 24px;
+        }
+
+        .recommended-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .recommended-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .recommended-video {
+            display: flex;
+            gap: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .recommended-video:hover {
+            background: var(--color-secondary);
+        }
+
+        .recommended-thumbnail {
+            width: 168px;
+            height: 94px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .recommended-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .recommended-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .recommended-video-title {
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+        }
+
+        .recommended-channel {
+            color: var(--color-text-secondary);
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+
+        .recommended-stats {
+            color: var(--color-text-secondary);
+            font-size: 12px;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--color-primary);
+            border-top: 1px solid var(--color-border);
+            padding: 32px 0;
+            margin-top: 64px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo i {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+        }
+
+        .footer-logo span {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--color-text);
+        }
+
+        .footer-copyright {
+            color: var(--color-text-secondary);
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .video-player-container {
+                flex-direction: column;
+            }
+            
+            .video-player-sidebar {
+                width: 100%;
+            }
+            
+            .recommended-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 16px;
+            }
+            
+            .recommended-video {
+                flex-direction: column;
+            }
+            
+            .recommended-thumbnail {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.mobile-visible {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .nav-center {
+                display: none;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 8px;
+            }
+            
+            .main-content {
+                padding: 16px 8px;
+            }
+            
+            .nav-right {
+                gap: 8px;
+            }
+            
+            .action-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .download-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+            
+            .desktop-only {
+                display: none;
+            }
+        }
