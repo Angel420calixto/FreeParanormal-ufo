@@ -3,795 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>freeParanormal</title>
+    <title>FreeParanormal - Evidencia OVNI y Paranormal</title>
     <link rel="icon" href="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
-    
     <!-- Header -->
     <header class="main-header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <div class="logo">
-                    <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="Misterios Cósmicos" class="logo-image">
-                </div>
+        <div class="header-container">
+            <div class="header-left">
                 <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
+                <div class="logo">
+                    <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="FreeParanormal" class="logo-image">
+                    <span class="logo-text">FreeParanormal</span>
+                </div>
             </div>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="galeriaVideos.html"><i class="fas fa-play-circle"></i> Galeria de Evidencias</a></li>
-                <li><a href="#casos"><i class="fas fa-file-alt"></i> Casos</a></li>
-                <li><a href="https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g"><i class="fas fa-info-circle"></i>Canal</a></li>
-            </ul>
-        </nav>
+
+            <div class="header-center">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar videos y contenido...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <button class="header-btn upload-btn">
+                    <i class="fas fa-upload"></i>
+                </button>
+                <button class="header-btn notification-btn">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Usuario&background=b62a2a&color=fff" alt="Usuario">
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background">
-            <img src="img/portada.avif" alt="Fondo Misterios Cósmicos" class="hero-bg-image">
-        </div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">Bienvenido a <span class="text-gradient">FreeParanormal</span></h1>
-            <p class="hero-subtitle">Descubre evidencia ovni, fenómenos paranormales y enigmas sin resolver</p>
-            <div class="hero-buttons">
-                <a href="#featured" class="btn btn-primary">Ver Videos</a>
-                <a href="#newsletter" class="btn btn-secondary">Suscríbete</a>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="nav-section">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="galeriaVideos.html" class="nav-item">
+                    <i class="fas fa-play-circle"></i>
+                    <span>galeria de Evidencia</span>
+                </a>
+                <a href="#fotos" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>---------</span>
+                </a>
+                <a href="#casos" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Casos</span>
+                </a>
             </div>
-        </div>
-        <div class="hero-scroll">
-            <span>Desliza para explorar</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- Categories Section -->
-<section class="categories-section">
-    <div class="container">
-        <h2 class="section-title">Categorías</h2>
-        
-        <div class="categories-horizontal">
-            <div class="category-item" data-category="ovni">
-                <a href="categoria-ovni.html" class="category-link">
-                    <div class="category-image">
-                        <img src="img/avistamiento2.jpeg" alt="UFO-OVNI-NO HUMANO">
-                    </div>
-                    <div class="category-label">
-                        <span>OVNI</span>
-                    </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">Explorar</h3>
+                <a href="#ovni" class="nav-item">
+                    <i class="fas fa-ufo"></i>
+                    <span>Fenómenos OVNI</span>
+                </a>
+                <a href="#paranormal" class="nav-item">
+                    <i class="fas fa-ghost"></i>
+                    <span>Actividad Paranormal</span>
+                </a>
+                <a href="#investigaciones" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Investigaciones</span>
                 </a>
             </div>
-            
-            <div class="category-divider"></div>
-            
-            <div class="category-item" data-category="espiritualidad">
-                <a href="categoria-espiritualidad.html" class="category-link">
-                    <div class="category-image">
-                        <img src="img/avistamiento3.jpeg" alt="ESPIRITUALIDAD-VIAJES ASTRALES">
-                    </div>
-                    <div class="category-label">
-                        <span>ESPIRITUALIDAD</span>
-                    </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">Comunidad</h3>
+                <a href="#noticias" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Noticias</span>
                 </a>
-            </div>
-            
-            <div class="category-divider"></div>
-            
-            <div class="category-item" data-category="paranormal">
-                <a href="categoria-paranormal.html" class="category-link">
-                    <div class="category-image">
-                        <img src="img/evienciamexico.jpg" alt="ACTIVIDAD PARANORMAL">
-                    </div>
-                    <div class="category-label">
-                        <span>PARANORMAL</span>
-                    </div>
+                <a href="#historias" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Testimonios</span>
+                </a>
+                <a href="https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g" class="nav-item">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-    <!-- Photo Evidence Section -->
-    <section class="photo-evidence">
-        <div class="container">
-            <h2 class="section-title">Evidencias Fotográficas</h2>
-            <p class="section-subtitle">Imágenes ampliables de avistamientos</p>
-            
-            <div class="photo-gallery" data-type="photos">
-                <div class="photo-item">
-                    <img src="https://i.redd.it/sy1ecgihdejc1.jpeg" alt="Objeto no identificado sobre los cielos de san clemente" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Objeto no identificado sobre los cielos de san clemente</h3>
-                        <p>Foto tomada el 21-09-2025</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://yt3.ggpht.com/ddqyTHcRBZ2Qn3ZMx_oE3wJy7lFs0oZQbZnYNRVL27vnbNML6ntPHf77b-OCH_g32WBa-1szwJf0lQ=s800-c-fcrop64=1,00004666ffffb999-rw-nd-v1" alt="Extraña formación en el cielo de san clemente" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Extraña formación en el cielo de san clemente</h3>
-                        <p>Capturado en san clemente, Chile - 2025</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://yt3.ggpht.com/VvvOqWPxLb0v2dmcXJY9LVw5MHe0VqNb6bFxfDaxdMHYfHXoBDhj1UQAa_DVTDS-oB-xei_VY5gQVg=s800-c-fcrop64=1,00004666ffffb999-rw-nd-v1" alt="Luces anómalas en zona rural de san clemente" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Luces anómalas en zona rural de san clemente</h3>
-                        <p>Fotografía nocturna en san clemente, Chile - 2025</p>
-                    </div>
-                </div>
-
-                <div class="photo-item">
-                    <img src="https://yt3.ggpht.com/3sFw6B0Rtjla5ek8zgmUlqaXklfQzrhCJW1AeU8q60ijz2_u84oK0PN38EHSb0JyQeKg66WnyCXzDw=s800-c-fcrop64=1,00004666ffffb999-rw-nd-v1" alt="Formación triangular" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Formación triangular</h3>
-                        <p>Avistamiento san clemente</p>
-                    </div>
-                </div>
-
-                 <div class="photo-item">
-                    <img src="https://yt3.ggpht.com/ZTNkuIw_JnJIaYuvg44E1oTMPMgyBTfW-iUKUWeDliOI8B6wSLDCUYsdKbiSJc2R3ybfnS9waz-XuhA=s800-c-fcrop64=1,00004666ffffb999-rw-nd-v1" alt="Esfera luminosa" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Esfera luminosa</h3>
-                        <p>fotografiada en los alrededores de san clemente</p>
-                    </div>
-                </div>
-
-                 <div class="photo-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWncG0xOpdvsiFefXHQJwWAg75-0CMi0eO1Q&s" alt="Objeto sobre montaña" class="gallery-image">
-                    <div class="photo-info">
-                        <h3>Objeto sobre montaña</h3>
-                        <p>Capturado en Los Andes, Chile - 2023</p>
-                    </div>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="inicio">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1534796636918-4f66c0e35032?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fondo FreeParanormal" class="hero-bg-image">
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-main">FreeParanormal</span>
+                    <span class="title-sub">Descubre la Verdad</span>
+                </h1>
+                <p class="hero-description">
+                    Exploramos los fenómenos más misteriosos del universo. 
+                    Evidencia OVNI, actividad paranormal y casos sin resolver.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="verEvidenciasBtn">
+                        <i class="fas fa-play"></i>
+                        Ver Evidencias
+                    </button>
+                    <button class="btn btn-secondary" id="unirseComunidadBtn">
+                        <i class="fas fa-user-plus"></i>
+                        Unirse a la Comunidad
+                    </button>
                 </div>
             </div>
+        </section>
 
-            <!-- Elementos adicionales ocultos -->
-            <div class="photo-gallery-additional" style="display: none;">
-                <!-- Contenido adicional aquí -->
+        <!-- Sección de Videos ESTILO YOUTUBE -->
+        <section class="content-section youtube-style-section" id="videos">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-play-circle"></i>
+                    Videos Destacados
+                </h2>
+                <p class="section-subtitle">Análisis en video de los casos más intrigantes</p>
             </div>
 
-            <div class="section-footer">
-                <button class="btn btn-secondary btn-expand" data-section="photos">Ver más evidencias</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section CORREGIDA -->
-    <section class="video-section">
-        <div class="container">
-            <h2 class="section-title">Videos Reproducibles</h2>
-            <p class="section-subtitle">Análisis en video de los casos más intrigantes</p>
-            
-            <!-- GRID PRINCIPAL -->
-            <div class="video-grid" data-type="videos">
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
+            <div class="youtube-layout">
+                <!-- Video Principal -->
+                <div class="video-main-container">
+                    <div class="main-video-player">
+                        <video id="mainVideoPlayer" controls>
                             <source src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4" type="video/mp4">
                             Tu navegador no soporta el video.
                         </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
                     </div>
-                    <div class="video-details">
-                        <h3>Análisis del caso "luces en el cielo de san clemente"</h3>
-                        <div class="video-description truncated">
-                            El Comando Europeo de los Estados Unidos presentó un informe sobre un fenómeno anómalo no identificado a la Oficina de Resolución de Anomalías de Todo Dominio (AARO), que consta de siete minutos y cincuenta y seis segundos de vídeo captado por un sensor infrarrojo a bordo de una plataforma militar estadounidense en 2022.
-
-                            La AARO considera, con un alto grado de certeza, que el objeto representado en el vídeo es casi con certeza (≥95 % de probabilidad) un globo. La AARO basa su evaluación en la sólida coherencia morfológica del objeto con otras imágenes resueltas que muestran globos y en sus características de rendimiento, que coinciden con las de objetos más ligeros que el aire, por ejemplo, al desplazarse a la velocidad y dirección del viento.
+                    <div class="video-main-info">
+                        <h3 class="main-video-title">Análisis del caso "Luces en el cielo de San Clemente"</h3>
+                        <div class="video-main-stats">
+                            <span class="views">15.2K vistas</span>
+                            <span class="date">Hace 2 días</span>
                         </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 25 min</span>
-                            <span><i class="far fa-calendar"></i> 10 Oct 2023</span>
+                        <div class="video-main-actions">
+                            <button class="btn btn-sm">
+                                <i class="fas fa-thumbs-up"></i>
+                                Me gusta
+                            </button>
+                            <button class="btn btn-sm">
+                                <i class="fas fa-share"></i>
+                                Compartir
+                            </button>
+                            <button class="btn btn-sm">
+                                <i class="fas fa-save"></i>
+                                Guardar
+                            </button>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Fenómeno de las luces en el cielo</h3>
-                        <div class="video-description truncated">
-                            En octubre de 2017, un sensor infrarrojo a bordo de un aerostato de protección de la fuerza cerca de la Base Aérea Al Taqaddum, Irak, capturó 17 minutos de video de un objeto no identificado.
-                            AARO considera que se trataba de un grupo de globos inflados parcial y totalmente. La apariencia del objeto coincide con otras observaciones registradas que muestran grupos de globos. AARO empleó técnicas de análisis de video de movimiento completo y análisis de píxeles para fundamentar su evaluación.
-                            AARO considera que el objeto no presentó características de rendimiento anómalas. AARO utilizó datos de geolocalización del aerostato para evaluar la velocidad y la dirección de desplazamiento del objeto.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 42 min</span>
-                            <span><i class="far fa-calendar"></i> 3 Oct 2023</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Orbes luminosos</h3>
-                        <div class="video-description truncated">
-                            Objetos luminosos en el cielo captados por sensores militares. Análisis detallado de las características de vuelo y comportamiento de estos objetos no identificados que han desconcertado a los expertos.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 38 min</span>
-                            <span><i class="far fa-calendar"></i> 26 Sep 2023</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311872/DOD_111311872.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>El misterio de los círculos de cultivo</h3>
-                        <div class="video-description truncated">
-                            ¿Arte terrestre o mensajes extraterrestres? Análisis exhaustivo de los patrones geométricos encontrados en campos de cultivo alrededor del mundo. Investigación de las teorías más populares y evidencia científica disponible.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 31 min</span>
-                            <span><i class="far fa-calendar"></i> 18 Sep 2023</span>
+                        <div class="video-description">
+                            <p>Análisis completo del avistamiento masivo reportado en San Clemente. Incluye testimonios, análisis de radar y conclusiones de expertos.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311850/DOD_111311850.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Avistamientos en México</h3>
-                        <div class="video-description truncated">
-                            Casos recientes documentados en territorio mexicano. Análisis de videos y testimonios de avistamientos en diferentes regiones del país, incluyendo la famosa zona de avistamientos en Chihuahua.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 28 min</span>
-                            <span><i class="far fa-calendar"></i> 15 Sep 2023</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- Lista de Videos Laterales -->
+                <div class="video-sidebar">
+                    <div class="video-sidebar-list">
+                        <!-- Video 1 -->
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4">
+                            <div class="sidebar-video-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Video thumbnail">
+                                <span class="duration">25:18</span>
+                            </div>
+                            <div class="sidebar-video-info">
+                                <h4>Análisis del caso "Luces en el cielo de San Clemente"</h4>
+                                <p class="channel-name">FreeParanormal</p>
+                                <div class="sidebar-video-stats">
+                                    <span>15.2K vistas</span>
+                                    <span>•</span>
+                                    <span>Hace 2 días</span>
+                                </div>
+                            </div>
+                        </article>
 
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2304/DOD_109584439/DOD_109584439.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Entrevista con testigo - Caso MQ-9</h3>
-                        <div class="video-description truncated">
-                            En una audiencia pública sobre Fenómenos Anómalos No Identificados ante el Comité de las Fuerzas Armadas del Senado el 19 de abril, el Dr. Sean Kirkpatrick, director de la Oficina de Resolución de Anomalías de Todo Dominio (AARO), compartió un video que muestra un objeto aparentemente plateado, con forma de orbe, que cruza el campo de visión del sensor. Este video fue grabado por un MQ-9 en Oriente Medio, y aunque AARO evalúa que el objeto en el video no muestra un comportamiento anómalo, permanece sin identificar. Este video es un ejemplo representativo de muchos de los casos que AARO recibe con datos limitados sobre la observación. Estos casos se conservan en el archivo activo de AARO a la espera de que se descubra información o datos adicionales que puedan conducir a su resolución.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                        <source src="https://d34w7g4gy10iej.cloudfront.net/video/2503/DOD_110886776/DOD_110886776.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>GOFAST - UAP</h3>
-                        <div class="video-description truncated">
-                            GOFAST - UAP</div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                        <source src="https://d34w7g4gy10iej.cloudfront.net/video/2503/DOD_110891172/DOD_110891172.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>GIMBAL - Vídeo UAP</h3>
-                        <div class="video-description truncated">
-                            GOFAST - UAP</div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
+                        <!-- Video 2 -->
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4">
+                            <div class="sidebar-video-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Video thumbnail">
+                                <span class="duration">42:30</span>
+                            </div>
+                            <div class="sidebar-video-info">
+                                <h4>Fenómeno de las luces en el cielo - Caso Irak</h4>
+                                <p class="channel-name">FreeParanormal</p>
+                                <div class="sidebar-video-stats">
+                                    <span>28.7K vistas</span>
+                                    <span>•</span>
+                                    <span>Hace 1 semana</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Video 3 -->
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4">
+                            <div class="sidebar-video-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Video thumbnail">
+                                <span class="duration">38:45</span>
+                            </div>
+                            <div class="sidebar-video-info">
+                                <h4>Orbes luminosos - Análisis militar completo</h4>
+                                <p class="channel-name">FreeParanormal</p>
+                                <div class="sidebar-video-stats">
+                                    <span>42.1K vistas</span>
+                                    <span>•</span>
+                                    <span>Hace 3 semanas</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Video 4 -->
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311872/DOD_111311872.mp4">
+                            <div class="sidebar-video-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="Video thumbnail">
+                                <span class="duration">31:20</span>
+                            </div>
+                            <div class="sidebar-video-info">
+                                <h4>El misterio de los círculos de cultivo</h4>
+                                <p class="channel-name">FreeParanormal</p>
+                                <div class="sidebar-video-stats">
+                                    <span>35.8K vistas</span>
+                                    <span>•</span>
+                                    <span>Hace 1 mes</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
-            <!-- FIN GRID PRINCIPAL -->
+        </section>
 
-            <!-- GRID ADICIONAL - AHORA FUERA del grid principal -->
-            <div class="video-grid-additional" style="display: none;">
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2506/DOD_111038535/DOD_111038535.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Globo de aluminio reflectante</h3>
-                        <div class="video-description truncated">
-                            La Oficina de Resolución de Anomalías de Todo Dominio recibió un informe de un servicio militar estadounidense que consta de un minuto y treinta y seis segundos de vídeo a cámara completa, capturado por una cámara a bordo de una plataforma militar estadounidense en Oriente Medio en 2024. Según el servicio, la grabación probablemente muestra un objeto esferoidal de movimiento lento.
-                            La AARO evalúa, con un alto grado de certeza, que el objeto mostrado en el vídeo es casi con certeza (≥95 % de probabilidad) un globo de aluminio reflectante de consumo. La AARO basa su evaluación en la sólida coherencia morfológica del objeto con otras imágenes resueltas que muestran globos y su correlación con la velocidad y dirección del viento registradas durante el evento.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
+        <!-- Sección de Galería -->
+        <section class="content-section" id="fotos">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-images"></i>
+                    Galería de Evidencias
+                </h2>
+                <p class="section-subtitle">Imágenes y fotografías de avistamientos documentados</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Objeto no identificado" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Objeto sobre San Clemente</h3>
+                        <p>21 Sept 2023</p>
                     </div>
                 </div>
-
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2304/DOD_109584445/DOD_109584445.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h3>Análisis de objeto plateado</h3>
-                        <div class="video-description truncated">
-                            En una audiencia pública sobre Fenómenos Anómalos No Identificados ante el Comité de las Fuerzas Armadas del Senado el 19 de abril, el Dr. Sean Kirkpatrick, director de la Oficina de Resolución de Anomalías de Todo Dominio (AARO), compartió un video que muestra un objeto aparentemente plateado, con forma de orbe, que cruza el campo de visión del sensor. Este video fue grabado por un MQ-9 en Oriente Medio, y aunque AARO evalúa que el objeto en el video no muestra un comportamiento anómalo, permanece sin identificar. Este video es un ejemplo representativo de muchos de los casos que AARO recibe con datos limitados sobre la observación. Estos casos se conservan en el archivo activo de AARO a la espera de que se descubra información o datos adicionales que puedan conducir a su resolución.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Formación extraña" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Formación triangular</h3>
+                        <p>Chile 2023</p>
                     </div>
                 </div>
-
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <video class="video-player" muted loop playsinline>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2505/DOD_110982722/DOD_110982722.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Luces anómalas" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Luces anómalas</h3>
+                        <p>Zona rural</p>
                     </div>
-                    <div class="video-details">
-                        <h3>Testimonio exclusivo</h3>
-                        <div class="video-description truncated">
-                            Testimonio exclusivo de un encuentro cercano con objetos no identificados. Análisis detallado de la experiencia del testigo y evaluación de la evidencia presentada.
-                        </div>
-                        <button class="video-read-more">
-                            <span>Ver más</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="video-meta">
-                            <span><i class="far fa-clock"></i> 35 min</span>
-                            <span><i class="far fa-calendar"></i> 12 Sep 2023</span>
-                        </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Objeto montaña" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Objeto sobre Los Andes</h3>
+                        <p>2023</p>
                     </div>
                 </div>
             </div>
-            <!-- FIN GRID ADICIONAL -->
-            
+
             <div class="section-footer">
-                <button class="btn btn-secondary btn-expand" data-section="videos">Ver más videos</button>
+                <button class="btn btn-outline" id="verMasGaleriaBtn">
+                    <i class="fas fa-chevron-down"></i>
+                    Ver más evidencias
+                </button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Famous Cases Section -->
-    <section id="casos" class="famous-cases">
-        <div class="container">
-            <h2 class="section-title">Casos Famosos UFO</h2>
-            <p class="section-subtitle">Los incidentes más documentados y estudiados</p>
-            
-            <div class="cases-grid" data-type="cases">
-                <div class="case-card">
+        <!-- Sección de Casos -->
+        <section class="content-section" id="casos">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-folder-open"></i>
+                    Casos Destacados
+                </h2>
+                <p class="section-subtitle">Los incidentes más documentados y estudiados</p>
+            </div>
+
+            <div class="cases-grid">
+                <article class="case-card">
                     <div class="case-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-hssOncV2SNwzs-xeFIfQTeHwkSFUUwYAQ&s" alt="Jacobo Grinberg">
+                        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Jacobo Grinberg" loading="lazy">
                     </div>
                     <div class="case-content">
                         <h3>Jacobo Grinberg</h3>
-                        <p> Jacobo Grinberg-Zylberbaum fue un neurofisiólogo mexicano que dedicó su vida a investigar los límites de la conciencia humana.</p>
+                        <p>Investigación pionera en neurociencia y fenómenos paranormales</p>
                         <div class="case-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> México</span>
-                            <span><i class="fas fa-calendar-alt"></i> Década 1980</span>
+                            <span class="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                México
+                            </span>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i>
+                                Década 1980
+                            </span>
                         </div>
-                        <a href="casos.html" class="case-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn btn-sm ver-caso-btn">
+                            <i class="fas fa-book-open"></i>
+                            Ver caso completo
+                        </button>
                     </div>
-                </div>
+                </article>
 
-                <div class="case-card">
+                <article class="case-card">
                     <div class="case-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTemQAVzK9rE66_lBB8oKPI2NKDXigK_136iw&s" alt="Billy Meiers">
+                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Billy Meiers" loading="lazy">
                     </div>
                     <div class="case-content">
                         <h3>Billy Meiers</h3>
-                        <p>Eduard Albert "Billy" Meier, un granjero suizo que perdió un brazo,Su caso es considerado el más documentado en la historia de la ufología.</p>
+                        <p>El caso OVNI más documentado de la historia con evidencia fotográfica</p>
                         <div class="case-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Suiza</span>
-                            <span><i class="fas fa-calendar-alt"></i> Década 1970</span>
+                            <span class="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Suiza
+                            </span>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i>
+                                Década 1970
+                            </span>
                         </div>
-                        <a href="bilyaiers.html" class="case-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn btn-sm ver-caso-btn">
+                            <i class="fas fa-book-open"></i>
+                            Ver caso completo
+                        </button>
                     </div>
-                </div>
-                
-                <div class="case-card">
+                </article>
+
+                <article class="case-card">
                     <div class="case-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ21ieSdgD3oFtixOQWTdWZTzEA2mIELN3RDA&s" alt="Travis Walton">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Travis Walton" loading="lazy">
                     </div>
                     <div class="case-content">
                         <h3>Travis Walton</h3>
-                        <p>siete leñadores fueron testigos de un evento que cambiaría sus vidas para siempre y se convertiría en uno de los casos de abducción más documentados.</p>
+                        <p>Abducción documentada con múltiples testigos y investigación oficial</p>
                         <div class="case-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Arizona, EE.UU.</span>
-                            <span><i class="fas fa-calendar-alt"></i> Noviembre 1975</span>
+                            <span class="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Arizona, EE.UU.
+                            </span>
+                            <span class="date">
+                                <i class="fas fa-calendar"></i>
+                                1975
+                            </span>
                         </div>
-                        <a href="casoone.html" class="case-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn btn-sm ver-caso-btn">
+                            <i class="fas fa-book-open"></i>
+                            Ver caso completo
+                        </button>
                     </div>
-                </div>
-                
-                <div class="case-card">
-                    <div class="case-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRQAwMZPl7vYPL_ELer3vC4IZrFTceFwD2LA&s" alt="Caso DONATO">
-                    </div>
-                    <div class="case-content">
-                        <h3>Caso DONATO</h3>
-                        <p> uno de los encuentros OVNI más documentados y convincentes de la historia.</p>
-                        <div class="case-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Chile</span>
-                            <span><i class="fas fa-calendar-alt"></i> Diciembre 1980</span>
-                        </div>
-                        <a href="donato.html" class="case-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                </article>
             </div>
 
-            <!-- Casos adicionales ocultos -->
-            <div class="cases-grid-additional" style="display: none;">
-                <!-- Contenido adicional aquí -->
-            </div>
-            
             <div class="section-footer">
-                <button class="btn btn-secondary btn-expand" data-section="cases">Ver más casos</button>
+                <button class="btn btn-outline" id="verMasCasosBtn">
+                    <i class="fas fa-chevron-down"></i>
+                    Explorar más casos
+                </button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- User Stories Section (Solo historias) -->
-    <section class="user-stories">
-        <div class="container">
-            <h2 class="section-title">Historias de Usuarios</h2>
-            <p class="section-subtitle">Experiencias paranormales y avistamientos compartidos por nuestra comunidad</p>
-            
-            <div class="stories-container">
-                <div class="story-item">
-                    <div class="story-header">
-                        <h4>Avistamiento en la playa</h4>
-                        <span class="story-date">15 Oct 2023</span>
-                    </div>
-                    <div class="story-image">
-                        <img src="img/historia1.jpg" alt="Avistamiento en la playa">
-                    </div>
-                    <p class="story-content">"Estaba caminando por la playa al anochecer cuando vi tres luces que se movían en formación triangular. Al principio pensé que eran aviones, pero luego cambiaron de dirección abruptamente y se quedaron suspendidas en el aire durante varios minutos antes de desaparecer a una velocidad increíble. Fue una experiencia que nunca olvidaré."</p>
-                    <div class="story-meta">
-                        <span><i class="fas fa-user"></i> Ana G.</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Cancún, México</span>
-                    </div>
-                </div>
-                
-                <div class="story-item">
-                    <div class="story-header">
-                        <h4>Objeto sobre la montaña</h4>
-                        <span class="story-date">12 Oct 2023</span>
-                    </div>
-                    <div class="story-image">
-                        <img src="img/historia2.jpg" alt="Objeto sobre la montaña">
-                    </div>
-                    <p class="story-content">"Durante una excursión en los Andes, fotografié un objeto metálico que permaneció estático durante varios minutos a gran altura. No emitía ningún sonido y tenía una forma cilíndrica perfecta. Cuando revisé las fotos más tarde, pude apreciar detalles que no había notado a simple vista. Comparto esta experiencia con la esperanza de que alguien más haya visto algo similar."</p>
-                    <div class="story-meta">
-                        <span><i class="fas fa-user"></i> Carlos M.</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Cordillera de los Andes</span>
-                    </div>
-                </div>
-                
-                <div class="story-item">
-                    <div class="story-header">
-                        <h4>Fenómeno en el cielo nocturno</h4>
-                        <span class="story-date">8 Oct 2023</span>
-                    </div>
-                    <div class="story-image">
-                        <img src="img/historia3.jpg" alt="Fenómeno en el cielo nocturno">
-                    </div>
-                    <p class="story-content">"Miraba las estrellas con mi telescopio cuando observé un objeto que cambiaba de forma y color repetidamente. Se movía de manera errática, deteniéndose y acelerando sin patrón aparente. Lo más sorprendente fue cuando se dividió en tres objetos más pequeños que se reorganizaron en formación antes de desaparecer. Como astrónomo aficionado, sé que lo que vi no corresponde a ningún fenómeno astronómico conocido."</p>
-                    <div class="story-meta">
-                        <span><i class="fas fa-user"></i> Laura P.</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Santiago, Chile</span>
-                    </div>
-                </div>
+        <!-- Sección de Noticias -->
+        <section class="content-section" id="noticias">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    Últimas Noticias
+                </h2>
+                <p class="section-subtitle">Información actualizada sobre fenómenos paranormales y OVNIs</p>
             </div>
-        </div>
-    </section>
 
-    <!-- News Carousel Section (4 noticias visibles) -->
-    <section class="news-carousel">
-        <div class="container">
-            <h2 class="section-title">Últimas Noticias UFO</h2>
-            <p class="section-subtitle">Mantente actualizado con los últimos acontecimientos</p>
-            
-            <div class="carousel-container">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-image">
-                            <img src="img/noticia1.jpg" alt="Pentagon releases new UFO footage">
-                        </div>
-                        <div class="news-content">
-                            <span class="news-category">Avistamiento</span>
-                            <h3>Pentagon releases new UFO footage</h3>
-                            <p>El Departamento de Defensa de EE.UU. ha publicado nuevas imágenes de objetos no identificados...</p>
-                            <div class="news-meta">
-                                <span><i class="far fa-clock"></i> Hace 2 horas</span>
-                                <a href="#" class="news-link">Leer más</a>
-                            </div>
-                        </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Avistamiento reciente" loading="lazy">
+                        <span class="news-badge">Nuevo</span>
                     </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image">
-                            <img src="img/noticia2.jpg" alt="NASA anuncia nuevo estudio sobre UAP">
+                    <div class="news-content">
+                        <h3>Avistamientos masivos reportados en Chile</h3>
+                        <p>Múltiples testigos reportan formaciones de luces no identificadas en el norte del país durante la última semana.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                15 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                OVNI
+                            </span>
                         </div>
-                        <div class="news-content">
-                            <span class="news-category">Investigación</span>
-                            <h3>NASA anuncia nuevo estudio sobre UAP</h3>
-                            <p>La agencia espacial estadounidense ha formado un equipo independiente para estudiar fenómenos aéreos no identificados...</p>
-                            <div class="news-meta">
-                                <span><i class="far fa-clock"></i> Hace 1 día</span>
-                                <a href="#" class="news-link">Leer más</a>
-                            </div>
-                        </div>
+                        <button class="btn btn-sm leer-noticia-btn">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </button>
                     </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image">
-                            <img src="img/noticia3.jpg" alt="Ex piloto de la Marina describe encuentro">
-                        </div>
-                        <div class="news-content">
-                            <span class="news-category">Testimonio</span>
-                            <h3>Ex piloto de la Marina describe encuentro</h3>
-                            <p>Un ex piloto de combate ha revelado detalles de un encuentro cercano con un objeto que desafiaba las leyes de la física...</p>
-                            <div class="news-meta">
-                                <span><i class="far fa-clock"></i> Hace 3 días</span>
-                                <a href="#" class="news-link">Leer más</a>
-                            </div>
-                        </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Investigación paranormal" loading="lazy">
+                        <span class="news-badge">Exclusivo</span>
                     </div>
-                    
-                    <div class="news-card">
-                        <div class="news-image">
-                            <img src="img/noticia4.jpg" alt="Expertos analizan patrones en avistamientos">
+                    <div class="news-content">
+                        <h3>Nueva tecnología para detectar actividad paranormal</h3>
+                        <p>Científicos desarrollan dispositivo que promete revolucionar la investigación de fenómenos paranormales.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                12 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                Tecnología
+                            </span>
                         </div>
-                        <div class="news-content">
-                            <span class="news-category">Análisis</span>
-                            <h3>Expertos analizan patrones en avistamientos</h3>
-                            <p>Un estudio reciente ha identificado patrones comunes en reportes de ovnis a nivel mundial...</p>
-                            <div class="news-meta">
-                                <span><i class="far fa-clock"></i> Hace 5 días</span>
-                                <a href="#" class="news-link">Leer más</a>
-                            </div>
-                        </div>
+                        <button class="btn btn-sm leer-noticia-btn">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </button>
                     </div>
-                </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Documental próximo" loading="lazy">
+                        <span class="news-badge">Próximamente</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Documental sobre el caso FreeParanormal en producción</h3>
+                        <p>Equipo de filmación internacional se une para documentar los casos más impactantes de nuestra base de datos.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                8 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                Media
+                            </span>
+                        </div>
+                        <button class="btn btn-sm leer-noticia-btn">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </button>
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
+            <div class="section-footer">
+                <button class="btn btn-outline" id="verMasNoticiasBtn">
+                    <i class="fas fa-chevron-down"></i>
+                    Más noticias
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer CORREGIDO -->
     <footer class="main-footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-ufo"></i>
-                        <span>Misterios Cósmicos</span>
+                    <div class="footer-brand">
+                        <img src="img/ChatGPT Image 24 sept 2025, 02_32_48 a.m..png" alt="FreeParanormal" class="footer-logo">
+                        <div class="footer-info">
+                            <h3>FreeParanormal</h3>
+                            <p>Explorando los misterios del universo desde 2018</p>
+                        </div>
                     </div>
-                    <p>Explorando los límites de lo conocido y lo desconocido desde 2018.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" title="YouTube">
+                        <a href="#" class="social-link">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="social-link" title="Facebook">
+                        <a href="#" class="social-link">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="social-link" title="Twitter">
+                        <a href="#" class="social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link" title="Instagram">
+                        <a href="#" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" title="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Contenido</h3>
-                    <ul class="footer-links">
-                        <li><a href="galeria.html"><i class="fas fa-play-circle"></i>Galeria</a></li>
-                        <li><a href="#casos.html"><i class="fas fa-file-alt"></i> Casos</a></li>
-                        <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
-                        <li><a href="https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g"><i class="fas fa-podcast"></i>Canal</a></li>
-                    </ul>
+                    <h4>Contenido</h4>
+                    <a href="#videos">Videos</a>
+                    <a href="#fotos">Galería</a>
+                    <a href="#casos">Casos</a>
+                    <a href="#noticias">Noticias</a>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="terminos.html"><i class="fas fa-file-contract"></i> Términos de Servicio</a></li>
-                        <li><a href="privacidad.html"><i class="fas fa-shield-alt"></i> Política de Privacidad</a></li>
-                        <li><a href="cookies.html"><i class="fas fa-cookie"></i> Política de Cookies</a></li>
-                        <li><a href="aviso-legal.html"><i class="fas fa-gavel"></i> Aviso Legal</a></li>
-                        <li><a href="dmca.html"><i class="fas fa-copyright"></i> DMCA</a></li>
-                    </ul>
+                    <h4>Recursos</h4>
+                    <a href="#">Investigaciones</a>
+                    <a href="#">Base de datos</a>
+                    <a href="#">Artículos</a>
+                    <a href="#">Comunidad</a>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-envelope"></i>freepanoramvni@gmail.com</li>
-                        <li><i class="fas fa-phone"></i>+56982045756</li>
-                        <li><i class="fas fa-map-marker-alt"></i>San Clemente, Chile</li>
-                        <li><a href="contacto.html" class="contact-link"><i class="fas fa-paper-plane"></i> Formulario de Contacto</a></li>
-                    </ul>
-                    
-                    <div class="newsletter-footer">
-                        <h4>Suscríbete al newsletter</h4>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="freepanoramvni@gmail.com" required>
-                            <button type="submit">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> freeparanormal@email.com</p>
+                        <p><i class="fas fa-phone"></i> +569 8204 5756</p>
+                        <p><i class="fas fa-map-marker-alt"></i> San Clemente, Chile</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2023 Misterios Cósmicos. Todos los derechos reservados.</p>
-                    <div class="footer-badges">
-                        <span class="badge"><i class="fas fa-user-shield"></i> Sitio seguro</span>
-                        <span class="badge"><i class="fas fa-heart"></i> Hecho con pasión</span>
-                    </div>
+                <p>&copy; 2023 FreeParanormal. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Cookies</a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Efecto de partículas cósmicas -->
-        <div class="cosmic-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
         </div>
     </footer>
-
-    <!-- Modal para imágenes ampliadas -->
-    <div class="modal" id="imageModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <img id="modalImage" src="" alt="Imagen ampliada">
-        </div>
-    </div>
-
-    <!-- Modal para videos -->
-    <div class="modal" id="videoModal">
-        <div class="modal-content video-modal">
-            <span class="close-modal">&times;</span>
-            <video id="modalVideo" controls>
-                Tu navegador no soporta el elemento video.
-            </video>
-            <div class="video-loading">
-                <i class="fas fa-spinner fa-spin"></i> Cargando video...
-            </div>
-        </div>
-    </div>
 
     <script src="index.js"></script>
 </body>
