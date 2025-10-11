@@ -23,15 +23,6 @@
                 </div>
             </div>
 
-            <div class="header-center">
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Buscar videos y contenido...">
-                    <button class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-
             <div class="header-right">
                 <button class="header-btn upload-btn">
                     <i class="fas fa-upload"></i>
@@ -50,21 +41,29 @@
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-content">
             <div class="nav-section">
-                <a href="index.html" class="nav-item active">
+                <a href="#inicio" class="nav-item active">
                     <i class="fas fa-home"></i>
                     <span>Inicio</span>
                 </a>
-                <a href="galeriaVideos.html" class="nav-item">
+                <a href="#noticias" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Noticias</span>
+                </a>
+                <a href="#videos" class="nav-item">
                     <i class="fas fa-play-circle"></i>
-                    <span>galeria de Evidencia</span>
+                    <span>Videos</span>
                 </a>
                 <a href="#fotos" class="nav-item">
                     <i class="fas fa-images"></i>
-                    <span>---------</span>
+                    <span>Galería</span>
                 </a>
                 <a href="#casos" class="nav-item">
                     <i class="fas fa-folder"></i>
                     <span>Casos</span>
+                </a>
+                <a href="#historias" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Testimonios</span>
                 </a>
             </div>
 
@@ -86,17 +85,17 @@
 
             <div class="nav-section">
                 <h3 class="nav-section-title">Comunidad</h3>
-                <a href="#noticias" class="nav-item">
-                    <i class="fas fa-newspaper"></i>
-                    <span>Noticias</span>
-                </a>
-                <a href="#historias" class="nav-item">
-                    <i class="fas fa-users"></i>
-                    <span>Testimonios</span>
-                </a>
                 <a href="https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g" class="nav-item">
                     <i class="fab fa-youtube"></i>
                     <span>YouTube</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
                 </a>
             </div>
         </div>
@@ -108,7 +107,8 @@
         <section class="hero-section" id="inicio">
             <div class="hero-background">
                 <div class="hero-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1534796636918-4f66c0e35032?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fondo FreeParanormal" class="hero-bg-image">
+                <!-- Aquí puedes reemplazar la URL por tu imagen -->
+                <img src="/img/portada3.jpg" alt="Fondo FreeParanormal" class="hero-bg-image">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -129,6 +129,149 @@
                         Unirse a la Comunidad
                     </button>
                 </div>
+            </div>
+        </section>
+
+        <!-- Sección de Noticias (AHORA DESPUÉS DEL HERO) -->
+        <section class="content-section" id="noticias">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    Últimas Noticias
+                </h2>
+                <p class="section-subtitle">Información actualizada sobre fenómenos paranormales y OVNIs</p>
+            </div>
+
+            <div class="news-grid">
+                <!-- Noticia 1 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Avistamiento reciente" loading="lazy">
+                        <span class="news-badge">Nuevo</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Avistamientos masivos reportados en Chile</h3>
+                        <p>Múltiples testigos reportan formaciones de luces no identificadas en el norte del país durante la última semana.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                15 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                OVNI
+                            </span>
+                        </div>
+                        <a href="noticia-completa.html" class="btn btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 2 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Investigación paranormal" loading="lazy">
+                        <span class="news-badge">Exclusivo</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Nueva tecnología para detectar actividad paranormal</h3>
+                        <p>Científicos desarrollan dispositivo que promete revolucionar la investigación de fenómenos paranormales.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                12 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                Tecnología
+                            </span>
+                        </div>
+                        <a href="noticia-completa.html" class="btn btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 3 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Documental próximo" loading="lazy">
+                        <span class="news-badge">Próximamente</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Documental sobre el caso FreeParanormal en producción</h3>
+                        <p>Equipo de filmación internacional se une para documentar los casos más impactantes de nuestra base de datos.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                8 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                Media
+                            </span>
+                        </div>
+                        <a href="noticia-completa.html" class="btn btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 4 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Misterio resuelto" loading="lazy">
+                        <span class="news-badge">Investigación</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>El misterio de las luces de Phoenix finalmente resuelto</h3>
+                        <p>Después de 25 años, nueva evidencia revela la verdad detrás del famoso avistamiento masivo.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                5 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                OVNI
+                            </span>
+                        </div>
+                        <a href="noticia-completa.html" class="btn btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 5 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Descubrimiento" loading="lazy">
+                        <span class="news-badge">Descubrimiento</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Arqueólogos encuentran antiguas representaciones OVNI en Perú</h3>
+                        <p>Petroglifos de 2000 años muestran objetos similares a descripciones modernas de OVNIs.</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                1 Oct 2023
+                            </span>
+                            <span class="news-category">
+                                <i class="fas fa-tag"></i>
+                                Arqueología
+                            </span>
+                        </div>
+                        <a href="noticia-completa.html" class="btn btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Leer más
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -181,7 +324,7 @@
                 <div class="video-sidebar">
                     <div class="video-sidebar-list">
                         <!-- Video 1 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4">
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4" data-video-title="Análisis del caso 'Luces en el cielo de San Clemente'">
                             <div class="sidebar-video-thumbnail">
                                 <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Video thumbnail">
                                 <span class="duration">25:18</span>
@@ -198,7 +341,7 @@
                         </article>
 
                         <!-- Video 2 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4">
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4" data-video-title="Fenómeno de las luces en el cielo - Caso Irak">
                             <div class="sidebar-video-thumbnail">
                                 <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Video thumbnail">
                                 <span class="duration">42:30</span>
@@ -215,7 +358,7 @@
                         </article>
 
                         <!-- Video 3 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4">
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4" data-video-title="Orbes luminosos - Análisis militar completo">
                             <div class="sidebar-video-thumbnail">
                                 <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Video thumbnail">
                                 <span class="duration">38:45</span>
@@ -232,7 +375,7 @@
                         </article>
 
                         <!-- Video 4 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311872/DOD_111311872.mp4">
+                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311872/DOD_111311872.mp4" data-video-title="El misterio de los círculos de cultivo">
                             <div class="sidebar-video-thumbnail">
                                 <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="Video thumbnail">
                                 <span class="duration">31:20</span>
@@ -252,7 +395,7 @@
             </div>
         </section>
 
-        <!-- Sección de Galería -->
+        <!-- Sección de Galería MEJORADA -->
         <section class="content-section" id="fotos">
             <div class="section-header">
                 <h2 class="section-title">
@@ -262,33 +405,96 @@
                 <p class="section-subtitle">Imágenes y fotografías de avistamientos documentados</p>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Objeto no identificado" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Objeto sobre San Clemente</h3>
-                        <p>21 Sept 2023</p>
+            <div class="gallery-grid-enhanced">
+                <!-- Fila 1 - 8 imágenes -->
+                <div class="gallery-row">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Objeto no identificado" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Objeto sobre San Clemente</h3>
+                            <p>21 Sept 2023</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Formación extraña" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Formación triangular</h3>
+                            <p>Chile 2023</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Luces anómalas" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Luces anómalas</h3>
+                            <p>Zona rural</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Objeto montaña" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Objeto sobre Los Andes</h3>
+                            <p>2023</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Esfera luminosa" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Esfera luminosa</h3>
+                            <p>Noche despejada</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Formación circular" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Formación circular</h3>
+                            <p>Avistamiento múltiple</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Objeto metálico" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Objeto metálico</h3>
+                            <p>Reflejo anómalo</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="Luces nocturnas" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Luces nocturnas</h3>
+                            <p>Patrón irregular</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Formación extraña" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Formación triangular</h3>
-                        <p>Chile 2023</p>
+
+                <!-- Fila 2 - 4 imágenes (oculta inicialmente) -->
+                <div class="gallery-row gallery-row-hidden" id="hiddenGalleryRow">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Evidencia 9" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Evidencia adicional 1</h3>
+                            <p>Archivo clasificado</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Luces anómalas" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Luces anómalas</h3>
-                        <p>Zona rural</p>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Evidencia 10" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Evidencia adicional 2</h3>
+                            <p>Material exclusivo</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Objeto montaña" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Objeto sobre Los Andes</h3>
-                        <p>2023</p>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Evidencia 11" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Evidencia adicional 3</h3>
+                            <p>Caso sin resolver</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Evidencia 12" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Evidencia adicional 4</h3>
+                            <p>Investigación en curso</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -301,7 +507,7 @@
             </div>
         </section>
 
-        <!-- Sección de Casos -->
+        <!-- Sección de Casos MEJORADA -->
         <section class="content-section" id="casos">
             <div class="section-header">
                 <h2 class="section-title">
@@ -311,78 +517,252 @@
                 <p class="section-subtitle">Los incidentes más documentados y estudiados</p>
             </div>
 
-            <div class="cases-grid">
-                <article class="case-card">
-                    <div class="case-image">
-                        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Jacobo Grinberg" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3>Jacobo Grinberg</h3>
-                        <p>Investigación pionera en neurociencia y fenómenos paranormales</p>
-                        <div class="case-meta">
-                            <span class="location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                México
-                            </span>
-                            <span class="date">
-                                <i class="fas fa-calendar"></i>
-                                Década 1980
-                            </span>
+            <div class="cases-grid-enhanced">
+                <!-- Fila 1 - 5 casos -->
+                <div class="cases-row">
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Jacobo Grinberg" loading="lazy">
                         </div>
-                        <button class="btn btn-sm ver-caso-btn">
-                            <i class="fas fa-book-open"></i>
-                            Ver caso completo
-                        </button>
-                    </div>
-                </article>
+                        <div class="case-content">
+                            <h3>Jacobo Grinberg</h3>
+                            <p>Investigación pionera en neurociencia y fenómenos paranormales</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    México
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    Década 1980
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
 
-                <article class="case-card">
-                    <div class="case-image">
-                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Billy Meiers" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3>Billy Meiers</h3>
-                        <p>El caso OVNI más documentado de la historia con evidencia fotográfica</p>
-                        <div class="case-meta">
-                            <span class="location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Suiza
-                            </span>
-                            <span class="date">
-                                <i class="fas fa-calendar"></i>
-                                Década 1970
-                            </span>
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Billy Meiers" loading="lazy">
                         </div>
-                        <button class="btn btn-sm ver-caso-btn">
-                            <i class="fas fa-book-open"></i>
-                            Ver caso completo
-                        </button>
-                    </div>
-                </article>
+                        <div class="case-content">
+                            <h3>Billy Meiers</h3>
+                            <p>El caso OVNI más documentado de la historia con evidencia fotográfica</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Suiza
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    Década 1970
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
 
-                <article class="case-card">
-                    <div class="case-image">
-                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Travis Walton" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3>Travis Walton</h3>
-                        <p>Abducción documentada con múltiples testigos y investigación oficial</p>
-                        <div class="case-meta">
-                            <span class="location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Arizona, EE.UU.
-                            </span>
-                            <span class="date">
-                                <i class="fas fa-calendar"></i>
-                                1975
-                            </span>
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Travis Walton" loading="lazy">
                         </div>
-                        <button class="btn btn-sm ver-caso-btn">
-                            <i class="fas fa-book-open"></i>
-                            Ver caso completo
-                        </button>
-                    </div>
-                </article>
+                        <div class="case-content">
+                            <h3>Travis Walton</h3>
+                            <p>Abducción documentada con múltiples testigos y investigación oficial</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Arizona, EE.UU.
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1975
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Roswell" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Incidente Roswell</h3>
+                            <p>El caso más famoso de la ufología moderna con encubrimiento gubernamental</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Nuevo México, EE.UU.
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1947
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="Rendlesham Forest" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Incidente Rendlesham</h3>
+                            <p>Encuentro cercano del tercer tipo con múltiples testigos militares</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Reino Unido
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1980
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Fila 2 - 5 casos (oculta inicialmente) -->
+                <div class="cases-row cases-row-hidden" id="hiddenCasesRow">
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Caso adicional 1" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Fenómeno de los Foo Fighters</h3>
+                            <p>Objetos luminosos no identificados reportados por pilotos durante la Segunda Guerra Mundial</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Europa
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1944-1945
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Caso adicional 2" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Avistamiento de Teherán</h3>
+                            <p>Encuentro OVNI que involucró a la Fuerza Aérea Iraní con malfuncionamiento de equipos</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Irán
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1976
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80" alt="Caso adicional 3" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Incidente de Vorónezh</h3>
+                            <p>Avistamiento masivo con supuestos humanoides en la antigua Unión Soviética</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Rusia
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1989
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Caso adicional 4" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Fenómeno de los OVNIs de Bélgica</h3>
+                            <p>Ola de avistamientos triangulares documentada por autoridades y fuerzas aéreas</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Bélgica
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1989-1990
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-image">
+                            <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Caso adicional 5" loading="lazy">
+                        </div>
+                        <div class="case-content">
+                            <h3>Caso de las Luces de Phoenix</h3>
+                            <p>Avistamiento masivo de formaciones de luces en forma de V sobre Arizona</p>
+                            <div class="case-meta">
+                                <span class="location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Arizona, EE.UU.
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-calendar"></i>
+                                    1997
+                                </span>
+                            </div>
+                            <a href="caso-completo.html" class="btn btn-sm">
+                                <i class="fas fa-book-open"></i>
+                                Ver caso completo
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
 
             <div class="section-footer">
@@ -393,103 +773,96 @@
             </div>
         </section>
 
-        <!-- Sección de Noticias -->
-        <section class="content-section" id="noticias">
+        <!-- Sección de Testimonios (NUEVA) -->
+        <section class="content-section" id="historias">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-newspaper"></i>
-                    Últimas Noticias
+                    <i class="fas fa-users"></i>
+                    Testimonios Reales
                 </h2>
-                <p class="section-subtitle">Información actualizada sobre fenómenos paranormales y OVNIs</p>
+                <p class="section-subtitle">Historias y experiencias compartidas por nuestra comunidad</p>
             </div>
 
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Avistamiento reciente" loading="lazy">
-                        <span class="news-badge">Nuevo</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Avistamientos masivos reportados en Chile</h3>
-                        <p>Múltiples testigos reportan formaciones de luces no identificadas en el norte del país durante la última semana.</p>
-                        <div class="news-meta">
-                            <span class="news-date">
-                                <i class="fas fa-calendar-alt"></i>
-                                15 Oct 2023
-                            </span>
-                            <span class="news-category">
-                                <i class="fas fa-tag"></i>
-                                OVNI
-                            </span>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Carlos+M&background=b62a2a&color=fff" alt="Carlos M" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4>Carlos M.</h4>
+                            <span>San Clemente, Chile</span>
                         </div>
-                        <button class="btn btn-sm leer-noticia-btn">
-                            <i class="fas fa-arrow-right"></i>
-                            Leer más
-                        </button>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"El 15 de agosto del 2020 vi una formación de luces que se movían en patrones imposibles. Duró aproximadamente 10 minutos antes de desaparecer sin dejar rastro."</p>
+                    </div>
+                    <div class="testimonial-meta">
+                        <span class="testimonial-date">15 Ago 2020</span>
+                        <span class="testimonial-category">Avistamiento OVNI</span>
                     </div>
                 </article>
 
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Investigación paranormal" loading="lazy">
-                        <span class="news-badge">Exclusivo</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Nueva tecnología para detectar actividad paranormal</h3>
-                        <p>Científicos desarrollan dispositivo que promete revolucionar la investigación de fenómenos paranormales.</p>
-                        <div class="news-meta">
-                            <span class="news-date">
-                                <i class="fas fa-calendar-alt"></i>
-                                12 Oct 2023
-                            </span>
-                            <span class="news-category">
-                                <i class="fas fa-tag"></i>
-                                Tecnología
-                            </span>
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Ana+R&background=105834&color=fff" alt="Ana R" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4>Ana R.</h4>
+                            <span>Concepción, Chile</span>
                         </div>
-                        <button class="btn btn-sm leer-noticia-btn">
-                            <i class="fas fa-arrow-right"></i>
-                            Leer más
-                        </button>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Durante una investigación en una casa abandonada, captamos voces en nuestros grabadores que no pertenecían a ningún miembro del equipo. La evidencia fue verificada por expertos."</p>
+                    </div>
+                    <div class="testimonial-meta">
+                        <span class="testimonial-date">22 Mar 2021</span>
+                        <span class="testimonial-category">Actividad Paranormal</span>
                     </div>
                 </article>
 
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Documental próximo" loading="lazy">
-                        <span class="news-badge">Próximamente</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Documental sobre el caso FreeParanormal en producción</h3>
-                        <p>Equipo de filmación internacional se une para documentar los casos más impactantes de nuestra base de datos.</p>
-                        <div class="news-meta">
-                            <span class="news-date">
-                                <i class="fas fa-calendar-alt"></i>
-                                8 Oct 2023
-                            </span>
-                            <span class="news-category">
-                                <i class="fas fa-tag"></i>
-                                Media
-                            </span>
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Miguel+T&background=5b0d20&color=fff" alt="Miguel T" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4>Miguel T.</h4>
+                            <span>Valparaíso, Chile</span>
                         </div>
-                        <button class="btn btn-sm leer-noticia-btn">
-                            <i class="fas fa-arrow-right"></i>
-                            Leer más
-                        </button>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Como ex piloto comercial, he visto muchas cosas en el cielo, pero lo que presencié sobre los Andes en 2018 desafía cualquier explicación convencional."</p>
+                    </div>
+                    <div class="testimonial-meta">
+                        <span class="testimonial-date">3 Jul 2018</span>
+                        <span class="testimonial-category">Encuentro Aéreo</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://ui-avatars.com/api/?name=Elena+C&background=ff7d2e&color=fff" alt="Elena C" class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <h4>Elena C.</h4>
+                            <span>Santiago, Chile</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Nuestra cámara de vigilancia captó figuras translúcidas moviéndose en el pasillo durante la noche. El análisis profesional confirmó que no era un error del equipo."</p>
+                    </div>
+                    <div class="testimonial-meta">
+                        <span class="testimonial-date">10 Nov 2022</span>
+                        <span class="testimonial-category">Fenómeno Visual</span>
                     </div>
                 </article>
             </div>
 
             <div class="section-footer">
-                <button class="btn btn-outline" id="verMasNoticiasBtn">
-                    <i class="fas fa-chevron-down"></i>
-                    Más noticias
+                <button class="btn btn-outline" id="compartirTestimonioBtn">
+                    <i class="fas fa-plus"></i>
+                    Compartir mi testimonio
                 </button>
             </div>
         </section>
     </main>
 
-    <!-- Footer CORREGIDO -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -519,10 +892,11 @@
 
                 <div class="footer-section">
                     <h4>Contenido</h4>
+                    <a href="#noticias">Noticias</a>
                     <a href="#videos">Videos</a>
                     <a href="#fotos">Galería</a>
                     <a href="#casos">Casos</a>
-                    <a href="#noticias">Noticias</a>
+                    <a href="#historias">Testimonios</a>
                 </div>
 
                 <div class="footer-section">

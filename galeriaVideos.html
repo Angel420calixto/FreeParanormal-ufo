@@ -258,7 +258,7 @@
             margin: 0 auto 2rem;
         }
 
-        /* CONTENEDORES DE GALERÍA CON SCROLL INTERNO - SOLUCIÓN CORREGIDA */
+        /* CONTENEDORES DE GALERÍA CON SCROLL INTERNO - SOLUCIÓN DEFINITIVA */
         .gallery-section {
             flex: 1;
             display: flex;
@@ -278,7 +278,10 @@
             overflow-y: auto;
             overflow-x: hidden;
             padding: 0 8px 16px 8px;
-            max-height: 70vh; /* Altura máxima para el scroll interno */
+            max-height: 60vh;
+            border: 1px solid var(--color-accent-blue);
+            border-radius: var(--border-radius);
+            background: var(--color-accent-purple);
         }
 
         /* Personalización del scroll para galerías */
@@ -318,7 +321,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 24px;
-            padding-bottom: 20px;
+            padding: 20px;
         }
 
         /* Video Card estilo YouTube */
@@ -474,8 +477,6 @@
             text-decoration: none;
             padding: 6px 12px;
             font-size: 0.8rem;
-            border-radius: 4px;
-            transition: var(--transition);
         }
 
         .btn-download:hover {
@@ -499,7 +500,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            padding-bottom: 20px;
+            padding: 20px;
         }
 
         .photo-card {
@@ -539,7 +540,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            padding-bottom: 20px;
+            padding: 20px;
         }
 
         .case-card {
@@ -574,7 +575,7 @@
             line-height: 1.5;
         }
 
-        /* Footer - VISIBLE Y CORREGIDO */
+        /* Footer - SOLUCIÓN DEFINITIVA */
         .main-footer {
             background: var(--color-accent-purple);
             padding: 40px 0 20px;
@@ -666,83 +667,6 @@
             font-size: 0.9rem;
         }
 
-        /* Modal para videos */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--color-primary);
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 900px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px;
-            border-bottom: 1px solid var(--color-accent-blue);
-        }
-
-        .modal-title {
-            font-size: 1.2rem;
-            color: var(--color-text);
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: var(--color-text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .modal-body {
-            padding: 16px;
-        }
-
-        .video-player {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #000;
-        }
-
-        .video-player video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .modal-description {
-            padding: 16px 0;
-            color: var(--color-text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Animaciones */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
@@ -802,9 +726,12 @@
                 width: 100%;
             }
             
-            /* Ajuste de altura para galerías en móvil */
             .gallery-content {
-                max-height: 60vh;
+                max-height: 50vh;
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -834,6 +761,53 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--color-text-secondary);
+        }
+
+        /* Mejoras adicionales para la funcionalidad JS */
+        .sidebar.active ~ .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            pointer-events: none;
+        }
+
+        /* Transición suave para el contenido */
+        .content-section {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Indicador de carga */
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: var(--color-text-secondary);
+        }
+
+        .loading-indicator.active {
+            display: block;
+        }
+
+        /* Mejoras de accesibilidad */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mejora del foco para navegación con teclado */
+        .nav-menu a:focus,
+        .sidebar-link:focus,
+        .action-btn:focus {
+            outline: 2px solid var(--color-accent-orange);
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -935,7 +909,7 @@
                 </div>
                 <div class="gallery-content">
                     <div class="video-grid" id="allVideosGrid">
-                        <!-- Videos cargados dinámicamente -->
+                        <!-- Todos los videos cargados dinámicamente -->
                     </div>
                 </div>
             </div>
@@ -959,6 +933,7 @@
                                 <p class="photo-description">Capturado en San Clemente, Chile - 2022</p>
                             </div>
                         </div>
+                        
                         <div class="photo-card">
                             <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Esfera luminosa" class="photo-image">
                             <div class="photo-info">
@@ -966,11 +941,36 @@
                                 <p class="photo-description">Base Aérea Irak - Evidencia militar</p>
                             </div>
                         </div>
+                        
                         <div class="photo-card">
                             <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Formación OVNI" class="photo-image">
                             <div class="photo-info">
                                 <h3 class="photo-title">Formación triangular</h3>
                                 <p class="photo-description">Avistamiento múltiple - México 2021</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <img src="https://images.unsplash.com/photo-1532978379173-523e16f371f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="OVNI 1" class="photo-image">
+                            <div class="photo-info">
+                                <h3 class="photo-title">Objeto volador no identificado</h3>
+                                <p class="photo-description">Capturado en Arizona, USA - 2020</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="OVNI 2" class="photo-image">
+                            <div class="photo-info">
+                                <h3 class="photo-title">Fenómeno atmosférico</h3>
+                                <p class="photo-description">Observado en Nuevo México - 2019</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-card">
+                            <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="OVNI 3" class="photo-image">
+                            <div class="photo-info">
+                                <h3 class="photo-title">Luz anómala</h3>
+                                <p class="photo-description">Registrada en Texas - 2018</p>
                             </div>
                         </div>
                     </div>
@@ -995,15 +995,43 @@
                                 <span><i class="fas fa-calendar"></i> Julio 1947</span>
                                 <span><i class="fas fa-map-marker-alt"></i> Nuevo México, USA</span>
                             </div>
-                            <p class="case-description">El incidente OVNI más famoso de la historia. Presunto choque de una nave extraterrestre cerca de Roswell, Nuevo México.</p>
+                            <p class="case-description">El incidente OVNI más famoso de la historia. Presunto choque de una nave extraterrestre cerca de Roswell, Nuevo México. Documentos desclasificados revelan inconsistencia en las explicaciones oficiales.</p>
                         </div>
+                        
                         <div class="case-card">
                             <h3 class="case-title">El incidente de Rendlesham Forest</h3>
                             <div class="case-meta">
                                 <span><i class="fas fa-calendar"></i> Diciembre 1980</span>
                                 <span><i class="fas fa-map-marker-alt"></i> Suffolk, Inglaterra</span>
                             </div>
-                            <p class="case-description">Conocido como el "Roswell británico". Personal militar de la USAF reportó luces extrañas y un posible aterrizaje OVNI.</p>
+                            <p class="case-description">Conocido como el "Roswell británico". Personal militar de la USAF reportó luces extrañas y un posible aterrizaje OVNI en el bosque cercano a las bases militares RAF Bentwaters y RAF Woodbridge.</p>
+                        </div>
+                        
+                        <div class="case-card">
+                            <h3 class="case-title">El caso de los OVNIs de Phoenix</h3>
+                            <div class="case-meta">
+                                <span><i class="fas fa-calendar"></i> Marzo 1997</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Arizona, USA</span>
+                            </div>
+                            <p class="case-description">Masivo avistamiento de luces en formación sobre Phoenix. Miles de testigos reportaron un objeto en forma de V con luces intensas. Las explicaciones oficiales han sido controvertidas.</p>
+                        </div>
+
+                        <div class="case-card">
+                            <h3 class="case-title">Ola Belga de OVNIs - 1989-1990</h3>
+                            <div class="case-meta">
+                                <span><i class="fas fa-calendar"></i> Noviembre 1989</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Bélgica</span>
+                            </div>
+                            <p class="case-description">Una de las olas de avistamientos mejor documentadas. Miles de testigos, incluyendo policías y pilotos, reportaron objetos triangulares con luces intensas. La fuerza aérea belga investigó activamente.</p>
+                        </div>
+
+                        <div class="case-card">
+                            <h3 class="case-title">Incidente de Teherán - 1976</h3>
+                            <div class="case-meta">
+                                <span><i class="fas fa-calendar"></i> Septiembre 1976</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Teherán, Irán</span>
+                            </div>
+                            <p class="case-description">Un OVNI interfirió con equipos electrónicos de un jet de combate F-4 Phantom II de la Fuerza Aérea Iraní. Documentado por la NSA y considerado uno de los casos más creíbles.</p>
                         </div>
                     </div>
                 </div>
@@ -1011,7 +1039,7 @@
         </section>
     </main>
 
-    <!-- Footer - AHORA VISIBLE -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
@@ -1047,6 +1075,7 @@
                         <li><a href="mailto:freeparanormal@gmail.com">freeparanormal@gmail.com</a></li>
                         <li><a href="tel:+56982045756">+56 9 8204 5756</a></li>
                         <li><a href="#">San Clemente, Chile</a></li>
+                        <li><a href="#">Reportar Caso</a></li>
                     </ul>
                 </div>
             </div>
@@ -1058,246 +1087,328 @@
         </div>
     </footer>
 
-    <!-- Modal para videos -->
-    <div class="modal" id="videoModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalVideoTitle">Título del Video</h3>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="video-player">
-                    <video id="modalVideoPlayer" controls>
-                        Tu navegador no soporta el elemento de video.
-                    </video>
-                </div>
-                <div class="modal-description" id="modalVideoDescription">
-                    Descripción del video...
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Datos de videos
-        const videos = [
-            {
-                id: 1,
-                title: "Análisis del caso 'Luces en el cielo de San Clemente' - Evidencia militar",
-                channel: "FreeParanormal Investigación",
-                views: "154K",
-                time: "hace 2 semanas",
-                duration: "25:42",
-                thumbnail: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                likes: 12543,
-                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4",
-                description: "Análisis detallado de fenómeno anómalo captado por sensores militares en 2022.",
-                subscribers: "1.74 M de suscriptores"
-            },
-            {
-                id: 2,
-                title: "Fenómeno en Base Aérea Irak - 17 minutos de video clasificado",
-                channel: "FreeParanormal Investigación",
-                views: "89K",
-                time: "hace 1 mes",
-                duration: "42:15",
-                thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                likes: 8765,
-                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4",
-                description: "Captura de 17 minutos de video de un objeto no identificado cerca de la Base Aérea Al Taqaddum, Irak.",
-                subscribers: "1.74 M de suscriptores"
-            },
-            {
-                id: 3,
-                title: "Orbes Luminosos - Análisis de comportamiento anómalo",
-                channel: "FreeParanormal Investigación",
-                views: "203K",
-                time: "hace 3 semanas",
-                duration: "38:27",
-                thumbnail: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                likes: 15678,
-                videoUrl: "https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4",
-                description: "Objetos luminosos captados por sensores militares con características de vuelo anómalas.",
-                subscribers: "1.74 M de suscriptores"
-            }
-        ];
+        // script.js - Funcionalidad completa para FreeParanormal
 
-        // Inicializar la aplicación
         document.addEventListener('DOMContentLoaded', function() {
-            loadVideos();
-            setupEventListeners();
-            loadAllVideos();
-        });
-
-        // Cargar videos en la grid de inicio
-        function loadVideos() {
+            // Elementos del DOM
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const navMenu = document.getElementById('navMenu');
+            const contentSections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-menu a, .sidebar-link, .footer-links a');
             const videoGrid = document.getElementById('videoGrid');
-            
-            videos.forEach(video => {
-                const videoCard = createVideoCard(video);
-                videoGrid.appendChild(videoCard);
-            });
-        }
-
-        // Cargar todos los videos en la sección de videos
-        function loadAllVideos() {
             const allVideosGrid = document.getElementById('allVideosGrid');
             
-            // Agregar más videos para demostrar el scroll
-            const moreVideos = [...videos, ...videos, ...videos];
-            
-            moreVideos.forEach(video => {
-                const videoCard = createVideoCard(video);
-                allVideosGrid.appendChild(videoCard);
-            });
-        }
+            // Datos de videos (simulando una base de datos)
+            const videosData = [
+                {
+                    id: 1,
+                    title: "OVNI captado en cámara de seguridad - Chile 2023",
+                    channel: "FreeParanormal",
+                    views: "125K",
+                    date: "Hace 2 semanas",
+                    duration: "4:32",
+                    thumbnail: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 2450,
+                    liked: false
+                },
+                {
+                    id: 2,
+                    title: "Fenómeno luminoso inexplicable - Base Aérea",
+                    channel: "FreeParanormal",
+                    views: "89K",
+                    date: "Hace 1 mes",
+                    duration: "7:15",
+                    thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 1870,
+                    liked: false
+                },
+                {
+                    id: 3,
+                    title: "Avistamiento masivo - Formación triangular",
+                    channel: "FreeParanormal",
+                    views: "210K",
+                    date: "Hace 3 meses",
+                    duration: "10:22",
+                    thumbnail: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 3420,
+                    liked: false
+                },
+                {
+                    id: 4,
+                    title: "Entrevista con testigo del incidente Roswell",
+                    channel: "FreeParanormal",
+                    views: "156K",
+                    date: "Hace 4 meses",
+                    duration: "15:45",
+                    thumbnail: "https://images.unsplash.com/photo-1532978379173-523e16f371f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 2980,
+                    liked: false
+                },
+                {
+                    id: 5,
+                    title: "Análisis científico de evidencia OVNI",
+                    channel: "FreeParanormal",
+                    views: "98K",
+                    date: "Hace 5 meses",
+                    duration: "12:30",
+                    thumbnail: "https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 2100,
+                    liked: false
+                },
+                {
+                    id: 6,
+                    title: "Fenómenos paranormales en casas abandonadas",
+                    channel: "FreeParanormal",
+                    views: "178K",
+                    date: "Hace 6 meses",
+                    duration: "18:05",
+                    thumbnail: "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    likes: 3250,
+                    liked: false
+                }
+            ];
 
-        // Crear tarjeta de video
-        function createVideoCard(video) {
-            const card = document.createElement('div');
-            card.className = 'video-card fade-in';
-            card.innerHTML = `
-                <div class="video-thumbnail">
-                    <img src="${video.thumbnail}" alt="${video.title}">
-                    <div class="video-duration">${video.duration}</div>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
+            // Inicializar la aplicación
+            initApp();
+
+            function initApp() {
+                // Cargar videos en las secciones
+                loadVideos();
+                
+                // Configurar eventos
+                setupEventListeners();
+                
+                // Activar la sección inicial
+                showSection('inicio');
+            }
+
+            function setupEventListeners() {
+                // Toggle del sidebar en móvil
+                sidebarToggle.addEventListener('click', toggleSidebar);
+                
+                // Navegación entre secciones
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const sectionId = this.getAttribute('data-section');
+                        if (sectionId) {
+                            showSection(sectionId);
+                            
+                            // Cerrar menús en móvil
+                            if (window.innerWidth <= 768) {
+                                sidebar.classList.remove('active');
+                                navMenu.classList.remove('active');
+                            }
+                        }
+                    });
+                });
+                
+                // Cerrar sidebar al hacer clic fuera en móvil
+                document.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768 && 
+                        !sidebar.contains(e.target) && 
+                        !sidebarToggle.contains(e.target) && 
+                        sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+                
+                // Manejar redimensionado de ventana
+                window.addEventListener('resize', handleResize);
+            }
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                
+                // En móvil, también alternar el menú de navegación
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.toggle('active');
+                }
+            }
+
+            function showSection(sectionId) {
+                // Ocultar todas las secciones
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Mostrar la sección seleccionada
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    
+                    // Actualizar estado activo en navegación
+                    updateActiveNavState(sectionId);
+                    
+                    // Scroll al inicio de la página
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            function updateActiveNavState(sectionId) {
+                // Quitar estado activo de todos los enlaces
+                document.querySelectorAll('.nav-menu a, .sidebar-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Agregar estado activo a los enlaces correspondientes
+                document.querySelectorAll(`[data-section="${sectionId}"]`).forEach(link => {
+                    link.classList.add('active');
+                });
+            }
+
+            function loadVideos() {
+                // Limpiar grids
+                videoGrid.innerHTML = '';
+                allVideosGrid.innerHTML = '';
+                
+                // Cargar videos destacados (primeros 3)
+                videosData.slice(0, 3).forEach(video => {
+                    videoGrid.appendChild(createVideoCard(video));
+                });
+                
+                // Cargar todos los videos
+                videosData.forEach(video => {
+                    allVideosGrid.appendChild(createVideoCard(video));
+                });
+            }
+
+            function createVideoCard(videoData) {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.setAttribute('data-video-id', videoData.id);
+                
+                videoCard.innerHTML = `
+                    <div class="video-thumbnail">
+                        <img src="${videoData.thumbnail}" alt="${videoData.title}">
+                        <div class="video-duration">${videoData.duration}</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="video-info">
-                    <div class="channel-avatar">FP</div>
-                    <div class="video-details">
-                        <h3 class="video-title">${video.title}</h3>
-                        <div class="video-meta">
-                            <div class="video-channel">${video.channel}</div>
-                            <div class="video-stats">
-                                <span>${video.views} vistas</span>
-                                <span>•</span>
-                                <span>${video.time}</span>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            FP
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">${videoData.title}</h3>
+                            <div class="video-meta">
+                                <div class="video-channel">${videoData.channel}</div>
+                                <div class="video-stats">
+                                    <span>${videoData.views} vistas</span>
+                                    <span>•</span>
+                                    <span>${videoData.date}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="video-actions">
-                    <button class="action-btn like-btn" data-video-id="${video.id}">
-                        <i class="fas fa-thumbs-up"></i>
-                        <span>${video.likes}</span>
-                    </button>
-                    <a href="${video.videoUrl}" class="btn-download" download>
-                        <i class="fas fa-download"></i> Descargar
-                    </a>
-                </div>
-            `;
-            
-            // Agregar evento para abrir el modal
-            card.querySelector('.video-thumbnail').addEventListener('click', function() {
-                openVideoModal(video);
-            });
-            
-            // Agregar evento para el botón de like
-            const likeBtn = card.querySelector('.like-btn');
-            likeBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleLike(this, video.id);
-            });
-            
-            return card;
-        }
+                    <div class="video-actions">
+                        <button class="action-btn like-btn ${videoData.liked ? 'liked' : ''}" data-video-id="${videoData.id}">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span class="like-count">${formatNumber(videoData.likes)}</span>
+                        </button>
+                        <a href="#" class="action-btn btn-download" download>
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </a>
+                    </div>
+                `;
+                
+                // Agregar eventos a los botones de esta tarjeta
+                const likeBtn = videoCard.querySelector('.like-btn');
+                likeBtn.addEventListener('click', function() {
+                    toggleLike(videoData.id);
+                });
+                
+                // Agregar evento de reproducción
+                const playButton = videoCard.querySelector('.play-button');
+                const thumbnail = videoCard.querySelector('.video-thumbnail');
+                
+                [playButton, thumbnail].forEach(element => {
+                    element.addEventListener('click', function() {
+                        playVideo(videoData.id);
+                    });
+                });
+                
+                return videoCard;
+            }
 
-        // Configurar event listeners
-        function setupEventListeners() {
-            // Toggle sidebar en móviles
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const sidebar = document.getElementById('sidebar');
-            
-            sidebarToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-            });
-            
-            // Navegación entre secciones
-            const navLinks = document.querySelectorAll('.nav-menu a, .sidebar-link, .footer-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href') === '#' || this.hasAttribute('data-section')) {
+            function toggleLike(videoId) {
+                const video = videosData.find(v => v.id === videoId);
+                if (video) {
+                    video.liked = !video.liked;
+                    video.likes += video.liked ? 1 : -1;
+                    
+                    // Actualizar UI
+                    const likeBtn = document.querySelector(`.like-btn[data-video-id="${videoId}"]`);
+                    const likeCount = likeBtn.querySelector('.like-count');
+                    
+                    likeBtn.classList.toggle('liked', video.liked);
+                    likeCount.textContent = formatNumber(video.likes);
+                }
+            }
+
+            function playVideo(videoId) {
+                const video = videosData.find(v => v.id === videoId);
+                if (video) {
+                    // En una implementación real, aquí se abriría un reproductor de video
+                    // Por ahora, mostraremos un mensaje
+                    alert(`Reproduciendo: "${video.title}"\n\nEn una implementación completa, este video se reproduciría en un reproductor integrado.`);
+                    
+                    // Podríamos también redirigir al canal de YouTube
+                    // window.open('https://www.youtube.com/channel/UCLXcjNkanlBvwWDvdy_LH4g', '_blank');
+                }
+            }
+
+            function formatNumber(num) {
+                if (num >= 1000) {
+                    return (num / 1000).toFixed(1) + 'K';
+                }
+                return num.toString();
+            }
+
+            function handleResize() {
+                // En pantallas grandes, asegurarse de que el sidebar esté visible
+                if (window.innerWidth > 768) {
+                    sidebar.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            }
+
+            // Mejora adicional: Smooth scroll para las galerías
+            document.querySelectorAll('.gallery-content').forEach(gallery => {
+                gallery.addEventListener('wheel', function(e) {
+                    // Permitir scroll horizontal con shift + rueda
+                    if (e.shiftKey) {
                         e.preventDefault();
-                        
-                        const sectionId = this.getAttribute('data-section') || this.getAttribute('href').substring(1);
-                        
-                        // Actualizar navegación activa
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // Mostrar sección correspondiente
-                        showSection(sectionId);
-                        
-                        // Cerrar sidebar en móviles
-                        if (window.innerWidth <= 768) {
-                            sidebar.classList.remove('active');
-                        }
+                        this.scrollLeft += e.deltaY;
                     }
                 });
             });
             
-            // Cerrar modal
-            const closeModal = document.getElementById('closeModal');
-            const modal = document.getElementById('videoModal');
-            
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                const videoPlayer = document.getElementById('modalVideoPlayer');
-                videoPlayer.pause();
-            });
-            
-            // Cerrar modal al hacer clic fuera
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    const videoPlayer = document.getElementById('modalVideoPlayer');
-                    videoPlayer.pause();
+            // Mejora: Cargar más contenido al hacer scroll (simulación)
+            let isLoading = false;
+            window.addEventListener('scroll', function() {
+                if (isLoading) return;
+                
+                const scrollPosition = window.innerHeight + window.scrollY;
+                const pageHeight = document.documentElement.scrollHeight;
+                
+                // Cargar más contenido cuando estemos cerca del final
+                if (scrollPosition >= pageHeight - 500) {
+                    isLoading = true;
+                    
+                    // Simular carga de más contenido
+                    setTimeout(() => {
+                        // En una implementación real, aquí cargaríamos más videos desde una API
+                        console.log("Cargando más contenido...");
+                        isLoading = false;
+                    }, 1000);
                 }
             });
-        }
-
-        // Mostrar sección específica
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-        }
-
-        // Abrir modal de video
-        function openVideoModal(video) {
-            const modal = document.getElementById('videoModal');
-            const modalTitle = document.getElementById('modalVideoTitle');
-            const modalVideoPlayer = document.getElementById('modalVideoPlayer');
-            const modalDescription = document.getElementById('modalVideoDescription');
-            
-            modalTitle.textContent = video.title;
-            modalVideoPlayer.src = video.videoUrl;
-            modalDescription.textContent = video.description;
-            
-            modal.style.display = 'flex';
-        }
-
-        // Toggle like en video
-        function toggleLike(button, videoId) {
-            button.classList.toggle('liked');
-            
-            const likeCount = button.querySelector('span');
-            let currentLikes = parseInt(likeCount.textContent);
-            
-            if (button.classList.contains('liked')) {
-                likeCount.textContent = (currentLikes + 1).toLocaleString();
-            } else {
-                likeCount.textContent = (currentLikes - 1).toLocaleString();
-            }
-        }
+        });
     </script>
 </body>
 </html>
