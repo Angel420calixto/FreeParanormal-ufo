@@ -478,7 +478,7 @@
             color: var(--color-text-secondary);
         }
 
-        /* LAYOUT ESTILO YOUTUBE - CORREGIDO PARA MÓVIL */
+        /* ========== SECCIÓN DE VIDEOS MEJORADA ========== */
         .youtube-style-section {
             padding: 60px 20px;
         }
@@ -508,10 +508,10 @@
             background: #000;
         }
 
-        #mainVideoPlayer {
+        .main-video-player iframe {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            border: none;
             display: block;
         }
 
@@ -555,7 +555,7 @@
             font-size: 15px;
         }
 
-        /* Sidebar de Videos - CORREGIDO PARA MÓVIL */
+        /* Sidebar de Videos - MEJORADO */
         .video-sidebar {
             background: var(--color-accent-purple);
             border-radius: var(--border-radius);
@@ -564,9 +564,21 @@
             width: 100%;
         }
 
+        .video-sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(168, 10, 28, 0.3);
+        }
+
+        .video-sidebar-header h3 {
+            color: var(--color-text);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
         .video-sidebar-list {
-            max-height: none;
-            overflow-y: visible;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 0;
         }
 
         .sidebar-video-card {
@@ -582,6 +594,11 @@
             background: rgba(168, 10, 28, 0.1);
         }
 
+        .sidebar-video-card.active {
+            background: rgba(182, 42, 42, 0.2);
+            border-left: 3px solid var(--color-accent-orange);
+        }
+
         .sidebar-video-card:last-child {
             border-bottom: none;
         }
@@ -593,12 +610,14 @@
             height: 94px;
             border-radius: 8px;
             overflow: hidden;
+            background: #000;
         }
 
-        .sidebar-video-thumbnail img {
+        .sidebar-video-thumbnail iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: none;
+            border-radius: 8px;
         }
 
         .sidebar-video-thumbnail .duration {
@@ -1136,11 +1155,14 @@
                 justify-content: center;
             }
             
-            /* Videos en móvil - 2 columnas debajo del video principal */
+            /* Videos en móvil - Scroll horizontal */
             .video-sidebar-list {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
                 gap: 15px;
+                padding: 15px;
+                max-height: none;
             }
             
             .sidebar-video-card {
@@ -1150,11 +1172,13 @@
                 border-radius: var(--border-radius);
                 border: 1px solid rgba(168, 10, 28, 0.3);
                 padding: 12px;
+                min-width: 280px;
+                scroll-snap-align: start;
             }
             
             .sidebar-video-thumbnail {
                 width: 100%;
-                height: 120px;
+                height: 160px;
             }
             
             .sidebar-video-info {
@@ -1303,20 +1327,6 @@
                 font-size: 1rem;
             }
             
-            /* Videos en móvil pequeño - 1 columna */
-            .video-sidebar-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar-video-card {
-                flex-direction: row;
-            }
-            
-            .sidebar-video-thumbnail {
-                width: 140px;
-                height: 80px;
-            }
-            
             /* Ajustes para elementos horizontales en móvil pequeño */
             .news-card {
                 min-width: calc(100vw - 30px);
@@ -1336,6 +1346,10 @@
             .testimonial-card {
                 flex: 0 0 calc(100vw - 30px);
                 width: calc(100vw - 30px);
+            }
+            
+            .sidebar-video-card {
+                min-width: 260px;
             }
         }
 
@@ -1379,8 +1393,7 @@
         /* Asegurar que todas las imágenes se muestren */
         .gallery-item img,
         .case-image img,
-        .news-image img,
-        .sidebar-video-thumbnail img {
+        .news-image img {
             background: linear-gradient(45deg, var(--color-accent-purple), var(--color-primary));
         }
 
@@ -1625,7 +1638,7 @@
             </div>
         </section>
 
-        <!-- Sección de Noticias (AHORA DESPUÉS DEL HERO) -->
+        <!-- Sección de Noticias -->
         <section class="content-section" id="noticias">
             <div class="section-header">
                 <h2 class="section-title">
@@ -1771,7 +1784,7 @@
             </div>
         </section>
 
-        <!-- Sección de Videos ESTILO YOUTUBE -->
+        <!-- Sección de Videos MEJORADA -->
         <section class="content-section youtube-style-section" id="videos">
             <div class="section-header">
                 <h2 class="section-title">
@@ -1785,10 +1798,7 @@
                 <!-- Video Principal -->
                 <div class="video-main-container">
                     <div class="main-video-player">
-                        <video id="mainVideoPlayer" controls>
-                            <source src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4" type="video/mp4">
-                            Tu navegador no soporta el video.
-                        </video>
+                        <iframe width="853" height="480" src="https://www.youtube.com/embed/lUu0BZ0JhZs" title="¡No se trata de drones! Podrían ser orbes y plasmoides." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="video-main-info">
                         <h3 class="main-video-title">Análisis del caso "Luces en el cielo de San Clemente"</h3>
@@ -1818,11 +1828,16 @@
 
                 <!-- Lista de Videos Laterales -->
                 <div class="video-sidebar">
+                    <div class="video-sidebar-header">
+                        <h3>Videos relacionados</h3>
+                    </div>
                     <div class="video-sidebar-list">
                         <!-- Video 1 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111294469/DOD_111294469.mp4" data-video-title="Análisis del caso 'Luces en el cielo de San Clemente'">
+                        <article class="sidebar-video-card active" 
+                                 data-video-id="dQw4w9WgXcQ" 
+                                 data-video-title="Análisis del caso 'Luces en el cielo de San Clemente'">
                             <div class="sidebar-video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Video thumbnail">
+                                <iframe width="853" height="480" src="https://www.youtube.com/embed/lUu0BZ0JhZs" title="¡No se trata de drones! Podrían ser orbes y plasmoides." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <span class="duration">25:18</span>
                             </div>
                             <div class="sidebar-video-info">
@@ -1837,9 +1852,11 @@
                         </article>
 
                         <!-- Video 2 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2504/DOD_110956846/DOD_110956846.mp4" data-video-title="Fenómeno de las luces en el cielo - Caso Irak">
+                        <article class="sidebar-video-card" 
+                                 data-video-id="9bZkp7q19f0" 
+                                 data-video-title="Fenómeno de las luces en el cielo - Caso Irak">
                             <div class="sidebar-video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Video thumbnail">
+                                <iframe width="853" height="480" src="https://www.youtube.com/embed/zeIMCD9KxH0" title="ORBES -EXPEDIENTE  ENIGMA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <span class="duration">42:30</span>
                             </div>
                             <div class="sidebar-video-info">
@@ -1854,9 +1871,11 @@
                         </article>
 
                         <!-- Video 3 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311856/DOD_111311856.mp4" data-video-title="Orbes luminosos - Análisis militar completo">
+                        <article class="sidebar-video-card" 
+                                 data-video-id="kJQP7kiw5Fk" 
+                                 data-video-title="Orbes luminosos - Análisis militar completo">
                             <div class="sidebar-video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Video thumbnail">
+                               <iframe width="337" height="599" src="https://www.youtube.com/embed/aconK41JVy0" title="ovni- orbes de luminosos 1 de octubre de 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <span class="duration">38:45</span>
                             </div>
                             <div class="sidebar-video-info">
@@ -1871,9 +1890,11 @@
                         </article>
 
                         <!-- Video 4 -->
-                        <article class="sidebar-video-card" data-video-src="https://d34w7g4gy10iej.cloudfront.net/video/2509/DOD_111311872/DOD_111311872.mp4" data-video-title="El misterio de los círculos de cultivo">
+                        <article class="sidebar-video-card" 
+                                 data-video-id="fJ9rUzIMcZQ" 
+                                 data-video-title="El misterio de los círculos de cultivo">
                             <div class="sidebar-video-thumbnail">
-                                <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="Video thumbnail">
+                                <iframe width="337" height="599" src="https://www.youtube.com/embed/4iYmPYh4Yio" title="#orbe luminoso captado en uncampo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <span class="duration">31:20</span>
                             </div>
                             <div class="sidebar-video-info">
@@ -1886,12 +1907,31 @@
                                 </div>
                             </div>
                         </article>
+
+                        <!-- Video 5 -->
+                        <article class="sidebar-video-card" 
+                                 data-video-id="L_jWHffIx5E" 
+                                 data-video-title="Caso OVNI desclasificado - Archivos oficiales">
+                            <div class="sidebar-video-thumbnail">
+                                <iframe width="853" height="480" src="https://www.youtube.com/embed/I6NIUXXX-ks" title="#uap Increible orbes luminosos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <span class="duration">29:15</span>
+                            </div>
+                            <div class="sidebar-video-info">
+                                <h4>Caso OVNI desclasificado - Archivos oficiales</h4>
+                                <p class="channel-name">FreeParanormal</p>
+                                <div class="sidebar-video-stats">
+                                    <span>52.3K vistas</span>
+                                    <span>•</span>
+                                    <span>Hace 2 meses</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Galería MEJORADA -->
+                <!-- Sección de Galería MEJORADA -->
         <section class="content-section" id="fotos">
             <div class="section-header">
                 <h2 class="section-title">
@@ -2356,6 +2396,7 @@
                 </button>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -2447,19 +2488,19 @@
                 });
             }
             
-            // Funcionalidad de videos
+            // ========== FUNCIONALIDAD MEJORADA DE VIDEOS ==========
             const videoCards = document.querySelectorAll('.sidebar-video-card');
             const mainVideoPlayer = document.getElementById('mainVideoPlayer');
             const mainVideoTitle = document.querySelector('.main-video-title');
             
             videoCards.forEach(card => {
                 card.addEventListener('click', function() {
-                    const videoSrc = this.getAttribute('data-video-src');
+                    const videoId = this.getAttribute('data-video-id');
                     const videoTitle = this.getAttribute('data-video-title');
                     
-                    if (mainVideoPlayer && videoSrc) {
-                        mainVideoPlayer.src = videoSrc;
-                        mainVideoPlayer.load();
+                    if (mainVideoPlayer && videoId) {
+                        // Actualizar el iframe principal con el nuevo video
+                        mainVideoPlayer.src = `https://www.youtube.com/embed/${videoId}`;
                         
                         if (mainVideoTitle) {
                             mainVideoTitle.textContent = videoTitle;
