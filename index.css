@@ -1,4 +1,3 @@
-/* Variables CSS - TUS ESTILOS */
 :root {
     --color-primary: #090a0d;
     --color-secondary: none;
@@ -38,7 +37,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header CORREGIDO - Sin buscador */
+/* Header */
 .main-header {
     position: fixed;
     top: 0;
@@ -135,7 +134,7 @@ body {
     object-fit: cover;
 }
 
-/* Sidebar */
+/* Sidebar CON SCROLL FIXED */
 .sidebar {
     position: fixed;
     top: 64px;
@@ -211,7 +210,7 @@ body {
     width: 100%;
 }
 
-/* Hero Section MEJORADA */
+/* Hero Section */
 .hero-section {
     position: relative;
     min-height: 80vh;
@@ -245,10 +244,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-        rgba(9, 10, 13, 0.9) 0%,
-        rgba(2, 1, 6, 0.7) 50%,
-        rgba(91, 13, 32, 0.5) 100%);
+    background: linear-gradient(135deg,
+            rgba(9, 10, 13, 0.9) 0%,
+            rgba(2, 1, 6, 0.7) 50%,
+            rgba(91, 13, 32, 0.5) 100%);
     z-index: 2;
 }
 
@@ -382,7 +381,7 @@ body {
     margin-top: 50px;
 }
 
-/* Noticias Grid - CORREGIDO PARA MÓVIL */
+/* Noticias Grid */
 .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -461,7 +460,8 @@ body {
     margin-bottom: 20px;
 }
 
-.news-date, .news-category {
+.news-date,
+.news-category {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -469,7 +469,7 @@ body {
     color: var(--color-text-secondary);
 }
 
-/* LAYOUT ESTILO YOUTUBE - CORREGIDO PARA MÓVIL */
+/* Sección de Videos */
 .youtube-style-section {
     padding: 60px 20px;
 }
@@ -499,10 +499,10 @@ body {
     background: #000;
 }
 
-#mainVideoPlayer {
+.main-video-player iframe {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    border: none;
     display: block;
 }
 
@@ -546,7 +546,7 @@ body {
     font-size: 15px;
 }
 
-/* Sidebar de Videos - CORREGIDO PARA MÓVIL */
+/* Sidebar de Videos */
 .video-sidebar {
     background: var(--color-accent-purple);
     border-radius: var(--border-radius);
@@ -555,9 +555,21 @@ body {
     width: 100%;
 }
 
+.video-sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(168, 10, 28, 0.3);
+}
+
+.video-sidebar-header h3 {
+    color: var(--color-text);
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .video-sidebar-list {
-    max-height: none;
-    overflow-y: visible;
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 0;
 }
 
 .sidebar-video-card {
@@ -573,6 +585,11 @@ body {
     background: rgba(168, 10, 28, 0.1);
 }
 
+.sidebar-video-card.active {
+    background: rgba(182, 42, 42, 0.2);
+    border-left: 3px solid var(--color-accent-orange);
+}
+
 .sidebar-video-card:last-child {
     border-bottom: none;
 }
@@ -584,12 +601,14 @@ body {
     height: 94px;
     border-radius: 8px;
     overflow: hidden;
+    background: #000;
 }
 
 .sidebar-video-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: var(--transition);
 }
 
 .sidebar-video-thumbnail .duration {
@@ -635,7 +654,7 @@ body {
     color: var(--color-text-secondary);
 }
 
-/* Galería MEJORADA - 8+4 imágenes */
+/* Galería */
 .gallery-grid-enhanced {
     max-width: 1400px;
     margin: 0 auto;
@@ -663,6 +682,7 @@ body {
     overflow: hidden;
     transition: var(--transition);
     background: var(--color-accent-purple);
+    cursor: pointer;
 }
 
 .gallery-item:hover {
@@ -709,7 +729,7 @@ body {
     opacity: 0.8;
 }
 
-/* Casos MEJORADOS - 5+5 casos */
+/* Casos */
 .cases-grid-enhanced {
     max-width: 1400px;
     margin: 0 auto;
@@ -785,7 +805,8 @@ body {
     margin-bottom: 15px;
 }
 
-.location, .date {
+.location,
+.date {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -793,7 +814,7 @@ body {
     color: var(--color-text-secondary);
 }
 
-/* Testimonios NUEVOS */
+/* Testimonios */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -856,7 +877,8 @@ body {
     align-items: center;
 }
 
-.testimonial-date, .testimonial-category {
+.testimonial-date,
+.testimonial-category {
     font-size: 12px;
     color: var(--color-text-secondary);
 }
@@ -996,28 +1018,137 @@ body {
     color: var(--color-text);
 }
 
-/* ========== RESPONSIVE CORREGIDO ========== */
+/* CORRECCIONES ESPECÍFICAS */
 
-/* Para PC - Mantener diseño original */
+/* 1. Sidebar scroll en móvil */
+@media (max-width: 1024px) {
+    .sidebar {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-accent-blue) var(--color-primary);
+    }
+
+    .sidebar.active {
+        overflow-y: auto;
+        transform: translateX(0);
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    .sidebar-content {
+        padding-bottom: 80px;
+    }
+}
+
+/* Scrollbar personalizado para sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--color-primary);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-accent-blue);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(182, 42, 42, 0.8);
+}
+
+/* 2. Elementos expandibles */
+.gallery-row-hidden,
+.cases-row-hidden {
+    display: none !important;
+}
+
+.gallery-row-hidden.active,
+.cases-row-hidden.active {
+    display: grid !important;
+}
+
+/* 3. Videos en móvil */
+@media (max-width: 768px) {
+    .video-sidebar-list {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 15px;
+        max-height: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-video-card {
+        flex-direction: column;
+        border-bottom: none;
+        background: var(--color-accent-purple);
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(168, 10, 28, 0.3);
+        padding: 12px;
+        min-width: 280px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .sidebar-video-thumbnail {
+        width: 100%;
+        height: 160px;
+    }
+
+    .sidebar-video-info {
+        padding: 8px 0 0 0;
+    }
+
+    .sidebar-video-info h4 {
+        font-size: 14px;
+        -webkit-line-clamp: 2;
+    }
+
+    .sidebar-video-info .channel-name,
+    .sidebar-video-stats {
+        font-size: 12px;
+    }
+}
+
+/* RESPONSIVE CORREGIDO */
+
+/* Para PC */
 @media (min-width: 1025px) {
     .sidebar {
         transform: translateX(0);
     }
-    
+
     .main-content {
         margin-left: 240px;
         width: calc(100% - 240px);
     }
-    
+
     .main-footer {
         margin-left: 240px;
         width: calc(100% - 240px);
     }
-    
+
     .youtube-layout {
         display: grid;
         grid-template-columns: 1fr 400px;
         gap: 40px;
+    }
+
+    /* Asegurar que los elementos expandidos se muestren en grid */
+    .gallery-row-hidden.active {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cases-row-hidden.active {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -1026,29 +1157,28 @@ body {
     .sidebar {
         transform: translateX(-100%);
     }
-    
+
     .sidebar.active {
         transform: translateX(0);
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
-    
-    /* Layout YouTube para tablet */
+
     .youtube-layout {
         display: flex;
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .video-sidebar-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         max-height: none;
     }
-    
+
     .sidebar-video-card {
         flex-direction: column;
         border-bottom: none;
@@ -1056,116 +1186,77 @@ body {
         border-radius: var(--border-radius);
         border: 1px solid rgba(168, 10, 28, 0.3);
     }
-    
+
     .sidebar-video-thumbnail {
         width: 100%;
         height: 160px;
     }
-    
+
     .sidebar-video-info {
         padding: 12px;
     }
-    
-    /* Grid responsive para tablet */
+
     .gallery-row {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .cases-row {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Móvil - CORRECCIONES ESPECÍFICAS */
+/* Móvil */
 @media (max-width: 768px) {
     .header-center {
         display: none;
     }
-    
+
     .hero-title .title-main {
         font-size: 2.5rem;
     }
-    
+
     .title-sub {
         font-size: 1.2rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-    
-    /* Layout YouTube para móvil CORREGIDO */
+
     .youtube-style-section {
         padding: 40px 15px;
     }
-    
+
     .video-main-info {
         padding: 20px;
     }
-    
+
     .main-video-title {
         font-size: 20px;
     }
-    
+
     .video-main-actions {
         justify-content: center;
     }
-    
-    /* Videos en móvil - 2 columnas debajo del video principal */
-    .video-sidebar-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .sidebar-video-card {
-        flex-direction: column;
-        border-bottom: none;
-        background: var(--color-accent-purple);
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(168, 10, 28, 0.3);
-        padding: 12px;
-    }
-    
-    .sidebar-video-thumbnail {
-        width: 100%;
-        height: 120px;
-    }
-    
-    .sidebar-video-info {
-        padding: 8px 0 0 0;
-    }
-    
-    .sidebar-video-info h4 {
-        font-size: 14px;
-        -webkit-line-clamp: 2;
-    }
-    
-    .sidebar-video-info .channel-name,
-    .sidebar-video-stats {
-        font-size: 12px;
-    }
-    
-    /* Noticias en móvil - Scroll horizontal */
+
+    /* SECCIONES EN HORIZONTAL PARA MÓVIL */
     .news-grid {
-        display: grid;
-        grid-template-columns: none;
-        grid-auto-flow: column;
+        display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 20px;
@@ -1173,45 +1264,98 @@ body {
         margin: 0 -15px;
         padding-left: 15px;
         padding-right: 15px;
+        grid-template-columns: none;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     .news-card {
         scroll-snap-align: start;
-        min-width: 85vw;
+        min-width: calc(100vw - 40px);
         flex: 0 0 auto;
+        width: calc(100vw - 40px);
+        margin: 0;
     }
-    
-    /* Galería en móvil - 2 columnas */
+
+    .news-image {
+        height: 200px;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+
     .gallery-row {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 15px;
+        padding: 10px 0;
+        grid-template-columns: none;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     .gallery-item {
-        aspect-ratio: 1/1;
+        flex: 0 0 calc(100vw - 40px);
+        height: 250px;
+        scroll-snap-align: start;
+        aspect-ratio: unset;
     }
-    
-    /* Casos en móvil - 2 columnas */
+
     .cases-row {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 15px;
+        padding: 10px 0;
+        grid-template-columns: none;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
+    .case-card {
+        flex: 0 0 calc(100vw - 40px);
+        scroll-snap-align: start;
+        width: calc(100vw - 40px);
+    }
+
     .case-image {
-        height: 150px;
+        height: 180px;
     }
-    
-    /* Testimonios en móvil - 1 columna */
+
     .testimonials-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 10px 0;
+        grid-template-columns: none;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
+    .testimonial-card {
+        flex: 0 0 calc(100vw - 40px);
+        scroll-snap-align: start;
+        width: calc(100vw - 40px);
+    }
+
     .content-section {
         padding: 60px 15px;
     }
-    
+
     .section-title {
         font-size: 2rem;
+    }
+
+    /* Indicador de scroll */
+    .scroll-indicator {
+        display: block;
+        text-align: center;
+        color: var(--color-text-secondary);
+        font-size: 14px;
+        margin-top: 20px;
+        padding: 10px;
+        background: rgba(13, 234, 204, 0.1);
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(13, 234, 204, 0.2);
     }
 }
 
@@ -1220,60 +1364,64 @@ body {
     .main-header {
         padding: 0 15px;
     }
-    
+
     .logo-text {
         display: none;
     }
-    
+
     .content-section {
         padding: 40px 15px;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .video-main-actions .btn {
         flex: 1;
         justify-content: center;
         min-width: 120px;
     }
-    
+
     .hero-section {
         min-height: 70vh;
         padding: 40px 20px;
     }
-    
+
     .title-main {
         font-size: 2rem;
     }
-    
+
     .title-sub {
         font-size: 1rem;
     }
-    
+
     .hero-description {
         font-size: 1rem;
     }
-    
-    /* Videos en móvil pequeño - 1 columna */
-    .video-sidebar-list {
-        grid-template-columns: 1fr;
+
+    .news-card {
+        min-width: calc(100vw - 30px);
+        width: calc(100vw - 30px);
     }
-    
+
+    .gallery-item {
+        flex: 0 0 calc(100vw - 30px);
+        height: 220px;
+    }
+
+    .case-card {
+        flex: 0 0 calc(100vw - 30px);
+        width: calc(100vw - 30px);
+    }
+
+    .testimonial-card {
+        flex: 0 0 calc(100vw - 30px);
+        width: calc(100vw - 30px);
+    }
+
     .sidebar-video-card {
-        flex-direction: row;
-    }
-    
-    .sidebar-video-thumbnail {
-        width: 140px;
-        height: 80px;
-    }
-    
-    /* Galería y casos en móvil pequeño - 1 columna */
-    .gallery-row,
-    .cases-row {
-        grid-template-columns: 1fr;
+        min-width: 260px;
     }
 }
 
@@ -1288,83 +1436,235 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Mejoras visuales para botones activos */
 .btn:active {
     transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(168, 10, 28, 0.3);
 }
 
-/* Efectos de hover mejorados */
-.video-card:hover,
-.case-card:hover,
-.news-card:hover,
-.gallery-item:hover,
-.sidebar-video-card:hover,
-.testimonial-card:hover {
-    box-shadow: 0 10px 25px rgba(168, 10, 28, 0.3);
+/* Scroll personalizado */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-/* Estilos para imágenes con fallback */
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+::-webkit-scrollbar-track {
+    background: var(--color-primary);
 }
 
-/* Asegurar que todas las imágenes se muestren */
-.gallery-item img,
-.case-image img,
-.news-image img,
-.sidebar-video-thumbnail img {
-    background: linear-gradient(45deg, var(--color-accent-purple), var(--color-primary));
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-blue);
+    border-radius: 4px;
 }
 
-/* Scrollbar personalizado */
-.video-sidebar-list::-webkit-scrollbar,
-.news-grid::-webkit-scrollbar {
-    height: 6px;
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(182, 42, 42, 0.8);
 }
 
-.video-sidebar-list::-webkit-scrollbar-track,
-.news-grid::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.video-sidebar-list::-webkit-scrollbar-thumb,
-.news-grid::-webkit-scrollbar-thumb {
-    background: var(--color-text);
-    border-radius: 3px;
-}
-
-.video-sidebar-list::-webkit-scrollbar-thumb:hover,
-.news-grid::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent-orange);
-}
-
-/* Indicadores de scroll para móvil */
-.scroll-indicator {
+/* Modal para imágenes */
+.modal {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 1, 6, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .scroll-indicator {
-        display: block;
-        text-align: center;
-        color: var(--color-text-secondary);
-        font-size: 14px;
-        margin-top: 10px;
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--color-accent-blue);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2001;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: rgba(182, 42, 42, 0.8);
+    transform: scale(1.1);
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Estados de hover mejorados */
+.nav-item:hover i,
+.btn:hover i {
+    transform: scale(1.1);
+    transition: var(--transition);
+}
+
+/* Efectos de brillo */
+.header-btn:hover,
+.social-link:hover,
+.btn:hover {
+    filter: brightness(1.2);
+}
+
+/* Animaciones para elementos que aparecen */
+.news-card,
+.gallery-item,
+.case-card,
+.testimonial-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    
-    .scroll-indicator i {
-        animation: bounce 2s infinite;
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {transform: translateX(0);}
-        40% {transform: translateX(-10px);}
-        60% {transform: translateX(-5px);}
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Enfoque para teclado */
+button:focus,
+a:focus,
+.nav-item:focus {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 2px;
+}
+
+/* Estados de carga para imágenes */
+.image-loading {
+    background: linear-gradient(90deg,
+            var(--color-accent-purple) 25%,
+            var(--color-primary) 50%,
+            var(--color-accent-purple) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Loading spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(13, 234, 204, 0.3);
+    border-left: 4px solid var(--color-text-secondary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adicional para tablets grandes */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .cases-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mejoras para pantallas muy grandes */
+@media (min-width: 1600px) {
+    .content-section {
+        padding: 100px 20px;
+    }
+
+    .hero-section {
+        min-height: 90vh;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Impresión */
+@media print {
+
+    .main-header,
+    .sidebar,
+    .hero-actions,
+    .footer-bottom,
+    .btn {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
     }
 }
